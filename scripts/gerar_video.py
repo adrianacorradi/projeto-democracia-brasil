@@ -51,7 +51,7 @@ class Filme:
             for linha in quebrar(self.leg["texto"], F_LEG, W - 80):
                 d.text((40, y), linha, font=F_LEG, fill=BRANCO)
                 y += 46
-        d.rectangle([0, FAIXA - 6, W, FAIXA], fill=VERDE_ESC)
+        d.rectangle([0, FAIXA - 6, W, FAIXA], fill=AMARELO)   # separa a legenda do topo verde do site
         return img
 
     def add(self, tela, dur):
@@ -228,8 +228,12 @@ ul.checagem b.pend{{background:var(--ambar)}}
 async def video_como_usar(pg, f):
     v = f.v
     await pg.goto(BASE + "index.html"); await pg.wait_for_load_state("load")
+    f.legenda("topo")
+    await segurar(pg, f, 1.2)
+    await toque(pg, f, pg.locator("nav.menu a", has_text="Acervo"), clicar=False)
+    await toque(pg, f, pg.locator("a.ajuda"), clicar=False)
+    await ler(pg, f)
     f.legenda("inicio")
-    await segurar(pg, f, 1.6)
     await rolar_para(pg, f, ".mosaico", margem=150)
     await ler(pg, f)
     f.legenda("cores")

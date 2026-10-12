@@ -1,14 +1,14 @@
 {
  "como-usar": {
-  "duracao_s": 81.6,
-  "bytes": 2538599
+  "duracao_s": 89.3,
+  "bytes": 2478671
  },
  "nova-busca": {
   "duracao_s": 55.4,
-  "bytes": 1024192
+  "bytes": 1010760
  },
  "pesquisa-item-novo": {
   "duracao_s": 60.8,
-  "bytes": 1071712
+  "bytes": 1083632
  }
 }

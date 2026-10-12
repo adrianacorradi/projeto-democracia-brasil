@@ -43,6 +43,19 @@ SIT = {"nominal": ("Voto nominal registrado", "s-nominal"),
 MENU = [("index.html", "Início"), ("acervo.html", "Acervo"), ("votacoes.html", "Votações"), ("entenda.html", "Entenda"),
         ("compartilhar.html", "Compartilhar"), ("baixar.html", "Baixar")]
 
+# Orientação mostrada no topo de cada página (o topo é igual em todas as páginas)
+NOMES = dict(MENU, **{"como-usar.html": "Como usar", "resumo.html": "Resumo"})
+DICAS = {
+    "index.html": "Comece pelo mosaico das leis ou escolha uma seção acima.",
+    "acervo.html": "Busque por palavra, número da lei ou ano. Toque em “Detalhes e fontes” para ver a ficha.",
+    "votacoes.html": "Veja como cada lei foi votada e o placar por partido.",
+    "entenda.html": "O caminho de uma lei e os termos usados no site, em linguagem simples.",
+    "compartilhar.html": "Copie um texto pronto, sempre com a fonte oficial.",
+    "baixar.html": "Baixe o resumo em PDF, a planilha, os dados e os vídeos.",
+    "como-usar.html": "Orientações de acesso, vídeos curtos e onde está cada coisa.",
+    "resumo.html": "Resumo do piloto, também disponível em PDF.",
+}
+
 def pagina(arquivo, titulo, descricao, corpo, js=False):
     atual = ' aria-current="page"'
     menu = "".join(f'<a href="{h}"{atual if h == arquivo else ""}>{n}</a>' for h, n in MENU)
@@ -56,18 +69,21 @@ def pagina(arquivo, titulo, descricao, corpo, js=False):
 <meta name="description" content="{e(descricao)}">
 <meta property="og:title" content="{e(titulo)}">
 <meta property="og:description" content="{e(descricao)}">
-<meta name="theme-color" content="#0b6b57">
+<meta name="theme-color" content="#084a3d">
 <link rel="icon" href="assets/icone.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/estilo.css">
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
-<header class="topo"><div class="coluna">
+<header class="topo">
+<div class="topo-marca"><div class="coluna">
 <a class="marca-site" href="index.html">Projeto Democracia Brasil</a>
 {ajuda}
-<nav class="menu" aria-label="Seções">{menu}</nav>
-</div></header>
+</div></div>
+<nav class="menu" aria-label="Seções"><div class="coluna">{menu}</div></nav>
+<div class="orientacao"><div class="coluna"><span class="voce">Você está em <strong>{NOMES.get(arquivo, "")}</strong>.</span> {DICAS.get(arquivo, "")}{"" if arquivo == "como-usar.html" else ' <a href="como-usar.html#videos">Ver os vídeos de ajuda</a>'}</div></div>
 <div class="aviso"><div class="coluna">Versão preliminar. Os dados do piloto ainda passam por checagem final. Atualizado em {META['atualizado']}.</div></div>
+</header>
 <main id="conteudo"><div class="coluna">
 {corpo}
 </div></main>

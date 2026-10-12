@@ -1,6 +1,6 @@
 # Projeto Democracia Brasil — Guia metodológico
 
-**Versão 2.6 — 12/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
+**Versão 2.7 — 12/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
 
 ---
 
@@ -278,7 +278,7 @@ Estas saídas são atualizadas **ao final de toda melhoria, análise ou pesquisa
 |---|---|---|
 | Planilha-mestre | Base de dados e conferência | Excel |
 | Guia metodológico | Regras e histórico de versões | Documento no Projeto |
-| Site | Acesso público, pesquisa e download, pensado para celular e conexões lentas | HTML estático no GitHub Pages: https://adrianacorradi.github.io/projeto-democracia-brasil/ (repositório público adrianacorradi/projeto-democracia-brasil) |
+| Site | Acesso público, pesquisa e download, pensado para celular e conexões lentas | HTML estático no GitHub Pages: https://adrianacorradi.github.io/projeto-democracia-brasil/ (repositório público adrianacorradi/projeto-democracia-brasil). Todas as páginas têm o mesmo topo, destacado do conteúdo: menu, página atual marcada, dica de uso da página, botão "Como usar" e aviso de versão preliminar |
 | PDF resumido | Leitura rápida e impressão | PDF gerado a partir do site |
 | Textos para redes sociais | Debate público | Página "Compartilhar" do site |
 | Material para leigos | Explicar termos e processos | Página "Entenda", página "Como usar" (orientações de acesso, com link destacado no topo do site) e vídeos de ajuda na página inicial: como usar o site, como fazer uma busca nova e como começar a pesquisa de um item novo (sem som, com legendas e roteiro em texto) |
@@ -353,6 +353,7 @@ Contagens por governo só devem ser usadas depois que a varredura estiver comple
 - **v2.4 (12/10/2026).** Site publicado no GitHub Pages para consulta pública, com endereço registrado na seção 11. Regra de privacidade antes de publicar e passo de envio ao GitHub incluídos na rotina de fechamento. Correção: a ficha passa a citar 12 temas (seção 5).
 - **v2.5 (12/10/2026).** Vídeo "Como usar o site" na página inicial, com roteiro em texto; o vídeo entra na rotina de fechamento (seção 11).
 - **v2.6 (12/10/2026).** Mais dois vídeos de ajuda (busca nova; pesquisa de um item novo, para a equipe), página "Como usar" com orientações de acesso destacada no topo do site e botão "Nova busca" no Acervo (seção 11).
+- **v2.7 (12/10/2026).** Topo do site redesenhado e repetido em todas as páginas, com orientação de uso; vídeos regravados (seção 11).
 
 ## Fontes de referência
 
