@@ -105,7 +105,7 @@ Partido e coalizão de cada governo são coletados na base com fonte, e não dec
 |---|---|
 | id | Código único (ex.: MUL-2006-001) |
 | título | Nome usual ("Lei Maria da Penha") |
-| tema(s) | Um ou mais dos 11 temas |
+| tema(s) | Um ou mais dos 12 temas |
 | tipo de ato | Lei, EC, MP, decreto, programa, decisão STF etc. |
 | número/ano | Ex.: Lei 11.340/2006 |
 | resumo | Em linguagem própria, até 2 linhas |
@@ -350,7 +350,7 @@ Contagens por governo só devem ser usadas depois que a varredura estiver comple
 - **v2.1 (11/10/2026).** Decisões do piloto (seção 13), método de coleta e classificação das votações (7.6) e primeiros resultados sobre lacunas (7.7).
 - **v2.2 (11/10/2026).** Inclusão do tema 12 (direitos das pessoas com deficiência, com o BPC) e de seus indicadores candidatos.
 - **v2.3 (11/10/2026).** Saídas do projeto e rotina de fechamento (seção 11); criação do site estático.
-- **v2.4 (12/10/2026).** Site publicado no GitHub Pages para consulta pública, com endereço registrado na seção 11. Regra de privacidade antes de publicar e passo de envio ao GitHub incluídos na rotina de fechamento.
+- **v2.4 (12/10/2026).** Site publicado no GitHub Pages para consulta pública, com endereço registrado na seção 11. Regra de privacidade antes de publicar e passo de envio ao GitHub incluídos na rotina de fechamento. Correção: a ficha passa a citar 12 temas (seção 5).
 
 ## Fontes de referência
 
