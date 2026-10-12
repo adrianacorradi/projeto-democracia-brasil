@@ -43,6 +43,15 @@
     }
   });
 
+  /* vídeo da página inicial: toca ao abrir, pausa ao fechar */
+  document.addEventListener("toggle", function (ev) {
+    var d = ev.target;
+    if (!d.classList || !d.classList.contains("video-tutorial")) return;
+    var v = d.querySelector("video");
+    if (!v) return;
+    if (d.open) { if (!v.getAttribute("poster") && v.dataset.poster) v.setAttribute("poster", v.dataset.poster); var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+  }, true);
+
   /* acervo */
   var lista = document.getElementById("lista");
   if (!lista) return;

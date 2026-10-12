@@ -115,13 +115,23 @@ dl.glossario dd{margin:.2rem 0 0}
 .post{white-space:pre-line;overflow-wrap:anywhere}
 .fontes a,.nota,dd{overflow-wrap:anywhere}
 
+/* vídeo "Como usar o site" */
+.video-tutorial{margin:1.2rem 0 .5rem;border:1px solid var(--borda);border-radius:10px;background:var(--superficie)}
+.video-tutorial>summary{display:flex;align-items:center;gap:.85rem;padding:.6rem .7rem;cursor:pointer;list-style:none;line-height:1.35}
+.video-tutorial>summary::-webkit-details-marker{display:none}
+.video-tutorial>summary img{width:72px;height:72px;border-radius:8px;flex:none}
+.video-tutorial[open]>summary{border-bottom:1px solid var(--borda)}
+.video-caixa{padding:.8rem .7rem}
+.video-caixa video{display:block;width:100%;max-width:22rem;height:auto;max-height:82vh;margin:0 auto;border-radius:8px;background:#084a3d}
+.video-caixa ol{padding-left:1.3rem}
+
 footer.rodape{border-top:1px solid var(--borda);font-size:.88rem;color:var(--tinta-2);padding:1.2rem 0 2rem}
 
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 
 /* impressão: PDF da seleção e resumo */
 @media print{
-  header.topo nav,.aviso,.busca,.barra-selecao,.acoes,footer.rodape,.so-tela{display:none!important}
+  header.topo nav,.aviso,.busca,.barra-selecao,.acoes,footer.rodape,.so-tela,.video-tutorial{display:none!important}
   body{background:#fff;color:#000;font-size:11pt}
   a{color:#000}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:8.5pt;word-break:break-all}

@@ -25,7 +25,7 @@ O arquivo `.nojekyll` precisa ir junto: ele faz o GitHub publicar os arquivos co
 | `compartilhar.html` | Textos prontos para redes sociais, com fontes |
 | `baixar.html` | Downloads |
 | `resumo.html` | Base do PDF resumido |
-| `assets/` | Estilo, script e ícone |
+| `assets/` | Estilo, script, ícone e o vídeo "Como usar o site" (`tutorial.mp4`, com capa e miniatura) |
 | `dados/` | Dados que alimentam as páginas (JSON) |
 | `downloads/` | PDF, planilha, CSVs e guia metodológico |
 | `scripts/` | Geradores do site e do PDF |
@@ -34,12 +34,13 @@ O arquivo `.nojekyll` precisa ir junto: ele faz o GitHub publicar os arquivos co
 
 As páginas HTML são **geradas** a partir de `dados/`. Não edite os HTML à mão.
 
-1. Atualize os arquivos de `dados/`. São eles: `atos.json`, `mosaico.json`, `lacunas.json`, `votacoes_indice.json` e `meta.json`, que vêm da planilha-mestre, e `posts.json`, `novidades.json`, `temas.json` e `config.json`, que são editoriais.
+1. Atualize os arquivos de `dados/`. São eles: `atos.json`, `mosaico.json`, `lacunas.json`, `votacoes_indice.json` e `meta.json`, que vêm da planilha-mestre, e `posts.json`, `novidades.json`, `temas.json`, `tutorial.json` e `config.json`, que são editoriais. O `video.json` é gravado pelo gerador do vídeo.
 2. Rode `python3 scripts/gerar_site.py`.
 3. Rode `python3 scripts/gerar_pdf.py` (opcional; precisa do Playwright).
-4. Substitua os arquivos de `downloads/` que mudaram.
-5. Registre a mudança em `dados/novidades.json`.
-6. Envie as alterações para o GitHub.
+4. Se as telas mudaram, grave de novo o vídeo "Como usar o site": `python3 scripts/gerar_video.py` (precisa do Playwright, do Pillow e do ffmpeg). As legendas ficam em `dados/tutorial.json`. Depois rode `gerar_site.py` outra vez, para atualizar a duração e o tamanho do vídeo na página.
+5. Substitua os arquivos de `downloads/` que mudaram.
+6. Registre a mudança em `dados/novidades.json`.
+7. Envie as alterações para o GitHub.
 
 ## Princípios
 
