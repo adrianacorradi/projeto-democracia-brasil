@@ -1,6 +1,6 @@
 # Projeto Democracia Brasil — Guia metodológico
 
-**Versão 2.5 — 12/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
+**Versão 2.6 — 12/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
 
 ---
 
@@ -281,13 +281,13 @@ Estas saídas são atualizadas **ao final de toda melhoria, análise ou pesquisa
 | Site | Acesso público, pesquisa e download, pensado para celular e conexões lentas | HTML estático no GitHub Pages: https://adrianacorradi.github.io/projeto-democracia-brasil/ (repositório público adrianacorradi/projeto-democracia-brasil) |
 | PDF resumido | Leitura rápida e impressão | PDF gerado a partir do site |
 | Textos para redes sociais | Debate público | Página "Compartilhar" do site |
-| Material para leigos | Explicar termos e processos | Página "Entenda" do site e vídeo "Como usar o site" na página inicial (sem som, com legendas e roteiro em texto) |
+| Material para leigos | Explicar termos e processos | Página "Entenda", página "Como usar" (orientações de acesso, com link destacado no topo do site) e vídeos de ajuda na página inicial: como usar o site, como fazer uma busca nova e como começar a pesquisa de um item novo (sem som, com legendas e roteiro em texto) |
 | Painel e slides | Apresentações e aulas | A definir |
 
 **Rotina de fechamento:**
 1. Atualizar a planilha.
 2. Exportar os dados do site.
-3. Regenerar as páginas e o PDF; gravar de novo o vídeo "Como usar o site" quando as telas mudarem.
+3. Regenerar as páginas e o PDF; gravar de novo os vídeos de ajuda quando as telas mudarem.
 4. Registrar a mudança em "Novidades" e no histórico de versões.
 5. Conferir números e links.
 6. Enviar as alterações ao repositório do GitHub e conferir o site publicado.
@@ -352,6 +352,7 @@ Contagens por governo só devem ser usadas depois que a varredura estiver comple
 - **v2.3 (11/10/2026).** Saídas do projeto e rotina de fechamento (seção 11); criação do site estático.
 - **v2.4 (12/10/2026).** Site publicado no GitHub Pages para consulta pública, com endereço registrado na seção 11. Regra de privacidade antes de publicar e passo de envio ao GitHub incluídos na rotina de fechamento. Correção: a ficha passa a citar 12 temas (seção 5).
 - **v2.5 (12/10/2026).** Vídeo "Como usar o site" na página inicial, com roteiro em texto; o vídeo entra na rotina de fechamento (seção 11).
+- **v2.6 (12/10/2026).** Mais dois vídeos de ajuda (busca nova; pesquisa de um item novo, para a equipe), página "Como usar" com orientações de acesso destacada no topo do site e botão "Nova busca" no Acervo (seção 11).
 
 ## Fontes de referência
 

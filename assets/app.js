@@ -49,7 +49,9 @@
     if (!d.classList || !d.classList.contains("video-tutorial")) return;
     var v = d.querySelector("video");
     if (!v) return;
-    if (d.open) { if (!v.getAttribute("poster") && v.dataset.poster) v.setAttribute("poster", v.dataset.poster); var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
+    if (d.open) {
+      Array.prototype.forEach.call(document.querySelectorAll("details.video-tutorial[open]"), function (o) { if (o !== d) o.open = false; });
+      if (!v.getAttribute("poster") && v.dataset.poster) v.setAttribute("poster", v.dataset.poster); var p = v.play(); if (p && p.catch) p.catch(function () {}); } else { v.pause(); }
   }, true);
 
   /* acervo */
@@ -82,6 +84,16 @@
   var espera;
   campo.addEventListener("input", function () { clearTimeout(espera); espera = setTimeout(aplicar, 150); });
   filtros.forEach(function (f) { f.addEventListener("change", aplicar); });
+  /* nova busca: limpa o texto e os filtros e volta a mostrar tudo */
+  var nova = document.getElementById("nova-busca");
+  if (nova) nova.addEventListener("click", function () {
+    campo.value = "";
+    filtros.forEach(function (f) { if (f.type === "checkbox") f.checked = f.defaultChecked; else f.value = ""; });
+    var painel = document.querySelector("details.filtros"); if (painel) painel.open = false;
+    if (soSelecao) { soSelecao = false; document.getElementById("ver-selecao").textContent = "Ver"; }
+    aplicar();
+    campo.focus();
+  });
 
   /* seleção */
   var rotulo = document.getElementById("n-selecao");

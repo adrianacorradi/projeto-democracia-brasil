@@ -3,7 +3,7 @@
 
 Uso:  python3 scripts/gerar_site.py      (rodar na raiz do site)
 Entradas: dados/atos.json, mosaico.json, lacunas.json, votacoes_indice.json, meta.json, posts.json, novidades.json, temas.json
-Saídas:   index.html, acervo.html, votacoes.html, entenda.html, compartilhar.html, baixar.html, resumo.html
+Saídas:   index.html, acervo.html, votacoes.html, entenda.html, compartilhar.html, baixar.html, resumo.html, como-usar.html
 """
 import json, os, html, unicodedata
 from datetime import date
@@ -15,8 +15,10 @@ def dados(n):
 ATOS, MOS, LAC, VOT, META = dados("atos"), dados("mosaico"), dados("lacunas"), dados("votacoes_indice"), dados("meta")
 POSTS, NOV, TEMAS = dados("posts"), dados("novidades"), dados("temas")
 CFG = dados("config")
-TUT = dados("tutorial")
-VID = dados("video") if os.path.exists(os.path.join(RAIZ, "dados", "video.json")) else None
+VIDEOS = dados("videos")
+_VM = dados("video") if os.path.exists(os.path.join(RAIZ, "dados", "video.json")) else {}
+# só entram na página os vídeos já gravados (com duração e tamanho em dados/video.json)
+VID = {v["id"]: dict(v, **_VM[v["id"]]) for v in VIDEOS["videos"] if isinstance(_VM.get(v["id"]), dict)}
 def duracao(seg):
     m, s = divmod(round(seg), 60)
     return f"{m} min {s} s" if m and s else (f"{m} min" if m else f"{s} s")
@@ -44,6 +46,7 @@ MENU = [("index.html", "Início"), ("acervo.html", "Acervo"), ("votacoes.html", 
 def pagina(arquivo, titulo, descricao, corpo, js=False):
     atual = ' aria-current="page"'
     menu = "".join(f'<a href="{h}"{atual if h == arquivo else ""}>{n}</a>' for h, n in MENU)
+    ajuda = f'<a class="ajuda" href="como-usar.html"{atual if arquivo == "como-usar.html" else ""}><span aria-hidden="true">?</span>Como usar</a>'
     return f"""<!doctype html>
 <html lang="pt-BR">
 <head>
@@ -61,6 +64,7 @@ def pagina(arquivo, titulo, descricao, corpo, js=False):
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 <header class="topo"><div class="coluna">
 <a class="marca-site" href="index.html">Projeto Democracia Brasil</a>
+{ajuda}
 <nav class="menu" aria-label="Seções">{menu}</nav>
 </div></header>
 <div class="aviso"><div class="coluna">Versão preliminar. Os dados do piloto ainda passam por checagem final. Atualizado em {META['atualizado']}.</div></div>
@@ -69,7 +73,8 @@ def pagina(arquivo, titulo, descricao, corpo, js=False):
 </div></main>
 <footer class="rodape"><div class="coluna">
 <p>Dados de fontes oficiais: Planalto, Câmara dos Deputados, Senado Federal e Supremo Tribunal Federal. Cada item traz o link para a sua fonte.</p>
-<p>Ao reutilizar, cite o Projeto Democracia Brasil e a fonte original. Encontrou um erro? Informe com o link da fonte correta.</p>
+<p>Ao reutilizar, cite o Projeto Democracia Brasil e a fonte original. Encontrou um erro? <a href="como-usar.html#erro">Veja como avisar</a>.</p>
+<p><a href="como-usar.html">Como usar o site: orientações de acesso e vídeos</a></p>
 </div></footer>
 {'<script src="assets/app.js" defer></script>' if js else ''}
 </body>
@@ -87,22 +92,25 @@ def legenda():
     return f'<ul class="legenda">{itens}</ul>'
 
 # ---------------------------------------------------------------- index
-def bloco_video():
-    """Vídeo 'Como usar o site': só baixa quando a pessoa abre e toca (preload=none)."""
-    if not VID:
-        return ""
-    passos = "".join(f"<li><strong>{e(c['pagina'])}.</strong> {e(c['texto'])}</li>" for c in TUT["cenas"])
-    return f"""<details class="video-tutorial" id="video">
-<summary><img src="assets/tutorial-mini.jpg" alt="" width="72" height="72"><span><strong>Como usar o site</strong><br><span class="pequeno">Vídeo de {duracao(VID['duracao_s'])}, sem som, com legendas. Toque para assistir.</span></span></summary>
+def cartao_video(v):
+    """Um vídeo de ajuda: só baixa quando a pessoa abre e toca (preload=none, capa carregada ao abrir)."""
+    passos = "".join(f"<li><strong>{e(c['pagina'])}.</strong> {e(c['texto'])}</li>" for c in v["cenas"])
+    vid = v["id"]
+    return f"""<details class="video-tutorial" id="video-{vid}">
+<summary><img src="assets/video-{vid}-mini.jpg" alt="" width="64" height="64"><span><strong>{e(v['titulo'])}</strong><br><span class="pequeno">{e(v['chamada'])} {duracao(v['duracao_s'])}, sem som.</span></span></summary>
 <div class="video-caixa">
-<video controls preload="none" playsinline data-poster="assets/tutorial-capa.jpg" width="540" height="960" aria-describedby="roteiro-video">
-<source src="assets/tutorial.mp4" type="video/mp4">
-Seu navegador não toca este vídeo. <a href="assets/tutorial.mp4">Baixe o vídeo</a>.
+<video controls preload="none" playsinline data-poster="assets/video-{vid}-capa.jpg" width="540" height="960" aria-describedby="roteiro-{vid}">
+<source src="assets/video-{vid}.mp4" type="video/mp4">
+Seu navegador não toca este vídeo. <a href="assets/video-{vid}.mp4">Baixe o vídeo</a>.
 </video>
-<p class="pequeno"><a href="assets/tutorial.mp4" download>Baixar o vídeo</a> ({mb(VID['bytes'])}). Ele mostra o site em tela de celular.</p>
-<details class="mais" id="roteiro-video"><summary>Ler o que o vídeo mostra</summary><ol>{passos}</ol></details>
+<p class="pequeno"><a href="assets/video-{vid}.mp4" download>Baixar o vídeo</a> ({mb(v['bytes'])}). Sem som, com legendas.</p>
+<details class="mais" id="roteiro-{vid}"><summary>Ler o que o vídeo mostra</summary><ol>{passos}</ol></details>
 </div>
 </details>"""
+
+def bloco_videos(publico=None):
+    vs = [v for v in VID.values() if publico is None or v["publico"] == publico]
+    return f'<div class="videos">{"".join(cartao_video(v) for v in vs)}</div>' if vs else ""
 
 def gerar_index():
     n = {k: sum(1 for m in MOS if m["situacao"] == k) for k in SIT}
@@ -114,7 +122,7 @@ def gerar_index():
     corpo = f"""
 <h1>O que mudou nos direitos da população brasileira desde 1985</h1>
 <p class="lead">Lei por lei, com a fonte oficial de cada informação. Começamos pelos direitos das mulheres.</p>
-{bloco_video()}
+{bloco_videos()}
 
 <h2>Como 171 leis sobre direitos das mulheres passaram pelo Congresso</h2>
 <p>Cada quadrado é uma lei, lei complementar ou emenda constitucional aprovada desde 1985, em ordem de data. Toque em um quadrado para ver a lei.</p>
@@ -136,7 +144,7 @@ def gerar_index():
 <h2>Temas do projeto</h2>
 <ul>{temas}</ul>
 
-<h2>Novidades</h2>
+<h2 id="novidades">Novidades</h2>
 <ul>{novs}</ul>
 """
     return pagina("index.html", "Projeto Democracia Brasil", "Levantamento verificável das políticas públicas no Brasil desde 1985, com fontes oficiais.", corpo, js=bool(VID))
@@ -212,7 +220,7 @@ def gerar_acervo():
 <noscript><p class="nota">A busca precisa de JavaScript. Todos os itens estão abaixo, em ordem de data. Você também pode <a href="baixar.html">baixar a lista completa</a>.</p></noscript>
 <form class="busca so-tela" role="search" onsubmit="return false">
 <label for="q">Buscar por palavra, número da lei ou ano</label>
-<input id="q" type="search" placeholder="Ex.: feminicídio, 11.340, 2006" autocomplete="off">
+<div class="linha-busca"><input id="q" type="search" placeholder="Ex.: trabalho doméstico, 9.504, 1997" autocomplete="off"><button type="button" id="nova-busca">Nova busca</button></div>
 <details class="filtros"><summary>Filtrar</summary><div class="grade">
 <label>Tipo de ato<select data-filtro="data-tipo"><option value="">Todos</option>{opcoes(tipos)}</select></label>
 <label>Governo na data<select data-filtro="data-gov"><option value="">Todos</option>{opcoes(govs)}</select></label>
@@ -359,6 +367,45 @@ def gerar_compartilhar():
 """
     return pagina("compartilhar.html", "Compartilhar — Projeto Democracia Brasil", "Textos prontos com fatos verificados sobre direitos das mulheres no Brasil.", corpo, js=True)
 
+# ---------------------------------------------------------------- como usar
+def gerar_como_usar():
+    secoes = [(h, n) for h, n in MENU]
+    desc = {"index.html": "O resumo do piloto, o mosaico das leis e as novidades.",
+            "acervo.html": "Todas as leis, decretos, tratados e decisões do STF, com busca, filtros e a ficha de cada item.",
+            "votacoes.html": "Como o Congresso votou: votações nominais, placar e votos por partido.",
+            "entenda.html": "O caminho de uma lei, um glossário e o método do projeto, em linguagem simples.",
+            "compartilhar.html": "Textos curtos com a fonte oficial, prontos para redes sociais e grupos de mensagem.",
+            "baixar.html": "O resumo em PDF, a planilha completa, as listas em CSV, o guia metodológico e os vídeos."}
+    onde = "".join(f'<dt><a href="{h}">{n}</a></dt><dd>{desc[h]}</dd>' for h, n in secoes)
+    repo = "https://github.com/adrianacorradi/projeto-democracia-brasil"
+    corpo = f"""
+<h1>Como usar o site</h1>
+<p class="lead">Orientações de acesso, vídeos curtos e onde encontrar cada coisa.</p>
+
+<h2 id="acesso">Acesso</h2>
+<ul class="acesso">
+<li><strong>Endereço:</strong> <a href="{URL}/">{e(URL.replace('https://', ''))}</a></li>
+<li><strong>Aberto e gratuito.</strong> Não precisa de cadastro nem de senha.</li>
+<li><strong>No celular ou no computador.</strong> Funciona em qualquer navegador atualizado, mesmo com internet lenta. Os vídeos só baixam quando você toca neles.</li>
+<li><strong>Sem rastreamento.</strong> O site não usa cookies nem contador de visitas. A sua seleção de itens fica guardada só no seu navegador. A hospedagem é do GitHub Pages.</li>
+<li><strong>Acessibilidade.</strong> O site foi feito para funcionar com teclado, com leitores de tela e no modo escuro do aparelho. Os vídeos não têm som e trazem legendas e o roteiro em texto.</li>
+<li><strong>Versão preliminar.</strong> Os dados ainda passam por checagem final. Cada informação tem link para a fonte oficial: confira antes de divulgar.</li>
+</ul>
+
+<h2 id="videos">Vídeos</h2>
+<h3>Para quem consulta o site</h3>
+{bloco_videos("consulta")}
+<h3>Para a equipe do projeto</h3>
+{bloco_videos("equipe")}
+
+<h2 id="onde">Onde está cada coisa</h2>
+<dl class="glossario">{onde}</dl>
+
+<h2 id="erro">Encontrou um erro?</h2>
+<p>Avise com o link da fonte correta. Quem tem conta no GitHub pode abrir um aviso (issue) no <a href="{repo}/issues">repositório do projeto</a>. As correções são registradas em Novidades.</p>
+"""
+    return pagina("como-usar.html", "Como usar — Projeto Democracia Brasil", "Orientações de acesso, vídeos curtos e onde encontrar cada informação no site.", corpo, js=bool(VID))
+
 # ---------------------------------------------------------------- baixar
 def tamanho(rel):
     p = os.path.join(RAIZ, rel)
@@ -376,8 +423,8 @@ def gerar_baixar():
         ("downloads/votos_nominais.zip", "Votos de cada parlamentar (CSV compactado)", "O voto de cada deputado e senador nas votações nominais, com partido e UF na data."),
         ("downloads/guia_metodologico.md", "Guia metodológico", "As regras do projeto: fontes, atribuição a governos, votações e linguagem."),
     ]
-    if VID:
-        arquivos.append(("assets/tutorial.mp4", "Vídeo: como usar o site (MP4)", f"{duracao(VID['duracao_s'])}, sem som, com legendas. Pode ser enviado por aplicativos de mensagem."))
+    for v in VID.values():
+        arquivos.append((f"assets/video-{v['id']}.mp4", f"Vídeo: {v['titulo'].lower()} (MP4)", f"{duracao(v['duracao_s'])}, sem som, com legendas. Pode ser enviado por aplicativos de mensagem."))
     itens = "".join(f'<li><a href="{a}" download>{e(t)}</a> <span class="pequeno">({tamanho(a)})</span><br>{e(d)}</li>' for a, t, d in arquivos)
     corpo = f"""
 <h1>Baixar</h1>
@@ -437,6 +484,7 @@ def gerar_resumo():
 
 if __name__ == "__main__":
     for nome, f in (("index.html", gerar_index), ("acervo.html", gerar_acervo), ("votacoes.html", gerar_votacoes), ("entenda.html", gerar_entenda),
-                    ("compartilhar.html", gerar_compartilhar), ("baixar.html", gerar_baixar), ("resumo.html", gerar_resumo)):
+                    ("compartilhar.html", gerar_compartilhar), ("baixar.html", gerar_baixar), ("resumo.html", gerar_resumo),
+                    ("como-usar.html", gerar_como_usar)):
         open(os.path.join(RAIZ, nome), "w", encoding="utf-8").write(f())
         print(f"{nome}: {os.path.getsize(os.path.join(RAIZ, nome))//1024} KB")

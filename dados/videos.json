@@ -1,0 +1,70 @@
+{
+ "endereco": "adrianacorradi.github.io/projeto-democracia-brasil",
+ "videos": [
+  {
+   "id": "como-usar",
+   "publico": "consulta",
+   "icone": "play",
+   "titulo": "Como usar o site",
+   "chamada": "Um passeio pelas páginas do site.",
+   "subtitulo": "Leis sobre direitos das mulheres desde 1985, com a fonte oficial de cada informação.",
+   "fim_titulo": "Confira sempre a fonte",
+   "fim_texto": "Cada informação do site tem link para a fonte oficial. Esta é uma versão preliminar.",
+   "exemplo_busca": "licença",
+   "cenas": [
+    {"id": "inicio", "pagina": "Início", "texto": "Cada quadrado é uma lei sobre direitos das mulheres, em ordem de data, de 1985 a 2026."},
+    {"id": "cores", "pagina": "Início", "texto": "A cor mostra como a lei foi votada. Verde: o voto de cada parlamentar foi registrado."},
+    {"id": "quadrado", "pagina": "Início", "texto": "Toque em um quadrado para abrir a lei."},
+    {"id": "ficha", "pagina": "Acervo", "texto": "A ficha mostra quem propôs, como a lei foi votada na Câmara e no Senado e o link para o texto oficial."},
+    {"id": "busca", "pagina": "Acervo", "texto": "No Acervo, busque por palavra, número da lei ou ano."},
+    {"id": "filtros", "pagina": "Acervo", "texto": "Em “Filtrar”, escolha o tipo de ato, o governo, o assunto ou a forma de votação."},
+    {"id": "selecao", "pagina": "Acervo", "texto": "Toque em “Adicionar à seleção” nas leis que quiser e depois em “PDF” para baixar só elas."},
+    {"id": "votacoes", "pagina": "Votações", "texto": "Veja o placar das votações com voto registrado e como votou cada partido."},
+    {"id": "entenda", "pagina": "Entenda", "texto": "O caminho de uma lei e o significado de cada termo, em linguagem simples."},
+    {"id": "compartilhar", "pagina": "Compartilhar", "texto": "Textos curtos com a fonte oficial, prontos para copiar e enviar."},
+    {"id": "baixar", "pagina": "Baixar", "texto": "O resumo em PDF, a planilha completa e os dados abertos para baixar."}
+   ]
+  },
+  {
+   "id": "nova-busca",
+   "publico": "consulta",
+   "icone": "lupa",
+   "titulo": "Como fazer uma busca nova",
+   "chamada": "Achar uma lei pelo nome, número ou ano, e recomeçar a busca.",
+   "subtitulo": "Achar uma lei pelo nome, pelo número ou pelo ano, e recomeçar quando quiser.",
+   "fim_titulo": "Não achou o que procurava?",
+   "fim_texto": "A lista completa está na página Baixar, em planilha. Esta é uma versão preliminar.",
+   "exemplo_busca": "trabalho doméstico",
+   "exemplo_numero": "9.504",
+   "exemplo_assunto": "Representação política",
+   "cenas": [
+    {"id": "abrir", "pagina": "Acervo", "texto": "Para procurar uma lei, toque em Acervo, no menu do alto da página."},
+    {"id": "digitar", "pagina": "Acervo", "texto": "Toque na caixa de busca e escreva uma palavra, o número da lei ou o ano."},
+    {"id": "resultado", "pagina": "Acervo", "texto": "A lista mostra só o que foi encontrado. O total aparece logo abaixo da busca."},
+    {"id": "ficha", "pagina": "Acervo", "texto": "Toque em “Detalhes e fontes” para ver a ficha e o link do texto oficial."},
+    {"id": "nova", "pagina": "Acervo", "texto": "Para procurar outro item, toque em “Nova busca”. O texto e os filtros voltam ao início."},
+    {"id": "numero", "pagina": "Acervo", "texto": "Agora escreva o novo termo. Exemplo: o número de uma lei, como 9.504."},
+    {"id": "filtro", "pagina": "Acervo", "texto": "Quer ver só um tipo de ato, um governo ou um assunto? Use “Filtrar”."}
+   ]
+  },
+  {
+   "id": "pesquisa-item-novo",
+   "publico": "equipe",
+   "icone": "ficha",
+   "titulo": "Como começar a pesquisa de um item novo",
+   "chamada": "Para a equipe: do pedido até o item aparecer no site.",
+   "subtitulo": "Para a equipe do projeto: do pedido até o item aparecer no site.",
+   "fim_titulo": "O método completo está no guia",
+   "fim_texto": "O guia metodológico está na página Baixar. Ele traz as regras de fontes, atribuição e votações.",
+   "pedido": ["Pesquisa nova: Lei 13.146/2015, a Lei Brasileira de Inclusão.", "Tema 12: direitos das pessoas com deficiência.", "Siga o guia metodológico e a regra de fechamento."],
+   "cenas": [
+    {"id": "abrir", "pagina": "Antes de começar", "texto": "Abra o Projeto Democracia Brasil no app do Claude, no computador, e comece uma conversa nova."},
+    {"id": "pedido", "pagina": "O pedido", "texto": "Escreva qual é o item e o tema. Peça para seguir o guia metodológico e a regra de fechamento."},
+    {"id": "ficha", "pagina": "A ficha", "texto": "A ficha é conferida no texto oficial: data, governo na data, autor e papel do governo, com as fontes."},
+    {"id": "votacoes", "pagina": "As votações", "texto": "Depois, a tramitação e as votações: nominal, simbólica ou nas comissões, com placar e votos por partido."},
+    {"id": "saidas", "pagina": "As saídas", "texto": "O item entra na planilha-mestre e no site, com o PDF e os textos para redes, como versão preliminar."},
+    {"id": "conferir", "pagina": "A conferência", "texto": "No fim, a resposta lista o que foi atualizado e o que ficou pendente. Confira as fontes antes de divulgar."}
+   ]
+  }
+ ]
+}

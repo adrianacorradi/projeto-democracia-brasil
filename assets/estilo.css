@@ -24,6 +24,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 header.topo{border-bottom:1px solid var(--borda);background:var(--superficie)}
 header.topo .coluna{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1rem;padding-top:.75rem;padding-bottom:.6rem}
 .marca-site{font:700 1.15rem/1.2 var(--serif);color:var(--tinta);text-decoration:none;margin-right:auto}
+a.ajuda{display:inline-flex;align-items:center;gap:.4rem;background:var(--marca);color:#17201c;font-weight:700;font-size:.92rem;text-decoration:none;padding:.35rem .8rem .35rem .4rem;border-radius:999px;min-height:36px;align-self:center}
+a.ajuda span{display:inline-grid;place-items:center;width:1.45rem;height:1.45rem;border-radius:50%;background:#17201c;color:var(--marca);font-size:.85rem}
+a.ajuda[aria-current="page"]{box-shadow:0 0 0 2px var(--tinta)}
+nav.menu{flex-basis:100%}
+@media (min-width:48rem){nav.menu{flex-basis:auto}}
 nav.menu{display:flex;flex-wrap:wrap;gap:.1rem .9rem;font-size:.95rem}
 nav.menu a{text-decoration:none;padding:.3rem 0;color:var(--tinta-2)}
 nav.menu a[aria-current="page"]{color:var(--tinta);font-weight:600;border-bottom:2px solid var(--verde)}
@@ -58,7 +63,9 @@ p{margin:.6em 0}
 
 /* acervo */
 .busca{display:grid;gap:.6rem;margin:1rem 0}
-.busca input[type=search]{width:100%;font:inherit;padding:.7rem .8rem;border:1px solid var(--borda);border-radius:8px;background:var(--superficie);color:var(--tinta)}
+.linha-busca{display:flex;gap:.5rem}
+.linha-busca button{flex:none}
+.busca input[type=search]{width:100%;min-width:0;flex:1;font:inherit;padding:.7rem .8rem;border:1px solid var(--borda);border-radius:8px;background:var(--superficie);color:var(--tinta)}
 .filtros{border:1px solid var(--borda);border-radius:8px;background:var(--superficie);padding:.2rem .8rem}
 .filtros summary{cursor:pointer;padding:.5rem 0;font-weight:600}
 .filtros .grade{display:grid;gap:.6rem;padding-bottom:.8rem}
@@ -110,16 +117,19 @@ ol.passos{padding-left:1.3rem}
 ol.passos li{margin:.6rem 0}
 dl.glossario dt{font-weight:700;margin-top:1rem;font-family:var(--serif)}
 dl.glossario dd{margin:.2rem 0 0}
+ul.acesso li{margin:.5rem 0}
 
 /* compartilhar */
 .post{white-space:pre-line;overflow-wrap:anywhere}
 .fontes a,.nota,dd{overflow-wrap:anywhere}
 
 /* vídeo "Como usar o site" */
+.videos{margin:1.2rem 0 .5rem;display:grid;gap:.6rem}
+.videos .video-tutorial{margin:0}
 .video-tutorial{margin:1.2rem 0 .5rem;border:1px solid var(--borda);border-radius:10px;background:var(--superficie)}
 .video-tutorial>summary{display:flex;align-items:center;gap:.85rem;padding:.6rem .7rem;cursor:pointer;list-style:none;line-height:1.35}
 .video-tutorial>summary::-webkit-details-marker{display:none}
-.video-tutorial>summary img{width:72px;height:72px;border-radius:8px;flex:none}
+.video-tutorial>summary img{width:64px;height:64px;border-radius:8px;flex:none}
 .video-tutorial[open]>summary{border-bottom:1px solid var(--borda)}
 .video-caixa{padding:.8rem .7rem}
 .video-caixa video{display:block;width:100%;max-width:22rem;height:auto;max-height:82vh;margin:0 auto;border-radius:8px;background:#084a3d}
@@ -131,7 +141,7 @@ footer.rodape{border-top:1px solid var(--borda);font-size:.88rem;color:var(--tin
 
 /* impressão: PDF da seleção e resumo */
 @media print{
-  header.topo nav,.aviso,.busca,.barra-selecao,.acoes,footer.rodape,.so-tela,.video-tutorial{display:none!important}
+  header.topo nav,a.ajuda,.aviso,.busca,.barra-selecao,.acoes,footer.rodape,.so-tela,.video-tutorial,.videos{display:none!important}
   body{background:#fff;color:#000;font-size:11pt}
   a{color:#000}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:8.5pt;word-break:break-all}
