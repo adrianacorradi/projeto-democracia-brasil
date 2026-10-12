@@ -1,0 +1,1028 @@
+[
+ {
+  "ato": "Lei 7.353/1985",
+  "ano": 1985,
+  "situacao": "sem-registro",
+  "id": "MUL-1985-002"
+ },
+ {
+  "ato": "Lei 7.417/1985",
+  "ano": 1985,
+  "situacao": "sem-registro",
+  "id": "MUL-1985-004"
+ },
+ {
+  "ato": "Lei 7.437/1985",
+  "ano": 1985,
+  "situacao": "sem-registro",
+  "id": "MUL-1985-005"
+ },
+ {
+  "ato": "Lei 7.622/1987",
+  "ano": 1987,
+  "situacao": "sem-registro",
+  "id": "MUL-1987-001"
+ },
+ {
+  "ato": "Lei 7.644/1987",
+  "ano": 1987,
+  "situacao": "sem-registro",
+  "id": "MUL-1987-002"
+ },
+ {
+  "ato": "Lei 7.855/1989",
+  "ano": 1989,
+  "situacao": "sem-registro",
+  "id": "MUL-1989-001"
+ },
+ {
+  "ato": "Lei 8.072/1990",
+  "ano": 1990,
+  "situacao": "simbolica",
+  "id": "MUL-1990-001"
+ },
+ {
+  "ato": "Lei 8.194/1991",
+  "ano": 1991,
+  "situacao": "comissoes",
+  "id": "MUL-1991-001"
+ },
+ {
+  "ato": "Lei 8.861/1994",
+  "ano": 1994,
+  "situacao": "simbolica",
+  "id": "MUL-1994-001"
+ },
+ {
+  "ato": "Lei 9.029/1995",
+  "ano": 1995,
+  "situacao": "comissoes",
+  "id": "MUL-1995-001"
+ },
+ {
+  "ato": "Lei 9.100/1995",
+  "ano": 1995,
+  "situacao": "simbolica",
+  "id": "MUL-1995-002"
+ },
+ {
+  "ato": "Lei 9.263/1996",
+  "ano": 1996,
+  "situacao": "simbolica",
+  "id": "MUL-1996-001"
+ },
+ {
+  "ato": "Lei 9.504/1997",
+  "ano": 1997,
+  "situacao": "simbolica",
+  "id": "MUL-1997-001"
+ },
+ {
+  "ato": "Lei 9.520/1997",
+  "ano": 1997,
+  "situacao": "comissoes",
+  "id": "MUL-1997-002"
+ },
+ {
+  "ato": "Lei 9.797/1999",
+  "ano": 1999,
+  "situacao": "simbolica",
+  "id": "MUL-1999-001"
+ },
+ {
+  "ato": "Lei 9.799/1999",
+  "ano": 1999,
+  "situacao": "comissoes",
+  "id": "MUL-1999-002"
+ },
+ {
+  "ato": "Lei 10.208/2001",
+  "ano": 2001,
+  "situacao": "sem-registro",
+  "id": "MUL-2001-001"
+ },
+ {
+  "ato": "Lei 10.223/2001",
+  "ano": 2001,
+  "situacao": "simbolica",
+  "id": "MUL-2001-002"
+ },
+ {
+  "ato": "Lei 10.224/2001",
+  "ano": 2001,
+  "situacao": "simbolica",
+  "id": "MUL-2001-003"
+ },
+ {
+  "ato": "Lei 10.244/2001",
+  "ano": 2001,
+  "situacao": "comissoes",
+  "id": "MUL-2001-004"
+ },
+ {
+  "ato": "Lei 10.406/2002",
+  "ano": 2002,
+  "situacao": "simbolica",
+  "id": "MUL-2002-001"
+ },
+ {
+  "ato": "Lei 10.421/2002",
+  "ano": 2002,
+  "situacao": "simbolica",
+  "id": "MUL-2002-002"
+ },
+ {
+  "ato": "Lei 10.516/2002",
+  "ano": 2002,
+  "situacao": "comissoes",
+  "id": "MUL-2002-003"
+ },
+ {
+  "ato": "Lei 10.683/2003",
+  "ano": 2003,
+  "situacao": "simbolica",
+  "id": "MUL-2003-001"
+ },
+ {
+  "ato": "Lei 10.710/2003",
+  "ano": 2003,
+  "situacao": "simbolica",
+  "id": "MUL-2003-003"
+ },
+ {
+  "ato": "Lei 10.714/2003",
+  "ano": 2003,
+  "situacao": "comissoes",
+  "id": "MUL-2003-004"
+ },
+ {
+  "ato": "Lei 10.778/2003",
+  "ano": 2003,
+  "situacao": "simbolica",
+  "id": "MUL-2003-005"
+ },
+ {
+  "ato": "Lei 10.886/2004",
+  "ano": 2004,
+  "situacao": "simbolica",
+  "id": "MUL-2004-003"
+ },
+ {
+  "ato": "Lei 11.106/2005",
+  "ano": 2005,
+  "situacao": "simbolica",
+  "id": "MUL-2005-002"
+ },
+ {
+  "ato": "Lei 11.108/2005",
+  "ano": 2005,
+  "situacao": "comissoes",
+  "id": "MUL-2005-003"
+ },
+ {
+  "ato": "Lei 11.340/2006",
+  "ano": 2006,
+  "situacao": "simbolica",
+  "id": "MUL-2006-001"
+ },
+ {
+  "ato": "Lei 11.634/2007",
+  "ano": 2007,
+  "situacao": "comissoes",
+  "id": "MUL-2007-001"
+ },
+ {
+  "ato": "Lei 11.664/2008",
+  "ano": 2008,
+  "situacao": "comissoes",
+  "id": "MUL-2008-003"
+ },
+ {
+  "ato": "Lei 11.770/2008",
+  "ano": 2008,
+  "situacao": "comissoes",
+  "id": "MUL-2008-004"
+ },
+ {
+  "ato": "Lei 11.804/2008",
+  "ano": 2008,
+  "situacao": "comissoes",
+  "id": "MUL-2008-005"
+ },
+ {
+  "ato": "Lei 11.942/2009",
+  "ano": 2009,
+  "situacao": "simbolica",
+  "id": "MUL-2009-001"
+ },
+ {
+  "ato": "Lei 12.015/2009",
+  "ano": 2009,
+  "situacao": "simbolica",
+  "id": "MUL-2009-002"
+ },
+ {
+  "ato": "Lei 12.034/2009",
+  "ano": 2009,
+  "situacao": "simbolica",
+  "id": "MUL-2009-003"
+ },
+ {
+  "ato": "Lei 12.121/2009",
+  "ano": 2009,
+  "situacao": "comissoes",
+  "id": "MUL-2009-004"
+ },
+ {
+  "ato": "Lei 12.227/2010",
+  "ano": 2010,
+  "situacao": "simbolica",
+  "id": "MUL-2010-001"
+ },
+ {
+  "ato": "Lei 12.470/2011",
+  "ano": 2011,
+  "situacao": "simbolica",
+  "id": "MUL-2011-001"
+ },
+ {
+  "ato": "Lei 12.605/2012",
+  "ano": 2012,
+  "situacao": "comissoes",
+  "id": "MUL-2012-002"
+ },
+ {
+  "ato": "Emenda Constitucional 72/2013",
+  "ano": 2013,
+  "situacao": "nominal",
+  "id": "MUL-2013-002"
+ },
+ {
+  "ato": "Lei 12.802/2013",
+  "ano": 2013,
+  "situacao": "simbolica",
+  "id": "MUL-2013-003"
+ },
+ {
+  "ato": "Lei 12.812/2013",
+  "ano": 2013,
+  "situacao": "comissoes",
+  "id": "MUL-2013-004"
+ },
+ {
+  "ato": "Lei 12.845/2013",
+  "ano": 2013,
+  "situacao": "simbolica",
+  "id": "MUL-2013-005"
+ },
+ {
+  "ato": "Lei 12.895/2013",
+  "ano": 2013,
+  "situacao": "comissoes",
+  "id": "MUL-2013-008"
+ },
+ {
+  "ato": "Lei 12.964/2014",
+  "ano": 2014,
+  "situacao": "comissoes",
+  "id": "MUL-2014-002"
+ },
+ {
+  "ato": "Lei 13.014/2014",
+  "ano": 2014,
+  "situacao": "comissoes",
+  "id": "MUL-2014-003"
+ },
+ {
+  "ato": "Lei 13.025/2014",
+  "ano": 2014,
+  "situacao": "simbolica",
+  "id": "MUL-2014-004"
+ },
+ {
+  "ato": "Lei 13.104/2015",
+  "ano": 2015,
+  "situacao": "simbolica",
+  "id": "MUL-2015-001"
+ },
+ {
+  "ato": "Lei 13.109/2015",
+  "ano": 2015,
+  "situacao": "comissoes",
+  "id": "MUL-2015-002"
+ },
+ {
+  "ato": "Lei 13.112/2015",
+  "ano": 2015,
+  "situacao": "comissoes",
+  "id": "MUL-2015-003"
+ },
+ {
+  "ato": "Lei Complementar 150/2015",
+  "ano": 2015,
+  "situacao": "nominal",
+  "id": "MUL-2015-004"
+ },
+ {
+  "ato": "Lei 13.165/2015",
+  "ano": 2015,
+  "situacao": "simbolica",
+  "id": "MUL-2015-005"
+ },
+ {
+  "ato": "Lei 13.239/2015",
+  "ano": 2015,
+  "situacao": "comissoes",
+  "id": "MUL-2015-006"
+ },
+ {
+  "ato": "Lei 13.287/2016",
+  "ano": 2016,
+  "situacao": "comissoes",
+  "id": "MUL-2016-002"
+ },
+ {
+  "ato": "Lei 13.362/2016",
+  "ano": 2016,
+  "situacao": "comissoes",
+  "id": "MUL-2016-003"
+ },
+ {
+  "ato": "Lei 13.363/2016",
+  "ano": 2016,
+  "situacao": "comissoes",
+  "id": "MUL-2016-004"
+ },
+ {
+  "ato": "Lei 13.427/2017",
+  "ano": 2017,
+  "situacao": "simbolica",
+  "id": "MUL-2017-001"
+ },
+ {
+  "ato": "Lei 13.434/2017",
+  "ano": 2017,
+  "situacao": "simbolica",
+  "id": "MUL-2017-002"
+ },
+ {
+  "ato": "Lei 13.436/2017",
+  "ano": 2017,
+  "situacao": "simbolica",
+  "id": "MUL-2017-003"
+ },
+ {
+  "ato": "Lei 13.505/2017",
+  "ano": 2017,
+  "situacao": "simbolica",
+  "id": "MUL-2017-MP13505"
+ },
+ {
+  "ato": "Lei 13.522/2017",
+  "ano": 2017,
+  "situacao": "simbolica",
+  "id": "MUL-2017-004"
+ },
+ {
+  "ato": "Lei 13.536/2017",
+  "ano": 2017,
+  "situacao": "simbolica",
+  "id": "MUL-2017-006"
+ },
+ {
+  "ato": "Lei 13.641/2018",
+  "ano": 2018,
+  "situacao": "simbolica",
+  "id": "MUL-2018-MP13641"
+ },
+ {
+  "ato": "Lei 13.642/2018",
+  "ano": 2018,
+  "situacao": "simbolica",
+  "id": "MUL-2018-002"
+ },
+ {
+  "ato": "Lei 13.718/2018",
+  "ano": 2018,
+  "situacao": "simbolica",
+  "id": "MUL-2018-005"
+ },
+ {
+  "ato": "Lei 13.721/2018",
+  "ano": 2018,
+  "situacao": "comissoes",
+  "id": "MUL-2018-006"
+ },
+ {
+  "ato": "Lei 13.769/2018",
+  "ano": 2018,
+  "situacao": "simbolica",
+  "id": "MUL-2018-009"
+ },
+ {
+  "ato": "Lei 13.770/2018",
+  "ano": 2018,
+  "situacao": "simbolica",
+  "id": "MUL-2018-010"
+ },
+ {
+  "ato": "Lei 13.772/2018",
+  "ano": 2018,
+  "situacao": "simbolica",
+  "id": "MUL-2018-MP13772"
+ },
+ {
+  "ato": "Lei 13.827/2019",
+  "ano": 2019,
+  "situacao": "simbolica",
+  "id": "MUL-2019-MP13827"
+ },
+ {
+  "ato": "Lei 13.836/2019",
+  "ano": 2019,
+  "situacao": "comissoes",
+  "id": "MUL-2019-MP13836"
+ },
+ {
+  "ato": "Lei 13.871/2019",
+  "ano": 2019,
+  "situacao": "simbolica",
+  "id": "MUL-2019-MP13871"
+ },
+ {
+  "ato": "Lei 13.872/2019",
+  "ano": 2019,
+  "situacao": "comissoes",
+  "id": "MUL-2019-002"
+ },
+ {
+  "ato": "Lei 13.880/2019",
+  "ano": 2019,
+  "situacao": "simbolica",
+  "id": "MUL-2019-MP13880"
+ },
+ {
+  "ato": "Lei 13.882/2019",
+  "ano": 2019,
+  "situacao": "simbolica",
+  "id": "MUL-2019-MP13882"
+ },
+ {
+  "ato": "Lei 13.894/2019",
+  "ano": 2019,
+  "situacao": "simbolica",
+  "id": "MUL-2019-MP13894"
+ },
+ {
+  "ato": "Lei 13.902/2019",
+  "ano": 2019,
+  "situacao": "simbolica",
+  "id": "MUL-2019-004"
+ },
+ {
+  "ato": "Lei 13.931/2019",
+  "ano": 2019,
+  "situacao": "simbolica",
+  "id": "MUL-2019-005"
+ },
+ {
+  "ato": "Lei 13.980/2020",
+  "ano": 2020,
+  "situacao": "comissoes",
+  "id": "MUL-2020-001"
+ },
+ {
+  "ato": "Lei 13.984/2020",
+  "ano": 2020,
+  "situacao": "simbolica",
+  "id": "MUL-2020-MP13984"
+ },
+ {
+  "ato": "Lei 14.022/2020",
+  "ano": 2020,
+  "situacao": "nominal",
+  "id": "MUL-2020-002"
+ },
+ {
+  "ato": "Lei 14.069/2020",
+  "ano": 2020,
+  "situacao": "comissoes",
+  "id": "MUL-2020-003"
+ },
+ {
+  "ato": "Lei 14.132/2021",
+  "ano": 2021,
+  "situacao": "nominal",
+  "id": "MUL-2021-001"
+ },
+ {
+  "ato": "Lei 14.149/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-002"
+ },
+ {
+  "ato": "Lei 14.151/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-003"
+ },
+ {
+  "ato": "Lei 14.152/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-004"
+ },
+ {
+  "ato": "Lei 14.164/2021",
+  "ano": 2021,
+  "situacao": "comissoes",
+  "id": "MUL-2021-005"
+ },
+ {
+  "ato": "Lei 14.171/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-006"
+ },
+ {
+  "ato": "Lei 14.188/2021",
+  "ano": 2021,
+  "situacao": "nominal",
+  "id": "MUL-2021-007"
+ },
+ {
+  "ato": "Lei 14.190/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-008"
+ },
+ {
+  "ato": "Lei 14.192/2021",
+  "ano": 2021,
+  "situacao": "nominal",
+  "id": "MUL-2021-009"
+ },
+ {
+  "ato": "Emenda Constitucional 111/2021",
+  "ano": 2021,
+  "situacao": "nominal",
+  "id": "MUL-2021-010"
+ },
+ {
+  "ato": "Lei 14.214/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-011"
+ },
+ {
+  "ato": "Lei 14.232/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-012"
+ },
+ {
+  "ato": "Lei 14.245/2021",
+  "ano": 2021,
+  "situacao": "simbolica",
+  "id": "MUL-2021-013"
+ },
+ {
+  "ato": "Lei 14.310/2022",
+  "ano": 2022,
+  "situacao": "simbolica",
+  "id": "MUL-2022-MP14310"
+ },
+ {
+  "ato": "Lei 14.311/2022",
+  "ano": 2022,
+  "situacao": "nominal",
+  "id": "MUL-2022-003"
+ },
+ {
+  "ato": "Lei 14.316/2022",
+  "ano": 2022,
+  "situacao": "nominal",
+  "id": "MUL-2022-004"
+ },
+ {
+  "ato": "Emenda Constitucional 117/2022",
+  "ano": 2022,
+  "situacao": "nominal",
+  "id": "MUL-2022-005"
+ },
+ {
+  "ato": "Lei 14.326/2022",
+  "ano": 2022,
+  "situacao": "comissoes",
+  "id": "MUL-2022-006"
+ },
+ {
+  "ato": "Lei 14.330/2022",
+  "ano": 2022,
+  "situacao": "simbolica",
+  "id": "MUL-2022-007"
+ },
+ {
+  "ato": "Lei 14.335/2022",
+  "ano": 2022,
+  "situacao": "nominal",
+  "id": "MUL-2022-008"
+ },
+ {
+  "ato": "Lei 14.443/2022",
+  "ano": 2022,
+  "situacao": "simbolica",
+  "id": "MUL-2022-009"
+ },
+ {
+  "ato": "Lei 14.450/2022",
+  "ano": 2022,
+  "situacao": "simbolica",
+  "id": "MUL-2022-010"
+ },
+ {
+  "ato": "Lei 14.457/2022",
+  "ano": 2022,
+  "situacao": "nominal",
+  "id": "MUL-2022-011"
+ },
+ {
+  "ato": "Lei 14.538/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-006"
+ },
+ {
+  "ato": "Lei 14.540/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-007"
+ },
+ {
+  "ato": "Lei 14.541/2023",
+  "ano": 2023,
+  "situacao": "nominal",
+  "id": "MUL-2023-008"
+ },
+ {
+  "ato": "Lei 14.542/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-009"
+ },
+ {
+  "ato": "Lei 14.550/2023",
+  "ano": 2023,
+  "situacao": "comissoes",
+  "id": "MUL-2023-MP14550"
+ },
+ {
+  "ato": "Lei 14.583/2023",
+  "ano": 2023,
+  "situacao": "comissoes",
+  "id": "MUL-2023-012"
+ },
+ {
+  "ato": "Lei 14.598/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-013"
+ },
+ {
+  "ato": "Lei 14.600/2023",
+  "ano": 2023,
+  "situacao": "nominal",
+  "id": "MUL-2023-014"
+ },
+ {
+  "ato": "Lei 14.611/2023",
+  "ano": 2023,
+  "situacao": "nominal",
+  "id": "MUL-2023-015"
+ },
+ {
+  "ato": "Lei 14.612/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-016"
+ },
+ {
+  "ato": "Lei 14.614/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-017"
+ },
+ {
+  "ato": "Lei 14.660/2023",
+  "ano": 2023,
+  "situacao": "comissoes",
+  "id": "MUL-2023-022"
+ },
+ {
+  "ato": "Lei 14.674/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-MP14674"
+ },
+ {
+  "ato": "Lei 14.682/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-023"
+ },
+ {
+  "ato": "Lei 14.683/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-024"
+ },
+ {
+  "ato": "Lei 14.713/2023",
+  "ano": 2023,
+  "situacao": "comissoes",
+  "id": "MUL-2023-025"
+ },
+ {
+  "ato": "Lei 14.717/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-026"
+ },
+ {
+  "ato": "Lei 14.721/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-027"
+ },
+ {
+  "ato": "Lei 14.737/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-029"
+ },
+ {
+  "ato": "Lei 14.786/2023",
+  "ano": 2023,
+  "situacao": "simbolica",
+  "id": "MUL-2023-030"
+ },
+ {
+  "ato": "Lei 14.847/2024",
+  "ano": 2024,
+  "situacao": "simbolica",
+  "id": "MUL-2024-002"
+ },
+ {
+  "ato": "Lei 14.857/2024",
+  "ano": 2024,
+  "situacao": "comissoes",
+  "id": "MUL-2024-MP14857"
+ },
+ {
+  "ato": "Lei 14.887/2024",
+  "ano": 2024,
+  "situacao": "comissoes",
+  "id": "MUL-2024-MP14887"
+ },
+ {
+  "ato": "Lei 14.899/2024",
+  "ano": 2024,
+  "situacao": "simbolica",
+  "id": "MUL-2024-003"
+ },
+ {
+  "ato": "Lei 14.925/2024",
+  "ano": 2024,
+  "situacao": "simbolica",
+  "id": "MUL-2024-004"
+ },
+ {
+  "ato": "Lei 14.986/2024",
+  "ano": 2024,
+  "situacao": "comissoes",
+  "id": "MUL-2024-006"
+ },
+ {
+  "ato": "Lei 14.994/2024",
+  "ano": 2024,
+  "situacao": "comissoes",
+  "id": "MUL-2024-007"
+ },
+ {
+  "ato": "Lei 15.035/2024",
+  "ano": 2024,
+  "situacao": "comissoes",
+  "id": "MUL-2024-008"
+ },
+ {
+  "ato": "Lei 15.116/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-001"
+ },
+ {
+  "ato": "Lei 15.123/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-002"
+ },
+ {
+  "ato": "Lei 15.124/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-003"
+ },
+ {
+  "ato": "Lei 15.125/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-MP15125"
+ },
+ {
+  "ato": "Lei 15.139/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-005"
+ },
+ {
+  "ato": "Lei 15.160/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-007"
+ },
+ {
+  "ato": "Lei 15.171/2025",
+  "ano": 2025,
+  "situacao": "comissoes",
+  "id": "MUL-2025-008"
+ },
+ {
+  "ato": "Lei 15.177/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-009"
+ },
+ {
+  "ato": "Lei 15.198/2025",
+  "ano": 2025,
+  "situacao": "comissoes",
+  "id": "MUL-2025-010"
+ },
+ {
+  "ato": "Lei 15.212/2025",
+  "ano": 2025,
+  "situacao": "comissoes",
+  "id": "MUL-2025-MP15212"
+ },
+ {
+  "ato": "Lei 15.214/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-011"
+ },
+ {
+  "ato": "Lei 15.222/2025",
+  "ano": 2025,
+  "situacao": "comissoes",
+  "id": "MUL-2025-012"
+ },
+ {
+  "ato": "Lei 15.281/2025",
+  "ano": 2025,
+  "situacao": "simbolica",
+  "id": "MUL-2025-015"
+ },
+ {
+  "ato": "Lei 15.284/2025",
+  "ano": 2025,
+  "situacao": "comissoes",
+  "id": "MUL-2025-016"
+ },
+ {
+  "ato": "Lei 15.336/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-001"
+ },
+ {
+  "ato": "Lei 15.377/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-004"
+ },
+ {
+  "ato": "Lei 15.380/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-MP15380"
+ },
+ {
+  "ato": "Lei 15.383/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-MP15383"
+ },
+ {
+  "ato": "Lei 15.384/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-005"
+ },
+ {
+  "ato": "Lei 15.409/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-006"
+ },
+ {
+  "ato": "Lei 15.410/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-007"
+ },
+ {
+  "ato": "Lei 15.411/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-MP15411"
+ },
+ {
+  "ato": "Lei 15.412/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-MP15412"
+ },
+ {
+  "ato": "Lei 15.415/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-009"
+ },
+ {
+  "ato": "Lei 15.421/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-010"
+ },
+ {
+  "ato": "Lei 15.423/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-011"
+ },
+ {
+  "ato": "Lei 15.438/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-MP15438"
+ },
+ {
+  "ato": "Lei 15.451/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-012"
+ },
+ {
+  "ato": "Lei 15.455/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-013"
+ },
+ {
+  "ato": "Lei 15.466/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-014"
+ },
+ {
+  "ato": "Lei 15.474/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-015"
+ },
+ {
+  "ato": "Lei 15.478/2026",
+  "ano": 2026,
+  "situacao": "comissoes",
+  "id": "MUL-2026-016"
+ },
+ {
+  "ato": "Lei 15.493/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-019"
+ },
+ {
+  "ato": "Lei 15.516/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-020"
+ },
+ {
+  "ato": "Lei 15.522/2026",
+  "ano": 2026,
+  "situacao": "simbolica",
+  "id": "MUL-2026-021"
+ }
+]

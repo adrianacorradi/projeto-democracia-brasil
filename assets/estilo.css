@@ -1,0 +1,133 @@
+/* Projeto Democracia Brasil — estilo único, sem fontes externas */
+:root{
+  --papel:#fbfcfa; --superficie:#ffffff; --tinta:#17201c; --tinta-2:#4c5853; --borda:#d9e1dd;
+  --verde:#0b6b57; --verde-escuro:#084a3d; --marca:#ffe45c; --marca-fundo:#fff8cf; --ambar:#b7791f;
+  --simbolica:#c3cfca; --foco:#1f5fbf; --link:#084a3d; --sobre-verde:#ffffff;
+  --serif:Georgia,"Noto Serif","Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --papel:#101614; --superficie:#16201c; --tinta:#e6eeea; --tinta-2:#a8b6b0; --borda:#2b3833;
+    --verde:#5cc8a8; --verde-escuro:#8fdcc4; --marca:#e9cf4a; --marca-fundo:#2e2a12; --ambar:#e0a84a;
+    --simbolica:#4a5a54; --foco:#8ab4ff; --link:#7fd6bb; --sobre-verde:#0b1a15;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--papel);color:var(--tinta);font:1.0625rem/1.55 var(--sans)}
+img,svg{max-width:100%}
+a{color:var(--link);text-underline-offset:2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--foco);outline-offset:2px}
+.pular{position:absolute;left:-999px}.pular:focus{left:1rem;top:.5rem;background:var(--superficie);padding:.5rem;z-index:9}
+.coluna{max-width:44rem;margin:0 auto;padding:0 1rem}
+header.topo{border-bottom:1px solid var(--borda);background:var(--superficie)}
+header.topo .coluna{display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem 1rem;padding-top:.75rem;padding-bottom:.6rem}
+.marca-site{font:700 1.15rem/1.2 var(--serif);color:var(--tinta);text-decoration:none;margin-right:auto}
+nav.menu{display:flex;flex-wrap:wrap;gap:.1rem .9rem;font-size:.95rem}
+nav.menu a{text-decoration:none;padding:.3rem 0;color:var(--tinta-2)}
+nav.menu a[aria-current="page"]{color:var(--tinta);font-weight:600;border-bottom:2px solid var(--verde)}
+.aviso{background:var(--marca-fundo);border-bottom:1px solid var(--borda);font-size:.9rem}
+.aviso .coluna{padding-top:.45rem;padding-bottom:.45rem}
+main{padding:1.5rem 0 3rem}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;margin:1.6em 0 .5em}
+h1{font-size:2rem;margin-top:.4em}
+h2{font-size:1.4rem}
+h3{font-size:1.12rem}
+p{margin:.6em 0}
+.lead{font-size:1.15rem;color:var(--tinta-2);max-width:38rem}
+.pequeno{font-size:.9rem;color:var(--tinta-2)}
+@media (min-width:48rem){h1{font-size:2.6rem}body{font-size:1.09rem}}
+
+/* mosaico: uma célula por lei */
+.mosaico{display:grid;grid-template-columns:repeat(auto-fill,minmax(14px,1fr));gap:3px;margin:1rem 0 .4rem}
+.mosaico a{display:block;aspect-ratio:1;border-radius:2px}
+.s-nominal{background:var(--verde)}
+.s-simbolica{background:var(--simbolica)}
+.s-comissoes{background:repeating-linear-gradient(135deg,var(--ambar) 0 3px,transparent 3px 6px);box-shadow:inset 0 0 0 1px var(--ambar)}
+.s-sem-registro{background:transparent;box-shadow:inset 0 0 0 1px var(--tinta-2)}
+.eixo{display:flex;justify-content:space-between;font-size:.85rem;color:var(--tinta-2)}
+.legenda{list-style:none;padding:0;margin:.8rem 0;display:grid;gap:.35rem;font-size:.95rem}
+.legenda li{display:flex;align-items:center;gap:.5rem}
+.legenda i{width:14px;height:14px;border-radius:2px;flex:none}
+.destaque-num{font:700 1.25rem/1.4 var(--serif)}
+
+/* carimbo de situação */
+.carimbo{display:inline-flex;align-items:center;gap:.4rem;font-size:.82rem;padding:.12rem .5rem;border:1px solid var(--borda);border-radius:999px;color:var(--tinta-2);white-space:nowrap}
+.carimbo i{width:10px;height:10px;border-radius:2px}
+
+/* acervo */
+.busca{display:grid;gap:.6rem;margin:1rem 0}
+.busca input[type=search]{width:100%;font:inherit;padding:.7rem .8rem;border:1px solid var(--borda);border-radius:8px;background:var(--superficie);color:var(--tinta)}
+.filtros{border:1px solid var(--borda);border-radius:8px;background:var(--superficie);padding:.2rem .8rem}
+.filtros summary{cursor:pointer;padding:.5rem 0;font-weight:600}
+.filtros .grade{display:grid;gap:.6rem;padding-bottom:.8rem}
+@media (min-width:40rem){.filtros .grade{grid-template-columns:1fr 1fr}}
+label{display:grid;gap:.2rem;font-size:.92rem}
+select{font:inherit;padding:.5rem;border:1px solid var(--borda);border-radius:6px;background:var(--papel);color:var(--tinta)}
+.contagem{font-size:.95rem;color:var(--tinta-2)}
+ol.acervo{list-style:none;padding:0;margin:0}
+ol.acervo>li{border-top:1px solid var(--borda);padding:1rem 0}
+ol.acervo h3{margin:0 0 .15rem;font-size:1.08rem}
+.quando{font-size:.9rem;color:var(--tinta-2);margin:0 0 .35rem}
+.etiquetas{display:flex;flex-wrap:wrap;gap:.35rem;margin:.35rem 0}
+.etq{font-size:.8rem;color:var(--tinta-2)}
+details.mais{margin-top:.4rem}
+details.mais>summary{cursor:pointer;color:var(--link);font-weight:600;padding:.35rem 0}
+dl.ficha{display:grid;grid-template-columns:1fr;gap:.1rem .8rem;margin:.5rem 0}
+dl.ficha dt{font-size:.85rem;color:var(--tinta-2);margin-top:.45rem}
+dl.ficha dd{margin:0}
+@media (min-width:40rem){dl.ficha{grid-template-columns:9.5rem 1fr}dl.ficha dt{margin-top:0}}
+.nota{background:var(--marca-fundo);border-left:4px solid var(--marca);padding:.5rem .7rem;margin:.6rem 0;font-size:.95rem}
+.fontes{display:flex;flex-wrap:wrap;gap:.3rem 1rem;margin:.6rem 0;font-size:.95rem}
+.acoes{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.6rem}
+button,.botao{font:inherit;font-size:.92rem;padding:.45rem .8rem;border-radius:6px;border:1px solid var(--verde);background:var(--superficie);color:var(--link);cursor:pointer;text-decoration:none;display:inline-block;min-height:44px}
+button.cheio,.botao.cheio,button[aria-pressed="true"]{background:var(--verde);color:var(--sobre-verde);border-color:var(--verde)}
+.barra-selecao{position:sticky;bottom:0;background:var(--superficie);border-top:1px solid var(--borda);padding:.4rem 0;z-index:5;box-shadow:0 -2px 8px rgba(0,0,0,.06)}
+.barra-selecao[hidden]{display:none}
+.barra-selecao .coluna{display:flex;gap:.4rem;align-items:center}
+.barra-selecao strong{margin-right:auto;font-size:.9rem;line-height:1.2}
+.barra-selecao button{font-size:.85rem;padding:.35rem .6rem;min-height:40px}
+.status{font-size:.9rem;color:var(--link);min-height:1.2em}
+.status:empty{min-height:0}
+
+/* votações */
+.barra{display:flex;height:22px;border-radius:4px;overflow:hidden;border:1px solid var(--borda);margin:.3rem 0}
+.barra span{display:block;height:100%}
+.b-sim{background:var(--verde)}.b-nao{background:#a33b2f}.b-abst{background:var(--simbolica)}.b-obst{background:var(--ambar)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .b-nao{background:#e0766a}}
+.linha-casa{margin:1rem 0}
+.linha-casa .barra{height:28px}
+table{border-collapse:collapse;width:100%;font-size:.92rem;margin:.5rem 0}
+th,td{text-align:left;padding:.35rem .4rem;border-bottom:1px solid var(--borda)}
+th{font-weight:600;color:var(--tinta-2)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.cartao{border:1px solid var(--borda);border-radius:8px;background:var(--superficie);padding:.9rem 1rem;margin:1rem 0}
+.cartao h3{margin-top:0}
+
+/* entenda */
+ol.passos{padding-left:1.3rem}
+ol.passos li{margin:.6rem 0}
+dl.glossario dt{font-weight:700;margin-top:1rem;font-family:var(--serif)}
+dl.glossario dd{margin:.2rem 0 0}
+
+/* compartilhar */
+.post{white-space:pre-line;overflow-wrap:anywhere}
+.fontes a,.nota,dd{overflow-wrap:anywhere}
+
+footer.rodape{border-top:1px solid var(--borda);font-size:.88rem;color:var(--tinta-2);padding:1.2rem 0 2rem}
+
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* impressão: PDF da seleção e resumo */
+@media print{
+  header.topo nav,.aviso,.busca,.barra-selecao,.acoes,footer.rodape,.so-tela{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt}
+  a{color:#000}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8.5pt;word-break:break-all}
+  ol.acervo>li{break-inside:avoid}
+  body.imprimir-selecao ol.acervo>li:not(.selecionado){display:none!important}
+  body.imprimir-selecao main h1,body.imprimir-selecao .lead,body.imprimir-selecao noscript{display:none!important}
+  .so-impressao{display:block!important}
+}
+.so-impressao{display:none}

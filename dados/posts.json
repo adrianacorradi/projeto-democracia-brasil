@@ -1,0 +1,77 @@
+[
+ {
+  "id": "post-votacao",
+  "titulo": "Como as leis foram votadas",
+  "texto": "Quantas leis sobre direitos das mulheres tiveram o voto de cada parlamentar registrado?\n\nNo nosso levantamento, desde 1985 o Congresso aprovou 171 leis, leis complementares e emendas constitucionais sobre o tema. Só 15 tiveram votação nominal do texto em pelo menos uma das Casas. As outras foram aprovadas por votação simbólica ou decididas nas comissões, sem registro de voto individual.",
+  "fontes": [
+   [
+    "Dados abertos da Câmara",
+    "https://dadosabertos.camara.leg.br/"
+   ],
+   [
+    "Dados abertos do Senado",
+    "https://legis.senado.leg.br/dadosabertos/"
+   ]
+  ]
+ },
+ {
+  "id": "post-maria-da-penha",
+  "titulo": "Lei Maria da Penha",
+  "texto": "A Lei Maria da Penha (Lei 11.340/2006) começou como projeto do Poder Executivo (PL 4.559/2004). Foi aprovada por votação simbólica na Câmara e no Senado e sancionada em 7 de agosto de 2006.\n\nAté outubro de 2026, 26 leis alteraram o seu texto, por exemplo para incluir o auxílio-aluguel e a monitoração eletrônica do agressor.",
+  "fontes": [
+   [
+    "Texto compilado no Planalto",
+    "https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2006/lei/l11340.htm"
+   ],
+   [
+    "Tramitação na Câmara",
+    "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=272058"
+   ]
+  ]
+ },
+ {
+  "id": "post-feminicidio",
+  "titulo": "Feminicídio",
+  "texto": "O feminicídio entrou no Código Penal em 2015, como forma qualificada de homicídio (Lei 13.104/2015). O projeto veio da CPMI da Violência contra a Mulher, do Congresso.\n\nEm 2024, a Lei 14.994 transformou o feminicídio em crime autônomo, com pena maior.",
+  "fontes": [
+   [
+    "Lei 13.104/2015",
+    "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/L13104.htm"
+   ],
+   [
+    "Lei 14.994/2024",
+    "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/L14994.htm"
+   ]
+  ]
+ },
+ {
+  "id": "post-igualdade-salarial",
+  "titulo": "Igualdade salarial",
+  "texto": "A Lei 14.611/2023 trata da igualdade salarial e de critérios de remuneração entre mulheres e homens que exercem a mesma função.\n\nNa Câmara, o texto teve votação nominal em 4/5/2023: 325 votos sim, 36 não e 3 abstenções. No Senado, foi aprovado por votação simbólica.",
+  "fontes": [
+   [
+    "Lei 14.611/2023",
+    "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/L14611.htm"
+   ],
+   [
+    "Votos na Câmara (dados abertos)",
+    "https://dadosabertos.camara.leg.br/api/v2/votacoes/2351179-51/votos"
+   ]
+  ]
+ },
+ {
+  "id": "post-candidaturas",
+  "titulo": "Mulheres na política",
+  "texto": "Desde 1997, a lei eleitoral reserva no mínimo 30% das candidaturas de cada partido para cada sexo (Lei 9.504/1997).\n\nEm 2022, a Emenda Constitucional 117 levou para a Constituição a regra de destinar no mínimo 30% dos recursos de campanha e do tempo de propaganda a candidaturas de mulheres. Na Câmara, a emenda teve 402 e 400 votos sim nos dois turnos.",
+  "fontes": [
+   [
+    "Lei 9.504/1997",
+    "https://www.planalto.gov.br/ccivil_03/leis/L9504.htm"
+   ],
+   [
+    "Emenda Constitucional 117",
+    "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc117.htm"
+   ]
+  ]
+ }
+]

@@ -1,0 +1,1960 @@
+[
+ {
+  "id": "SF-6130",
+  "ato": "Lei 14.022/2020",
+  "casa": "Senado",
+  "data": "2020-06-03",
+  "objeto": "Votação da Emenda nº 17 - PLEN (Substitutivo) ao Projeto de Lei nº 1291, de 2020, nos termos do Parecer.",
+  "sim": 74,
+  "nao": 0,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "PSD",
+    "sim": 12,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "MDB",
+    "sim": 12,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 10,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "S/Partido",
+    "sim": 0,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/142091",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=142091",
+  "revisar": false
+ },
+ {
+  "id": "SF-6294",
+  "ato": "Lei 14.541/2023",
+  "casa": "Senado",
+  "data": "2021-03-11",
+  "objeto": "(Dispõe sobre a criação de Delegacias Especializadas de Atendimento à Mulher.)",
+  "sim": 71,
+  "nao": 0,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "MDB",
+    "sim": 13,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 11,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "S/Partido",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/141133",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=141133",
+  "revisar": false
+ },
+ {
+  "id": "SF-6340",
+  "ato": "Lei 14.188/2021",
+  "casa": "Senado",
+  "data": "2021-07-01",
+  "objeto": "Votação nominal do Projeto de Lei nº 741, de 2021, nos termos do Parecer.",
+  "sim": 69,
+  "nao": 0,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "PSD",
+    "sim": 10,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "MDB",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/148849",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=148849",
+  "revisar": false
+ },
+ {
+  "id": "SF-6372",
+  "ato": "Lei 14.192/2021",
+  "casa": "Senado",
+  "data": "2021-07-13",
+  "objeto": "Votação nominal",
+  "sim": 73,
+  "nao": 0,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "MDB",
+    "sim": 14,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 10,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/146095",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=146095",
+  "revisar": false
+ },
+ {
+  "id": "SF-6374",
+  "ato": "Emenda Constitucional 117/2022",
+  "casa": "Senado",
+  "data": "2021-07-14",
+  "objeto": "Votação nominal da Emenda nº 1 (substitutivo) à PEC 18/2021, em primeiro turno.",
+  "sim": 69,
+  "nao": 4,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "MDB",
+    "sim": 14,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 11,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 5,
+    "nao": 4,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/148962",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=148962",
+  "revisar": false
+ },
+ {
+  "id": "SF-6375",
+  "ato": "Emenda Constitucional 117/2022",
+  "casa": "Senado",
+  "data": "2021-07-14",
+  "objeto": "Votação nominal da PEC 18/2021, em segundo turno.",
+  "sim": 62,
+  "nao": 6,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "MDB",
+    "sim": 12,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 3,
+    "nao": 6,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 8,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/148962",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=148962",
+  "revisar": false
+ },
+ {
+  "id": "CD-2285889-91",
+  "ato": "Lei 14.311/2022",
+  "casa": "Câmara",
+  "data": "2021-10-06",
+  "objeto": "Aprovada a Subemenda Substitutiva Global ao Projeto de Lei nº 2.058, de 2021, adotada pela relatora da Comissão de Defesa dos Direitos da Mulher, ressalvados os destaques. Sim: 296; não: 121; abstenção: 1; total: 418.",
+  "sim": 296,
+  "nao": 121,
+  "abst": 1,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "PT",
+    "sim": 1,
+    "nao": 46,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 42,
+    "nao": 1,
+    "abst": 1,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 33,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 8,
+    "nao": 21,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 26,
+    "nao": 3,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "MDB",
+    "sim": 25,
+    "nao": 2,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 26,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 25,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 21,
+    "nao": 3,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 5,
+    "nao": 16,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 20,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "SOLIDARIEDADE",
+    "sim": 10,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PTB",
+    "sim": 7,
+    "nao": 2,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 8,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSOL",
+    "sim": 0,
+    "nao": 8,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "NOVO",
+    "sim": 8,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 7,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PCdoB",
+    "sim": 0,
+    "nao": 7,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 6,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 6,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "AVANTE",
+    "sim": 6,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 4,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PV",
+    "sim": 2,
+    "nao": 2,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 0,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2285889",
+  "dados_abertos": "https://dadosabertos.camara.leg.br/api/v2/votacoes/2285889-91/votos",
+  "revisar": true
+ },
+ {
+  "id": "SF-6425",
+  "ato": "Lei 14.316/2022",
+  "casa": "Senado",
+  "data": "2021-10-27",
+  "objeto": "Votação nominal do Projeto de Lei nº 123, de 2019, nos termos do Parecer.",
+  "sim": 74,
+  "nao": 0,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "MDB",
+    "sim": 14,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 10,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "—",
+    "sim": 0,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/146093",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=146093",
+  "revisar": false
+ },
+ {
+  "id": "SF-6517",
+  "ato": "Lei 14.335/2022",
+  "casa": "Senado",
+  "data": "2022-03-29",
+  "objeto": "Votação nominal do Projeto de Lei nº 6.554, de 2019 (Substitutivo da CD ao PLS nº 374/2014), nos termos do Parecer.",
+  "sim": 71,
+  "nao": 0,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "MDB",
+    "sim": 11,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PL",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "DEM",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSL",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www25.senado.leg.br/web/atividade/materias/-/materia/119334",
+  "dados_abertos": "https://legis.senado.leg.br/dadosabertos/votacao?codigoMateria=119334",
+  "revisar": false
+ },
+ {
+  "id": "CD-2293703-138",
+  "ato": "Emenda Constitucional 117/2022",
+  "casa": "Câmara",
+  "data": "2022-03-30",
+  "objeto": "Aprovada, em segundo turno, a Proposta de Emenda à Constituição n° 18, de 2021. Sim: 400; não: 38; abstenção: 1; total: 439.",
+  "sim": 400,
+  "nao": 38,
+  "abst": 1,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "PL",
+    "sim": 56,
+    "nao": 6,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 48,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "UNIÃO",
+    "sim": 39,
+    "nao": 3,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 42,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 33,
+    "nao": 3,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 33,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "MDB",
+    "sim": 28,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 23,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 22,
+    "nao": 2,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 18,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 7,
+    "nao": 2,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSOL",
+    "sim": 1,
+    "nao": 8,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "SOLIDARIEDADE",
+    "sim": 8,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "AVANTE",
+    "sim": 8,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 8,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "NOVO",
+    "sim": 0,
+    "nao": 8,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PCdoB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 1,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 4,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PTB",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PV",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 0,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "S.PART.",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2293703",
+  "dados_abertos": "https://dadosabertos.camara.leg.br/api/v2/votacoes/2293703-138/votos",
+  "revisar": false
+ },
+ {
+  "id": "CD-2293703-120",
+  "ato": "Emenda Constitucional 117/2022",
+  "casa": "Câmara",
+  "data": "2022-03-30",
+  "objeto": "Aprovada, em primeiro turno, a Proposta de Emenda à Constituição nº 18, de 2021, ressalvados os destaques. Sim: 402; não: 44; abstenção: 1; total: 447.",
+  "sim": 402,
+  "nao": 44,
+  "abst": 1,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "PL",
+    "sim": 56,
+    "nao": 8,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 47,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "UNIÃO",
+    "sim": 42,
+    "nao": 4,
+    "abst": 1,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 43,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 36,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 30,
+    "nao": 3,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 26,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "MDB",
+    "sim": 27,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 22,
+    "nao": 3,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 20,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "SOLIDARIEDADE",
+    "sim": 9,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 8,
+    "nao": 2,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSOL",
+    "sim": 1,
+    "nao": 8,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "NOVO",
+    "sim": 0,
+    "nao": 8,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "AVANTE",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 5,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PCdoB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 4,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PTB",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "S.PART.",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 0,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PV",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2293703",
+  "dados_abertos": "https://dadosabertos.camara.leg.br/api/v2/votacoes/2293703-120/votos",
+  "revisar": false
+ },
+ {
+  "id": "CD-2321689-50",
+  "ato": "Lei 14.457/2022",
+  "casa": "Câmara",
+  "data": "2022-08-30",
+  "objeto": "Aprovada a Medida Provisória nº 1.116 de 2022, na forma do Projeto de Lei de Conversão, ressalvados os destaques. Sim: 395; não: 7; total: 402.",
+  "sim": 395,
+  "nao": 7,
+  "abst": 0,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "PL",
+    "sim": 65,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 46,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 45,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "UNIÃO",
+    "sim": 36,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 34,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 32,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "MDB",
+    "sim": 24,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 20,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 19,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 16,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "NOVO",
+    "sim": 8,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 7,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PCdoB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSOL",
+    "sim": 0,
+    "nao": 6,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "SOLIDARIEDADE",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "AVANTE",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PV",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PROS",
+    "sim": 3,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PTB",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2321689",
+  "dados_abertos": "https://dadosabertos.camara.leg.br/api/v2/votacoes/2321689-50/votos",
+  "revisar": false
+ },
+ {
+  "id": "CD-2351179-51",
+  "ato": "Lei 14.611/2023",
+  "casa": "Câmara",
+  "data": "2023-05-04",
+  "objeto": "Aprovada a Subemenda Substitutiva Global ao Projeto de Lei nº 1.085, de 2023, adotada pela relatora da Comissão de Defesa dos Direitos da Mulher, ressalvados os destaques. Sim: 325; não: 36; abstenção: 3; total: 364.",
+  "sim": 325,
+  "nao": 36,
+  "abst": 3,
+  "obst": 0,
+  "partidos": [
+   {
+    "partido": "PL",
+    "sim": 46,
+    "nao": 24,
+    "abst": 2,
+    "obst": 0
+   },
+   {
+    "partido": "PT",
+    "sim": 52,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "UNIÃO",
+    "sim": 30,
+    "nao": 3,
+    "abst": 1,
+    "obst": 0
+   },
+   {
+    "partido": "PP",
+    "sim": 32,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REPUBLICANOS",
+    "sim": 31,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSD",
+    "sim": 27,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "MDB",
+    "sim": 25,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PDT",
+    "sim": 15,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSDB",
+    "sim": 13,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSB",
+    "sim": 11,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSOL",
+    "sim": 9,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PCdoB",
+    "sim": 6,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PODE",
+    "sim": 4,
+    "nao": 2,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "AVANTE",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PV",
+    "sim": 5,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PATRIOTA",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "SOLIDARIEDADE",
+    "sim": 4,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "CIDADANIA",
+    "sim": 2,
+    "nao": 1,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "NOVO",
+    "sim": 0,
+    "nao": 3,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "PSC",
+    "sim": 2,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "REDE",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   },
+   {
+    "partido": "S.PART.",
+    "sim": 1,
+    "nao": 0,
+    "abst": 0,
+    "obst": 0
+   }
+  ],
+  "fonte": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2351179",
+  "dados_abertos": "https://dadosabertos.camara.leg.br/api/v2/votacoes/2351179-51/votos",
+  "revisar": false
+ }
+]

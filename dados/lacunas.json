@@ -1,0 +1,16 @@
+{
+ "total": 171,
+ "com_nominal": 15,
+ "camara": {
+  "Sem registro nas bases abertas": 16,
+  "Só nas comissões": 46,
+  "Plenário, votação simbólica": 101,
+  "Plenário, votação nominal": 8
+ },
+ "senado": {
+  "Sem registro nas bases abertas": 8,
+  "Plenário, votação simbólica": 120,
+  "Só nas comissões": 31,
+  "Plenário, votação nominal": 12
+ }
+}
