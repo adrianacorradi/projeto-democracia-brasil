@@ -1,6 +1,6 @@
 # Projeto Democracia Brasil — Guia metodológico
 
-**Versão 2 — 11/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
+**Versão 2.4 — 12/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
 
 ---
 
@@ -278,7 +278,7 @@ Estas saídas são atualizadas **ao final de toda melhoria, análise ou pesquisa
 |---|---|---|
 | Planilha-mestre | Base de dados e conferência | Excel |
 | Guia metodológico | Regras e histórico de versões | Documento no Projeto |
-| Site | Acesso público, pesquisa e download, pensado para celular e conexões lentas | HTML estático no GitHub Pages |
+| Site | Acesso público, pesquisa e download, pensado para celular e conexões lentas | HTML estático no GitHub Pages: https://adrianacorradi.github.io/projeto-democracia-brasil/ (repositório público adrianacorradi/projeto-democracia-brasil) |
 | PDF resumido | Leitura rápida e impressão | PDF gerado a partir do site |
 | Textos para redes sociais | Debate público | Página "Compartilhar" do site |
 | Material para leigos | Explicar termos e processos | Página "Entenda" do site |
@@ -290,6 +290,9 @@ Estas saídas são atualizadas **ao final de toda melhoria, análise ou pesquisa
 3. Regenerar as páginas e o PDF.
 4. Registrar a mudança em "Novidades" e no histórico de versões.
 5. Conferir números e links.
+6. Enviar as alterações ao repositório do GitHub e conferir o site publicado.
+
+**Privacidade antes de publicar:** os arquivos públicos trazem apenas nomes e dados funcionais de agentes públicos (parlamentares, ministros do STF) e nomes de leis. Não entram e-mails, CPF, telefones, endereços nem dados de saúde; motivos de ausência ligados a saúde aparecem como "licença".
 
 ## 12. Fluxo de trabalho e ferramentas
 
@@ -347,6 +350,7 @@ Contagens por governo só devem ser usadas depois que a varredura estiver comple
 - **v2.1 (11/10/2026).** Decisões do piloto (seção 13), método de coleta e classificação das votações (7.6) e primeiros resultados sobre lacunas (7.7).
 - **v2.2 (11/10/2026).** Inclusão do tema 12 (direitos das pessoas com deficiência, com o BPC) e de seus indicadores candidatos.
 - **v2.3 (11/10/2026).** Saídas do projeto e rotina de fechamento (seção 11); criação do site estático.
+- **v2.4 (12/10/2026).** Site publicado no GitHub Pages para consulta pública, com endereço registrado na seção 11. Regra de privacidade antes de publicar e passo de envio ao GitHub incluídos na rotina de fechamento.
 
 ## Fontes de referência
 
