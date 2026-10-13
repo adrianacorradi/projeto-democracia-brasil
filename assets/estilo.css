@@ -132,6 +132,24 @@ ul.acesso li{margin:.5rem 0}
 .post{white-space:pre-line;overflow-wrap:anywhere}
 .fontes a,.nota,dd{overflow-wrap:anywhere}
 
+/* resultado de cada pesquisa (página inicial) */
+.pesquisa{border:1px solid var(--borda);border-top:6px solid var(--verde);border-radius:10px;background:var(--superficie);padding:1rem 1rem 1.1rem;margin:1rem 0 1.6rem}
+.pesquisa h3{font-size:1.45rem;margin:.2rem 0 .4rem}
+.pesquisa h4{font:700 1.1rem/1.3 var(--serif);margin:1.2rem 0 .3rem}
+.selo-pesquisa{display:inline-block;margin:0;font-size:.8rem;font-weight:700;letter-spacing:.02em;text-transform:uppercase;color:var(--verde-escuro);background:var(--marca-fundo);border-radius:4px;padding:.15rem .45rem}
+.pesquisa-chamada{color:var(--tinta-2)}
+ul.numeros{list-style:none;padding:0;margin:.9rem 0;display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+ul.numeros li{border:1px solid var(--borda);border-radius:8px;padding:.5rem .55rem;background:var(--papel)}
+ul.numeros strong{display:block;font:700 1.45rem/1.1 var(--serif);color:var(--verde-escuro)}
+ul.numeros span{display:block;font-size:.8rem;line-height:1.25;color:var(--tinta-2);margin-top:.15rem}
+.acoes-pesquisa{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0 .3rem}
+.acoes-pesquisa .botao.cheio{flex:1 1 100%;text-align:center;font-weight:700;font-size:1rem;padding:.65rem .9rem}
+.acoes-pesquisa .botao.cheio .pequeno{color:inherit;opacity:.85;font-weight:400}
+.acoes-pesquisa button{flex:1 1 40%}
+.links-pesquisa{display:flex;flex-wrap:wrap;gap:.3rem 1rem;font-size:.95rem;margin-top:.8rem}
+ul.indice-pesquisas{padding-left:1.2rem}
+@media (min-width:40rem){.acoes-pesquisa .botao.cheio{flex:0 1 auto}.acoes-pesquisa button{flex:0 1 auto}}
+
 /* vídeo "Como usar o site" */
 .videos{margin:1.2rem 0 .5rem;display:grid;gap:.6rem}
 .videos .video-tutorial{margin:0}
@@ -162,3 +180,4 @@ footer.rodape{border-top:1px solid var(--borda);font-size:.88rem;color:var(--tin
   .so-impressao{display:block!important}
 }
 .so-impressao{display:none}
+@media print{.mosaico a{-webkit-print-color-adjust:exact;print-color-adjust:exact}.legenda i{-webkit-print-color-adjust:exact;print-color-adjust:exact}.mosaico{grid-template-columns:repeat(auto-fill,minmax(11px,1fr));gap:2px}}

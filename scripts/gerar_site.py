@@ -5,7 +5,7 @@ Uso:  python3 scripts/gerar_site.py      (rodar na raiz do site)
 Entradas: dados/atos.json, mosaico.json, lacunas.json, votacoes_indice.json, meta.json, posts.json, novidades.json, temas.json
 Saídas:   index.html, acervo.html, votacoes.html, entenda.html, compartilhar.html, baixar.html, resumo.html, como-usar.html
 """
-import json, os, html, unicodedata
+import functools, json, os, html, unicodedata
 from datetime import date
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -15,6 +15,13 @@ def dados(n):
 ATOS, MOS, LAC, VOT, META = dados("atos"), dados("mosaico"), dados("lacunas"), dados("votacoes_indice"), dados("meta")
 POSTS, NOV, TEMAS = dados("posts"), dados("novidades"), dados("temas")
 CFG = dados("config")
+PESQ = dados("pesquisas")["pesquisas"]
+_CACHE = {}
+def carregar(p):
+    """Dados de uma pesquisa do cadastro: atos, mosaico, lacunas e meta."""
+    if p["id"] not in _CACHE:
+        _CACHE[p["id"]] = {k: json.load(open(os.path.join(RAIZ, "dados", arq), encoding="utf-8")) for k, arq in p["dados"].items()}
+    return _CACHE[p["id"]]
 VIDEOS = dados("videos")
 _VM = dados("video") if os.path.exists(os.path.join(RAIZ, "dados", "video.json")) else {}
 # só entram na página os vídeos já gravados (com duração e tamanho em dados/video.json)
@@ -46,7 +53,7 @@ MENU = [("index.html", "Início"), ("acervo.html", "Acervo"), ("votacoes.html", 
 # Orientação mostrada no topo de cada página (o topo é igual em todas as páginas)
 NOMES = dict(MENU, **{"como-usar.html": "Como usar", "resumo.html": "Resumo"})
 DICAS = {
-    "index.html": "Comece pelo mosaico das leis ou escolha uma seção acima.",
+    "index.html": "Veja o resultado de cada pesquisa: o mosaico das leis, o resumo em PDF e um texto para compartilhar.",
     "acervo.html": "Busque por palavra, número da lei ou ano. Toque em “Detalhes e fontes” para ver a ficha.",
     "votacoes.html": "Veja como cada lei foi votada e o placar por partido.",
     "entenda.html": "O caminho de uma lei e os termos usados no site, em linguagem simples.",
@@ -81,7 +88,7 @@ def pagina(arquivo, titulo, descricao, corpo, js=False):
 {ajuda}
 </div></div>
 <nav class="menu" aria-label="Seções"><div class="coluna">{menu}</div></nav>
-<div class="orientacao"><div class="coluna"><span class="voce">Você está em <strong>{NOMES.get(arquivo, "")}</strong>.</span> {DICAS.get(arquivo, "")}{"" if arquivo == "como-usar.html" else ' <a href="como-usar.html#videos">Ver os vídeos de ajuda</a>'}</div></div>
+<div class="orientacao"><div class="coluna"><span class="voce">Você está em <strong>{NOMES.get(arquivo, "Resumo" if arquivo.startswith("resumo") else "")}</strong>.</span> {DICAS.get(arquivo, DICAS["resumo.html"] if arquivo.startswith("resumo") else "")}{"" if arquivo == "como-usar.html" else ' <a href="como-usar.html#videos">Ver os vídeos de ajuda</a>'}</div></div>
 <div class="aviso"><div class="coluna">Versão preliminar. Os dados do piloto ainda passam por checagem final. Atualizado em {META['atualizado']}.</div></div>
 </header>
 <main id="conteudo"><div class="coluna">
@@ -128,32 +135,89 @@ def bloco_videos(publico=None):
     vs = [v for v in VID.values() if publico is None or v["publico"] == publico]
     return f'<div class="videos">{"".join(cartao_video(v) for v in vs)}</div>' if vs else ""
 
-def gerar_index():
-    n = {k: sum(1 for m in MOS if m["situacao"] == k) for k in SIT}
-    celulas = "".join(f'<a class="{SIT[m["situacao"]][1]}" href="acervo.html#{e(m["id"])}" title="{e(m["ato"])}: {e(SIT[m["situacao"]][0].lower())}" aria-label="{e(m["ato"])}, {e(SIT[m["situacao"]][0].lower())}"></a>' for m in MOS)
-    anos = [m["ano"] for m in MOS]
-    piloto = ' — <a href="acervo.html">piloto em andamento</a>'
-    temas = "".join(f'<li>{e(t)}{piloto if s == "piloto" else " — em preparação"}</li>' for t, s in TEMAS)
-    novs = "".join(f"<li><strong>{br(x['data'])}</strong>: {e(x['texto'])}</li>" for x in NOV)
-    corpo = f"""
-<h1>O que mudou nos direitos da população brasileira desde 1985</h1>
-<p class="lead">Lei por lei, com a fonte oficial de cada informação. Começamos pelos direitos das mulheres.</p>
-{bloco_videos()}
+def contagem_mosaico(d):
+    return {k: sum(1 for m in d["mosaico"] if m["situacao"] == k) for k in SIT}
 
-<h2>Como 171 leis sobre direitos das mulheres passaram pelo Congresso</h2>
-<p>Cada quadrado é uma lei, lei complementar ou emenda constitucional aprovada desde 1985, em ordem de data. Toque em um quadrado para ver a lei.</p>
+def texto_resumo(p, d):
+    """Texto para compartilhar (até 500 caracteres), montado a partir dos dados. Um fato, sem opinião, com fonte oficial."""
+    n, lac = contagem_mosaico(d), d["lacunas"]
+    url = f"{URL}/#pesquisa-{p['id']}" if URL else ""
+    return (f"{p['titulo']} ({p['situacao'].lower()}).\n\n"
+            f"Das {lac['total']} leis, leis complementares e emendas constitucionais aprovadas no Congresso, "
+            f"só {lac['com_nominal']} tiveram o voto de cada parlamentar registrado na votação do texto principal. "
+            f"As outras: votação simbólica ({n['simbolica']}), decisão nas comissões ({n['comissoes']}) "
+            f"ou sem registro nas bases abertas ({n['sem-registro']}).\n\n"
+            f"Fonte: https://dadosabertos.camara.leg.br\n"
+            f"Resumo: {url}")
+
+def bloco_mosaico(p, d, toque=True):
+    mos = d["mosaico"]
+    acervo = p["paginas"]["acervo"]
+    celulas = "".join(f'<a class="{SIT[m["situacao"]][1]}" href="{acervo}#{e(m["id"])}" title="{e(m["ato"])}: {e(SIT[m["situacao"]][0].lower())}" aria-label="{e(m["ato"])}, {e(SIT[m["situacao"]][0].lower())}"></a>' for m in mos)
+    anos = [m["ano"] for m in mos]
+    n = contagem_mosaico(d)
+    return f"""<p>Cada quadrado é uma lei, lei complementar ou emenda constitucional aprovada desde {min(anos)}, em ordem de data.{" Toque em um quadrado para ver a lei." if toque else ""}</p>
 <div class="mosaico" role="list" aria-label="Leis em ordem de data">{celulas}</div>
 <div class="eixo" aria-hidden="true"><span>{min(anos)}</span><span>{max(anos)}</span></div>
 {legenda()}
-<p class="destaque-num">Só {LAC['com_nominal']} das {LAC['total']} tiveram o voto de cada parlamentar registrado no texto principal.</p>
-<p>As outras foram aprovadas por votação simbólica ({n['simbolica']}), decididas nas comissões ({n['comissoes']}) ou não têm registro nas bases abertas ({n['sem-registro']}). Nesses casos, não é possível saber como cada deputado ou senador votou.</p>
-<p><a href="votacoes.html">Veja as votações com voto registrado</a> ou <a href="entenda.html#votacao">entenda a diferença entre votação nominal e simbólica</a>.</p>
+<p class="destaque-num">Só {d['lacunas']['com_nominal']} das {d['lacunas']['total']} tiveram o voto de cada parlamentar registrado no texto principal.</p>
+<p>As outras foram aprovadas por votação simbólica ({n['simbolica']}), decididas nas comissões ({n['comissoes']}) ou não têm registro nas bases abertas ({n['sem-registro']}). Nesses casos, não é possível saber como cada deputado ou senador votou.</p>"""
+
+def cartao_pesquisa(p):
+    """Resultado de uma pesquisa, no formato da página inicial: números, mosaico, achado, PDF e texto para compartilhar."""
+    d = carregar(p)
+    meta, lac = d["meta"], d["lacunas"]
+    texto = texto_resumo(p, d)
+    if len(texto) > 500:   # regra do projeto para textos de redes
+        raise SystemExit(f"Texto para compartilhar de {p['id']} tem {len(texto)} caracteres (máximo 500).")
+    pg = p["paginas"]
+    return f"""<section class="pesquisa" id="pesquisa-{p['id']}" aria-labelledby="titulo-{p['id']}">
+<p class="selo-pesquisa">{e(p['situacao'])} · atualizada em {e(meta['atualizado'])}</p>
+<h3 id="titulo-{p['id']}">{e(p['titulo'])}</h3>
+<p class="pesquisa-chamada">{e(p['chamada'])}</p>
+<ul class="numeros">
+<li><strong>{milhar(meta['total_atos'])}</strong><span>atos federais levantados</span></li>
+<li><strong>{lac['total']}</strong><span>leis aprovadas no Congresso</span></li>
+<li><strong>{milhar(meta['total_votacoes'])}</strong><span>votações em Plenário</span></li>
+</ul>
+<h4>Como as {lac['total']} leis passaram pelo Congresso</h4>
+{bloco_mosaico(p, d)}
+<div class="acoes-pesquisa">
+<a class="botao cheio" href="{p['pdf']}" download>Baixar o resumo em PDF <span class="pequeno">({tamanho(p['pdf'])})</span></a>
+<button type="button" data-copiar="texto-{p['id']}" data-share>Compartilhar o resumo</button>
+<button type="button" data-copiar="texto-{p['id']}">Copiar texto</button>
+</div>
+<p class="status" id="status-{p['id']}" role="status"></p>
+<details class="mais"><summary>Ler o texto para compartilhar ({len(texto)} caracteres)</summary><p class="post" id="texto-{p['id']}">{e(texto)}</p></details>
+<p class="links-pesquisa"><a href="{pg['acervo']}">Todas as leis no acervo</a> <a href="{pg['votacoes']}">Como o Congresso votou</a> <a href="{pg['resumo']}">Resumo completo</a> <a href="{p['planilha']}" download>Planilha com todos os dados</a></p>
+</section>"""
+
+def gerar_index():
+    pesq_tema = {p["tema"]: p for p in PESQ}
+    def item_tema(t, st):
+        p = next((x for x in PESQ if t.startswith(x["tema"])), None)
+        if p:
+            return f'<li>{e(t)} — <a href="#pesquisa-{p["id"]}">{e(p["situacao"].lower())}</a></li>'
+        return f"<li>{e(t)} — em preparação</li>"
+    temas = "".join(item_tema(t, st) for t, st in TEMAS)
+    novs = "".join(f"<li><strong>{br(x['data'])}</strong>: {e(x['texto'])}</li>" for x in NOV)
+    indice = ""
+    if len(PESQ) > 1:
+        indice = '<ul class="indice-pesquisas">' + "".join(f'<li><a href="#pesquisa-{p["id"]}">{e(p["titulo"])}</a></li>' for p in PESQ) + "</ul>"
+    corpo = f"""
+<h1>O que mudou nos direitos da população brasileira desde 1985</h1>
+<p class="lead">Lei por lei, com a fonte oficial de cada informação. Cada pesquisa publicada aparece abaixo, com o resumo em PDF e um texto para compartilhar.</p>
+{bloco_videos()}
+
+<h2 id="resultados">Resultados das pesquisas</h2>
+<p class="pequeno">{len(PESQ)} {"pesquisa publicada" if len(PESQ) == 1 else "pesquisas publicadas"}. As outras estão em preparação; veja a lista de temas abaixo.</p>
+{indice}
+{"".join(cartao_pesquisa(p) for p in PESQ)}
 
 <h2>Comece por aqui</h2>
 <ul>
-<li><a href="acervo.html">Pesquise no acervo</a>: {META['total_atos']} leis, decretos, tratados e decisões do STF.</li>
+<li><a href="acervo.html">Pesquise no acervo</a>: leis, decretos, tratados e decisões do STF, com a ficha de cada um.</li>
 <li><a href="entenda.html">Entenda como uma lei é feita</a>, em linguagem simples.</li>
-<li><a href="downloads/resumo_piloto_direitos_mulheres.pdf">Baixe o resumo em PDF</a> do piloto.</li>
 <li><a href="compartilhar.html">Textos prontos para compartilhar</a>, com as fontes.</li>
 </ul>
 
@@ -163,7 +227,7 @@ def gerar_index():
 <h2 id="novidades">Novidades</h2>
 <ul>{novs}</ul>
 """
-    return pagina("index.html", "Projeto Democracia Brasil", "Levantamento verificável das políticas públicas no Brasil desde 1985, com fontes oficiais.", corpo, js=bool(VID))
+    return pagina("index.html", "Projeto Democracia Brasil", "Levantamento verificável das políticas públicas no Brasil desde 1985, com fontes oficiais.", corpo, js=True)
 
 # ---------------------------------------------------------------- acervo
 def item_acervo(x):
@@ -363,6 +427,15 @@ def gerar_entenda():
 # ---------------------------------------------------------------- compartilhar
 def gerar_compartilhar():
     blocos = []
+    for pq in PESQ:
+        texto = texto_resumo(pq, carregar(pq))
+        blocos.append(f"""<div class="cartao" id="resumo-{pq['id']}">
+<h3>Resumo da pesquisa: {e(pq['titulo'])}</h3>
+<p class="post" id="t-resumo-{pq['id']}">{e(texto)}</p>
+<p class="pequeno">{len(texto)} caracteres</p>
+<p class="fontes"><a href="index.html#pesquisa-{pq['id']}">Ver o resultado da pesquisa</a><a href="{pq['pdf']}" download>Baixar o resumo em PDF</a></p>
+<div class="acoes"><button type="button" data-copiar="t-resumo-{pq['id']}">Copiar texto</button><button type="button" class="cheio" data-copiar="t-resumo-{pq['id']}" data-share>Compartilhar</button></div>
+</div>""")
     for p in POSTS:
         fontes = "\n".join(f"Fonte: {u}" for _, u in p["fontes"][:1])
         texto = p["texto"] + "\n\n" + fontes
@@ -431,8 +504,7 @@ def tamanho(rel):
     return f"{b/1024/1024:.1f} MB" if b > 1024 * 1024 else f"{max(b//1024,1)} KB"
 
 def gerar_baixar():
-    arquivos = [
-        ("downloads/resumo_piloto_direitos_mulheres.pdf", "Resumo do piloto (PDF)", "Os principais achados sobre direitos das mulheres, em poucas páginas, com as fontes."),
+    arquivos = [(p["pdf"], f"Resumo em PDF: {p['titulo']}", "Os principais achados, o mosaico das leis e as fontes, em poucas páginas.") for p in PESQ] + [
         ("downloads/planilha_piloto_direitos_mulheres.xlsx", "Planilha completa (Excel)", "Todas as fichas, a tramitação, as votações, os votos e as notas de método."),
         ("downloads/atos_direitos_mulheres.csv", "Lista de atos (CSV)", "Um ato por linha, com resumo, origem, como foi aprovado e link para a fonte. Abre no Excel e no Google Planilhas."),
         ("downloads/votacoes_plenario.csv", "Votações (CSV)", "Todas as votações em Plenário das leis do piloto, com placar."),
@@ -453,17 +525,17 @@ def gerar_baixar():
     return pagina("baixar.html", "Baixar — Projeto Democracia Brasil", "Downloads do acervo: resumo em PDF, planilha, listas em CSV e guia metodológico.", corpo)
 
 # ---------------------------------------------------------------- resumo (vira PDF)
-def gerar_resumo():
-    marcos = [a for a in ATOS if a["ato"] in (
-        "Lei 7.353/1985", "Constituição Federal de 1988", "Lei 9.029/1995", "Decreto 1.973/1996", "Lei 9.504/1997", "Decreto 4.377/2002",
-        "Lei 11.340/2006", "Lei 13.104/2015", "Lei 13.718/2018", "Lei 14.192/2021", "Emenda Constitucional 117/2022", "Lei 14.611/2023", "Lei 14.994/2024")]
+def gerar_resumo(p):
+    d = carregar(p)
+    ATOS, LAC, META = d["atos"], d["lacunas"], d["meta"]
+    marcos = [a for a in ATOS if a["ato"] in p.get("marcos", [])]
     lin = "".join(f'<tr><td>{br(a["data"])}</td><td><strong>{e(a["ato"])}</strong><br>{e(a["resumo"])}</td><td>{e(a["governo"])}</td></tr>' for a in marcos)
     stf = [a for a in ATOS if a["tipo"] == "STF"]
     lstf = "".join(f'<li><strong>{e(a["ato"])}</strong> ({br(a["data"])}): {e(a["resumo"])}</li>' for a in stf)
     cam, sen = LAC["camara"], LAC["senado"]
     corpo = f"""
-<h1>Direitos das mulheres no Brasil, 1985–2026</h1>
-<p class="lead">Resumo do piloto do Projeto Democracia Brasil. Versão preliminar, atualizada em {e(META['atualizado'])}.</p>
+<h1>{e(p['titulo'])}</h1>
+<p class="lead">Resumo da pesquisa do Projeto Democracia Brasil. {e(p['situacao'])}, atualizada em {e(META['atualizado'])}.</p>
 <h2>O que levantamos</h2>
 <ul>
 <li>{META['total_atos']} atos federais: leis, decretos, tratados internacionais e decisões do STF.</li>
@@ -471,7 +543,9 @@ def gerar_resumo():
 <li>{milhar(META['total_votacoes'])} votações e {milhar(META['total_votos'])} votos individuais de parlamentares.</li>
 </ul>
 <h2>Principal achado</h2>
-<p>Só <strong>{LAC['com_nominal']} das {LAC['total']}</strong> leis tiveram o voto de cada parlamentar registrado no texto principal, em pelo menos uma das Casas.</p>
+<h3>Como as {LAC['total']} leis passaram pelo Congresso</h3>
+{bloco_mosaico(p, d, toque=False)}
+<p>O voto nominal foi registrado em pelo menos uma das Casas. Por Casa:</p>
 <ul>
 <li>Câmara: {cam.get('Plenário, votação simbólica',0)} aprovadas por votação simbólica, {cam.get('Só nas comissões',0)} só nas comissões, {cam.get('Plenário, votação nominal',0)} com votação nominal.</li>
 <li>Senado: {sen.get('Plenário, votação simbólica',0)} aprovadas por votação simbólica, {sen.get('Só nas comissões',0)} só nas comissões, {sen.get('Plenário, votação nominal',0)} com votação nominal.</li>
@@ -494,13 +568,13 @@ def gerar_resumo():
 <li>Senado Federal, dados abertos: <a href="https://legis.senado.leg.br/dadosabertos">legis.senado.leg.br/dadosabertos</a></li>
 <li>Decisões do STF: fontes indicadas em cada item do acervo.</li>
 </ul>
-{f'<p>Acervo completo, com a fonte de cada item: <a href="{URL}">{URL}</a></p>' if URL else ''}
+{f'<p>Acervo completo, com a fonte de cada item: <a href="{URL}/#pesquisa-{p["id"]}">{URL}/#pesquisa-{p["id"]}</a></p>' if URL else ''}
 """
-    return pagina("resumo.html", "Resumo do piloto — Projeto Democracia Brasil", "Resumo dos principais achados sobre direitos das mulheres, 1985–2026.", corpo)
+    return pagina(p["paginas"]["resumo"], f"Resumo: {p['titulo']} — Projeto Democracia Brasil", f"Resumo dos principais achados: {p['titulo']}.", corpo)
 
 if __name__ == "__main__":
     for nome, f in (("index.html", gerar_index), ("acervo.html", gerar_acervo), ("votacoes.html", gerar_votacoes), ("entenda.html", gerar_entenda),
-                    ("compartilhar.html", gerar_compartilhar), ("baixar.html", gerar_baixar), ("resumo.html", gerar_resumo),
-                    ("como-usar.html", gerar_como_usar)):
+                    ("compartilhar.html", gerar_compartilhar), ("baixar.html", gerar_baixar),
+                    ("como-usar.html", gerar_como_usar)) + tuple((p["paginas"]["resumo"], functools.partial(gerar_resumo, p)) for p in PESQ):
         open(os.path.join(RAIZ, nome), "w", encoding="utf-8").write(f())
         print(f"{nome}: {os.path.getsize(os.path.join(RAIZ, nome))//1024} KB")

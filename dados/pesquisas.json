@@ -1,0 +1,19 @@
+{
+ "comentario": "Cadastro das pesquisas publicadas. Cada pesquisa nova entra aqui; a página inicial, o PDF do resumo e o texto para compartilhar são gerados a partir destes campos e dos arquivos de dados indicados. Os números nunca são escritos à mão: vêm dos dados.",
+ "pesquisas": [
+  {
+   "id": "direitos-das-mulheres",
+   "tema": "Direitos das mulheres",
+   "titulo": "Direitos das mulheres no Brasil, 1985–2026",
+   "assunto": "direitos das mulheres",
+   "situacao": "Piloto, versão preliminar",
+   "chamada": "Lei por lei, como o Congresso aprovou as normas federais sobre direitos das mulheres desde 1985, com a fonte oficial de cada informação.",
+   "dados": {"atos": "atos.json", "mosaico": "mosaico.json", "lacunas": "lacunas.json", "meta": "meta.json"},
+   "paginas": {"acervo": "acervo.html", "votacoes": "votacoes.html", "resumo": "resumo.html"},
+   "pdf": "downloads/resumo_piloto_direitos_mulheres.pdf",
+   "planilha": "downloads/planilha_piloto_direitos_mulheres.xlsx",
+   "marcos": ["Lei 7.353/1985", "Constituição Federal de 1988", "Lei 9.029/1995", "Decreto 1.973/1996", "Lei 9.504/1997", "Decreto 4.377/2002",
+              "Lei 11.340/2006", "Lei 13.104/2015", "Lei 13.718/2018", "Lei 14.192/2021", "Emenda Constitucional 117/2022", "Lei 14.611/2023", "Lei 14.994/2024"]
+  }
+ ]
+}

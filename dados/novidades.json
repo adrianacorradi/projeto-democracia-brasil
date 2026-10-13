@@ -1,5 +1,9 @@
 [
  {
+  "data": "2026-10-13",
+  "texto": "A página inicial passa a mostrar o resultado de cada pesquisa no mesmo formato: números, mosaico das leis, principal achado, resumo em PDF e um texto pronto para compartilhar. O PDF do resumo agora traz o mosaico."
+ },
+ {
   "data": "2026-10-12",
   "texto": "Novo topo, igual em todas as páginas: faixa verde separada do conteúdo, menu em botões com a página atual marcada, uma dica do que fazer em cada página e o botão \"Como usar\". Os vídeos de ajuda foram regravados com o novo topo."
  },

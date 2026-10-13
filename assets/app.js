@@ -6,8 +6,9 @@
   function ler() { try { return JSON.parse(localStorage.getItem(CHAVE) || "[]"); } catch (e) { return memoria; } }
   function gravar(v) { memoria = v; try { localStorage.setItem(CHAVE, JSON.stringify(v)); } catch (e) {} }
   var memoria = [];
-  function status(msg) {
-    var el = document.getElementById("status");
+  function status(msg, perto) {
+    var caixa = perto && perto.closest ? perto.closest("section, .cartao") : null;
+    var el = (caixa && caixa.querySelector(".status")) || document.getElementById("status");
     if (el) { el.textContent = msg; setTimeout(function () { if (el.textContent === msg) el.textContent = ""; }, 4000); }
   }
 
@@ -37,9 +38,14 @@
     var c = ev.target.closest("[data-copiar]");
     if (c) {
       var el = document.getElementById(c.getAttribute("data-copiar"));
-      var txt = el ? el.innerText : "";
+      var fechado = el && el.closest("details:not([open])");
+      var txt = el ? (fechado ? el.textContent : el.innerText) : "";
       if (c.hasAttribute("data-share") && navigator.share) { navigator.share({ text: txt }).catch(function () {}); return; }
-      if (navigator.clipboard) navigator.clipboard.writeText(txt).then(function () { status("Texto copiado."); });
+      if (fechado) fechado.open = true;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(function () { status("Texto copiado. Agora é só colar onde quiser.", c); },
+          function () { status("Não foi possível copiar. Selecione o texto abaixo e copie.", c); });
+      } else { status("Selecione o texto abaixo e copie.", c); }
     }
   });
 
