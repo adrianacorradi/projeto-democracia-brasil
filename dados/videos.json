@@ -7,7 +7,7 @@
    "icone": "play",
    "titulo": "Como usar o site",
    "chamada": "Um passeio pelas páginas do site.",
-   "subtitulo": "Leis sobre direitos das mulheres desde 1985, com a fonte oficial de cada informação.",
+   "subtitulo": "O resultado de cada pesquisa, lei por lei, com a fonte oficial de cada informação.",
    "fim_titulo": "Confira sempre a fonte",
    "fim_texto": "Cada informação do site tem link para a fonte oficial. Esta é uma versão preliminar.",
    "exemplo_busca": "licença",
@@ -20,12 +20,17 @@
     {
      "id": "inicio",
      "pagina": "Início",
-     "texto": "Cada quadrado é uma lei sobre direitos das mulheres, em ordem de data, de 1985 a 2026."
+     "texto": "Na página inicial fica o resultado de cada pesquisa. No mosaico, cada quadrado é uma lei."
     },
     {
      "id": "cores",
      "pagina": "Início",
      "texto": "A cor mostra como a lei foi votada. Verde: o voto de cada parlamentar foi registrado."
+    },
+    {
+     "id": "resultado",
+     "pagina": "Início",
+     "texto": "Baixe o resumo da pesquisa em PDF ou compartilhe o texto pronto, que já traz a fonte oficial."
     },
     {
      "id": "quadrado",
@@ -162,7 +167,12 @@
     {
      "id": "saidas",
      "pagina": "As saídas",
-     "texto": "O item entra na planilha-mestre e no site, com o PDF e os textos para redes, como versão preliminar."
+     "texto": "O item entra na planilha e no site. O resultado na página inicial, o PDF e o texto são atualizados."
+    },
+    {
+     "id": "tema_novo",
+     "pagina": "Pesquisa nova",
+     "texto": "Se for um tema novo, a pesquisa ganha o próprio bloco de resultado na página inicial."
     },
     {
      "id": "conferir",

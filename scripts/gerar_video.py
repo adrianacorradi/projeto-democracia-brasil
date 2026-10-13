@@ -239,9 +239,18 @@ async def video_como_usar(pg, f):
     f.legenda("cores")
     await rolar_para(pg, f, ".legenda", margem=230, passos=8)
     await ler(pg, f)
+    f.legenda("resultado")
+    await rolar_para(pg, f, ".acoes-pesquisa", margem=200, passos=12)
+    await toque(pg, f, pg.locator(".acoes-pesquisa a.botao").first, clicar=False)
+    await toque(pg, f, pg.locator(".acoes-pesquisa [data-share]").first, clicar=False)
+    await pg.evaluate("document.querySelector('.pesquisa details.mais').open=true")
+    await rolar_para(pg, f, ".pesquisa details.mais", margem=150, passos=10)
+    await ler(pg, f)
+    await pg.evaluate("document.querySelector('.pesquisa details.mais').open=false")
     # abre o primeiro quadrado verde (regra fixa, sem escolha de tema)
     f.legenda("quadrado")
-    await segurar(pg, f, 1.2)
+    await rolar_para(pg, f, ".mosaico", margem=150, passos=14)
+    await segurar(pg, f, 0.8)
     await toque(pg, f, pg.locator(".mosaico a.s-nominal").first)
     await segurar(pg, f, 0.8)
     f.legenda("ficha")
@@ -387,19 +396,23 @@ async def video_pesquisa(pg, f):
     await rolar_para(pg, f, ".cartao details.mais", margem=210, passos=10)
     await ler(pg, f)
     f.legenda("saidas")
-    await pg.goto(BASE + "baixar.html"); await pg.wait_for_load_state("load")
-    await segurar(pg, f, 0.8)
-    await rolar_para(pg, f, "main ul", margem=40, passos=10)
-    await segurar(pg, f, 2.0)
     await pg.goto(BASE + "index.html"); await pg.wait_for_load_state("load")
-    await rolar_para(pg, f, "#novidades", margem=16, passos=4)
+    await rolar_para(pg, f, ".pesquisa ul.numeros", margem=60, passos=4)
+    await segurar(pg, f, 1.2)
+    await rolar_para(pg, f, ".acoes-pesquisa", margem=260, passos=16)
+    await toque(pg, f, pg.locator(".acoes-pesquisa a.botao").first, clicar=False)
+    await ler(pg, f)
+    f.legenda("tema_novo")
+    await rolar_para(pg, f, "#resultados", margem=16, passos=14)
+    await segurar(pg, f, 1.0)
+    await rolar_para(pg, f, ".pesquisa", margem=16, passos=8)
     await ler(pg, f)
     f.legenda("conferir")
     await palco(pg, """<h2>Ao final da resposta</h2><p class="pequeno">A resposta termina com a lista das saídas:</p>
 <ul class="checagem">
 <li><b>✓</b><span>Planilha-mestre atualizada</span></li>
-<li><b>✓</b><span>Site, com o item no acervo e em Novidades</span></li>
-<li><b>✓</b><span>PDF resumido e textos para redes</span></li>
+<li><b>✓</b><span>Site: o item no acervo, o resultado na página inicial e Novidades</span></li>
+<li><b>✓</b><span>PDF do resumo e textos para redes</span></li>
 <li><b>✓</b><span>Histórico de versões do guia</span></li>
 <li><b class="pend">!</b><span>O que ficou pendente, com o motivo</span></li></ul>
 <p class="nota">Tudo fica marcado como versão preliminar até a checagem final.</p>""")
