@@ -6,6 +6,7 @@ Entradas: dados/atos.json, mosaico.json, lacunas.json, votacoes_indice.json, met
 Saídas:   index.html, acervo.html, votacoes.html, entenda.html, compartilhar.html, baixar.html, resumo.html, como-usar.html
 """
 import functools, json, os, html, unicodedata
+from urllib.parse import quote
 from datetime import date
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -53,7 +54,8 @@ MENU = [("index.html", "Início"), ("acervo.html", "Acervo"), ("votacoes.html", 
 # Orientação mostrada no topo de cada página (o topo é igual em todas as páginas)
 NOMES = dict(MENU, **{"como-usar.html": "Como usar", "resumo.html": "Resumo"})
 DICAS = {
-    "index.html": "Veja o resultado de cada pesquisa: o mosaico das leis, o resumo em PDF e um texto para compartilhar.",
+    "index.html": "Resultado da pesquisa mais recente: achado, números, assuntos, linha do tempo e downloads.",
+    "pesquisa": "Resultado completo da pesquisa: achado, números, assuntos, linha do tempo, decisões e votações.",
     "acervo.html": "Busque por palavra, número da lei ou ano. Toque em “Detalhes e fontes” para ver a ficha.",
     "votacoes.html": "Veja como cada lei foi votada e o placar por partido.",
     "entenda.html": "O caminho de uma lei e os termos usados no site, em linguagem simples.",
@@ -88,7 +90,7 @@ def pagina(arquivo, titulo, descricao, corpo, js=False):
 {ajuda}
 </div></div>
 <nav class="menu" aria-label="Seções"><div class="coluna">{menu}</div></nav>
-<div class="orientacao"><div class="coluna"><span class="voce">Você está em <strong>{NOMES.get(arquivo, "Resumo" if arquivo.startswith("resumo") else "")}</strong>.</span> {DICAS.get(arquivo, DICAS["resumo.html"] if arquivo.startswith("resumo") else "")}{"" if arquivo == "como-usar.html" else ' <a href="como-usar.html#videos">Ver os vídeos de ajuda</a>'}</div></div>
+<div class="orientacao"><div class="coluna"><span class="voce">Você está em <strong>{NOMES.get(arquivo, "Resumo" if arquivo.startswith("resumo") else ("Resultado da pesquisa" if arquivo.startswith("pesquisa-") else ""))}</strong>.</span> {DICAS.get(arquivo, DICAS["resumo.html"] if arquivo.startswith("resumo") else (DICAS["pesquisa"] if arquivo.startswith("pesquisa-") else ""))}{"" if arquivo == "como-usar.html" else ' <a href="como-usar.html#videos">Ver os vídeos de ajuda</a>'}</div></div>
 <div class="aviso"><div class="coluna">Versão preliminar. Os dados do piloto ainda passam por checagem final. Atualizado em {META['atualizado']}.</div></div>
 </header>
 <main id="conteudo"><div class="coluna">
@@ -141,7 +143,7 @@ def contagem_mosaico(d):
 def texto_resumo(p, d):
     """Texto para compartilhar (até 500 caracteres), montado a partir dos dados. Um fato, sem opinião, com fonte oficial."""
     n, lac = contagem_mosaico(d), d["lacunas"]
-    url = f"{URL}/#pesquisa-{p['id']}" if URL else ""
+    url = url_pesquisa(p)
     return (f"{p['titulo']} ({p['situacao'].lower()}).\n\n"
             f"Das {lac['total']} leis, leis complementares e emendas constitucionais aprovadas no Congresso, "
             f"só {lac['com_nominal']} tiveram o voto de cada parlamentar registrado na votação do texto principal. "
@@ -163,63 +165,214 @@ def bloco_mosaico(p, d, toque=True):
 <p class="destaque-num">Só {d['lacunas']['com_nominal']} das {d['lacunas']['total']} tiveram o voto de cada parlamentar registrado no texto principal.</p>
 <p>As outras foram aprovadas por votação simbólica ({n['simbolica']}), decididas nas comissões ({n['comissoes']}) ou não têm registro nas bases abertas ({n['sem-registro']}). Nesses casos, não é possível saber como cada deputado ou senador votou.</p>"""
 
-def cartao_pesquisa(p):
-    """Resultado de uma pesquisa, no formato da página inicial: números, mosaico, achado, PDF e texto para compartilhar."""
+def slug(t):
+    return "-".join("".join(c if c.isalnum() else " " for c in norm(t)).split())
+
+SELO_TIPO = {"STF": ("Decisão do STF", "stf"), "Decreto": ("Decreto", "outro"), "Constituição": ("Constituinte", "outro")}
+def selo(x):
+    sit = x.get("situacao")
+    if sit:
+        return f'<span class="selo {SIT[sit][1][2:]}">{e(SIT[sit][0])}</span>'
+    rot, cls = SELO_TIPO.get(x["tipo"], (x["tipo"], "outro"))
+    if x.get("escopo") == "Tratado internacional":
+        rot = "Tratado internacional"
+    return f'<span class="selo {cls}">{e(rot)}</span>'
+
+def url_pesquisa(p):
+    return f"{URL}/pesquisa-{p['id']}.html" if URL else f"pesquisa-{p['id']}.html"
+
+def texto_assunto(p, d, sub):
+    """Texto curto para compartilhar um assunto da pesquisa (até 500 caracteres), gerado dos dados."""
+    atos = [a for a in d["atos"] if a["subtema"] == sub]
+    leis = [a for a in atos if a.get("situacao")]
+    nom = sum(1 for a in leis if a["situacao"] == "nominal")
+    ano = min(a["ano"] for a in atos)
+    t = (f"{p['titulo']} ({p['situacao'].lower()}) — {sub}.\n\n"
+         f"O levantamento reúne {len(atos)} atos federais sobre o assunto desde {ano}. ")
+    if leis:
+        t += (f"Das {len(leis)} leis aprovadas no Congresso, {nom} {'teve' if nom == 1 else 'tiveram'} o voto de cada parlamentar registrado "
+              f"na votação do texto principal.")
+    t += f"\n\nFonte: {p.get('fonte_congresso', 'https://dadosabertos.camara.leg.br')}\nResumo: {url_pesquisa(p)}#assunto-{slug(sub)}"
+    return t
+
+def botoes_compartilhar(id_texto, texto):
+    zap = "https://wa.me/?text=" + quote(texto)
+    return (f'<div class="acoes"><a class="botao zap" href="{e(zap)}" target="_blank" rel="noopener">Enviar no WhatsApp</a>'
+            f'<button type="button" data-copiar="{id_texto}">Copiar</button></div>')
+
+def resultado_completo(p, nivel_titulo="h1"):
+    """Resultado completo de uma pesquisa, gerado só a partir dos dados: abertura, faixa das últimas normas,
+    principal achado, números, assuntos, linha do tempo, STF, votações nominais, downloads e limites."""
     d = carregar(p)
-    meta, lac = d["meta"], d["lacunas"]
-    texto = texto_resumo(p, d)
-    if len(texto) > 500:   # regra do projeto para textos de redes
-        raise SystemExit(f"Texto para compartilhar de {p['id']} tem {len(texto)} caracteres (máximo 500).")
+    atos, meta, lac = d["atos"], d["meta"], d["lacunas"]
+    vot = d.get("votacoes", [])
     pg = p["paginas"]
-    return f"""<section class="pesquisa" id="pesquisa-{p['id']}" aria-labelledby="titulo-{p['id']}">
-<p class="selo-pesquisa">{e(p['situacao'])} · atualizada em {e(meta['atualizado'])}</p>
-<h3 id="titulo-{p['id']}">{e(p['titulo'])}</h3>
-<p class="pesquisa-chamada">{e(p['chamada'])}</p>
-<ul class="numeros">
-<li><strong>{milhar(meta['total_atos'])}</strong><span>atos federais levantados</span></li>
-<li><strong>{lac['total']}</strong><span>leis aprovadas no Congresso</span></li>
-<li><strong>{milhar(meta['total_votacoes'])}</strong><span>votações em Plenário</span></li>
-</ul>
-<h4>Como as {lac['total']} leis passaram pelo Congresso</h4>
-{bloco_mosaico(p, d)}
+    n = contagem_mosaico(d)
+    pid = p["id"]
+    anos = [a["ano"] for a in atos]
+    texto = texto_resumo(p, d)
+    if len(texto) > 500:
+        raise SystemExit(f"Texto para compartilhar de {pid} tem {len(texto)} caracteres (máximo 500).")
+
+    # faixa: as normas mais recentes
+    recentes = sorted(atos, key=lambda a: a["data"], reverse=True)[:12]
+    itens = "".join(f'<a href="{pg["acervo"]}#{e(a["id"])}"><i class="{e(a.get("situacao") or "outro")}" aria-hidden="true"></i><b>{br(a["data"])[3:]}</b>{e(a["ato"])} · {e(a["resumo"][:70] + ("…" if len(a["resumo"]) > 70 else ""))}</a>' for a in recentes)
+    faixa = f'<div class="faixa" role="region" aria-label="Normas mais recentes da pesquisa"><div class="trilho">{itens}<span aria-hidden="true" style="display:contents">{itens.replace("<a ", "<a tabindex=\"-1\" ")}</span></div></div>'
+
+    # números
+    n_stf = sum(1 for a in atos if a["tipo"] == "STF")
+    n_dec = sum(1 for a in atos if a["tipo"] == "Decreto")
+    numeros = [
+        (milhar(meta["total_atos"]), "atos federais no levantamento", "Planalto, Câmara, Senado e STF"),
+        (lac["total"], "leis aprovadas no Congresso", "Planalto"),
+        (lac["com_nominal"], "com o voto de cada parlamentar registrado", "Dados abertos da Câmara e do Senado"),
+        (milhar(meta["total_votacoes"]), "votações em Plenário", "Dados abertos da Câmara e do Senado"),
+        (milhar(meta["total_votos"]), "votos individuais de parlamentares", "Dados abertos da Câmara e do Senado"),
+        (n_stf, "decisões do STF", "Supremo Tribunal Federal"),
+    ]
+    if n_dec:
+        numeros.append((n_dec, "decretos", "Planalto"))
+    lis_num = "".join(f"<li><strong>{v}</strong><span>{e(r)}</span><em>Fonte: {e(f)}</em></li>" for v, r, f in numeros[:6])
+
+    # assuntos
+    subs = sorted({a["subtema"] for a in atos}, key=lambda s_: -sum(1 for a in atos if a["subtema"] == s_))
+    cards = []
+    for sub in subs:
+        da = sorted([a for a in atos if a["subtema"] == sub], key=lambda a: a["data"], reverse=True)
+        leis = [a for a in da if a.get("situacao")]
+        nom = sum(1 for a in leis if a["situacao"] == "nominal")
+        tx = texto_assunto(p, d, sub)
+        if len(tx) > 500:
+            raise SystemExit(f"Texto do assunto {sub} tem {len(tx)} caracteres (máximo 500).")
+        ult = da[0]
+        fatos = "".join(f'<li><a href="{pg["acervo"]}#{e(a["id"])}">{e(a["ato"])}</a> ({a["ano"]}): {e(a["resumo"])} <a href="{e(a["link"])}" rel="noopener">texto oficial</a></li>' for a in da[:5])
+        if leis:
+            dado = f'<div class="dado"><span class="n">{nom} de {len(leis)}</span>leis do assunto aprovadas no Congresso tiveram o voto de cada parlamentar registrado.<span class="fonte">Fonte: dados abertos da Câmara e do Senado ↗</span></div>'
+        else:
+            dado = f'<div class="dado"><span class="n">{len(da)}</span>atos, nenhum deles lei votada no Congresso.<span class="fonte">Fonte: Planalto e STF</span></div>'
+        sid = f"t-assunto-{slug(sub)}"
+        cards.append(f"""<article class="ccard" id="assunto-{slug(sub)}">
+<p class="rotulo">{len(da)} atos · desde {min(a["ano"] for a in da)}</p>
+<h3>{e(sub)}</h3>
+<p class="chamada">Mais recente: {e(ult["ato"])}, de {br(ult["data"])}.</p>
+{dado}
+<div class="recente"><b>O que diz a mais recente</b>{e(ult["resumo"])}</div>
+<details class="mais"><summary>Fatos e fontes</summary><ul class="fatos">{fatos}</ul>
+<p class="pequeno"><a href="{pg['acervo']}?assunto={quote(sub)}">Ver os {len(da)} atos no acervo</a></p></details>
+<p class="post" id="{sid}" hidden>{e(tx)}</p>
+{botoes_compartilhar(sid, tx)}
+<p class="status" role="status"></p>
+</article>""")
+
+    # linha do tempo
+    marcos = [a for a in atos if a["ato"] in p.get("marcos", [])]
+    marcos.sort(key=lambda a: a["data"])
+    tempo = "".join(f'<li><time datetime="{a["data"]}">{br(a["data"])}</time><div><div class="t-ato"><a href="{pg["acervo"]}#{e(a["id"])}">{e(a["ato"])}</a></div><p>{e(a["resumo"])}</p>{selo(a)} <span class="pequeno">Governo {e(a["governo"])}</span></div></li>' for a in marcos)
+
+    # STF
+    stf = sorted([a for a in atos if a["tipo"] == "STF"], key=lambda a: a["data"], reverse=True)
+    stf_cards = "".join(f"""<article class="ccard stf">
+<p class="rotulo">STF · {e((a.get("stf") or {}).get("caso") or a["ato"])} · {a["ano"]}</p>
+<h3>{e(a["resumo"])}</h3>
+<div class="fato"><b>Situação: {e((a.get("stf") or {}).get("status") or "—")}</b>{e((a.get("stf") or {}).get("resultado") or "")}</div>
+<p class="pequeno"><a href="{pg['acervo']}#{e(a['id'])}">Detalhes, posições e cronologia</a> · <a href="{e(a['link'])}" rel="noopener">Fonte</a></p>
+</article>""" for a in stf)
+
+    # votações nominais
+    rank = "".join(f"""<li><div><div class="r-titulo">{e(v['ato'])}</div>
+<div class="r-meta">{e(v['casa'])} · {br(v['data'])} · {v['sim']} sim · {v['nao']} não{f" · {v['abst']} abst." if v['abst'] else ""}{f" · {v['obst']} obstr." if v['obst'] else ""}</div>
+{barra(v['sim'], v['nao'], v['abst'], v['obst'])}
+{'<p class="nota">Esta lei alterou uma regra anterior (afastamento da gestante, Lei 14.151/2021). Votar sim aqui significa aprovar essa alteração.</p>' if v.get('revisar') else ''}
+<div class="pequeno"><a href="{e(v['fonte'])}" rel="noopener">Tramitação oficial</a> · <a href="{e(v['dados_abertos'])}" rel="noopener">Dados abertos</a></div></div></li>""" for v in sorted(vot, key=lambda v: v["data"], reverse=True))
+
+    H = nivel_titulo
+    return f"""<section class="resultado" id="pesquisa-{pid}" aria-labelledby="titulo-{pid}">
+<div class="r-abertura">
+<div><p class="rotulo">Pesquisa · {e(p['situacao'])} · atualizada em {e(meta['atualizado'])}</p>
+<{H} id="titulo-{pid}">{e(p['titulo'])}</{H}></div>
+<div class="contador" aria-label="{meta['total_atos']} atos no levantamento"><strong>{meta['total_atos']}</strong><span>atos</span></div>
+<p class="lead">{e(p['chamada'])}</p>
+</div>
+<nav class="sumario" aria-label="Partes do resultado"><a href="#achado-{pid}">Achado</a><a href="#numeros-{pid}">Números</a><a href="#assuntos-{pid}">Assuntos</a><a href="#tempo-{pid}">Linha do tempo</a>{f'<a href="#stf-{pid}">STF</a>' if stf else ''}{f'<a href="#votos-{pid}">Votações</a>' if vot else ''}<a href="#baixar-{pid}">Baixar</a></nav>
+{faixa}
+
+<div class="achado" id="achado-{pid}">
+<p class="rotulo">Principal achado</p>
+<p class="grande">{lac['com_nominal']} <small>de {lac['total']}</small></p>
+<p>leis aprovadas no Congresso tiveram o voto de cada parlamentar registrado na votação do texto principal. As outras foram aprovadas por votação simbólica ({n['simbolica']}), decididas nas comissões ({n['comissoes']}) ou não têm registro nas bases abertas ({n['sem-registro']}). Sem registro nominal, não dá para saber como cada parlamentar votou, e isso não indica apoio nem oposição.</p>
+<div class="painel">
+<p class="pequeno">Cada quadrado é uma lei, em ordem de data, de {min(m["ano"] for m in d["mosaico"])} a {max(m["ano"] for m in d["mosaico"])}. Toque em um quadrado para ver a lei.</p>
+<div class="mosaico" role="list" aria-label="Leis em ordem de data">{"".join(f'<a class="{SIT[m["situacao"]][1]}" href="{pg["acervo"]}#{e(m["id"])}" title="{e(m["ato"])}: {e(SIT[m["situacao"]][0].lower())}" aria-label="{e(m["ato"])}, {e(SIT[m["situacao"]][0].lower())}"></a>' for m in d["mosaico"])}</div>
+<div class="eixo" aria-hidden="true"><span>{min(m["ano"] for m in d["mosaico"])}</span><span>{max(m["ano"] for m in d["mosaico"])}</span></div>
+{legenda()}
+<p class="pequeno"><a href="{pg['votacoes']}">Como o Congresso votou</a> · <a href="entenda.html#votacao">Votação nominal ou simbólica?</a></p>
+</div>
+</div>
+
+<h2 id="numeros-{pid}">Em números</h2>
+<ul class="grade-numeros">{lis_num}</ul>
+
+<h2 id="assuntos-{pid}">Assuntos</h2>
+<p class="pequeno">Um cartão por assunto, do que tem mais atos para o que tem menos. Deslize para o lado.</p>
+<div class="carrossel">{"".join(cards)}</div>
+
+<h2 id="tempo-{pid}">Linha do tempo</h2>
+<p class="pequeno">Marcos da pesquisa, com a forma como cada um foi aprovado.</p>
+<ol class="tempo">{tempo}</ol>
+
+{f'<h2 id="stf-{pid}">No Supremo</h2><p class="pequeno">Decisões do STF ligadas ao tema, com a situação atual.</p><div class="carrossel">{stf_cards}</div>' if stf else ''}
+
+{f'<h2 id="votos-{pid}">Votações com voto registrado</h2><p class="pequeno">Votações nominais do texto principal das leis do núcleo do tema, da mais recente para a mais antiga. Uma lei pode ter mais de uma votação (por exemplo, os dois turnos de uma emenda constitucional em cada Casa). Votar sim significa aprovar o texto que virou lei.</p><ol class="ranking">{rank}</ol>' if vot else ''}
+
+<h2 id="baixar-{pid}">Baixar e compartilhar</h2>
 <div class="acoes-pesquisa">
 <a class="botao cheio" href="{p['pdf']}" download>Baixar o resumo em PDF <span class="pequeno">({tamanho(p['pdf'])})</span></a>
-<button type="button" data-copiar="texto-{p['id']}" data-share>Compartilhar o resumo</button>
-<button type="button" data-copiar="texto-{p['id']}">Copiar texto</button>
+<a class="botao zap" href="{e('https://wa.me/?text=' + quote(texto))}" target="_blank" rel="noopener">Enviar no WhatsApp</a>
+<button type="button" data-copiar="texto-{pid}" data-share>Compartilhar</button>
+<button type="button" data-copiar="texto-{pid}">Copiar texto</button>
+<a class="botao" href="{p['planilha']}" download>Planilha com todos os dados</a>
 </div>
-<p class="status" id="status-{p['id']}" role="status"></p>
-<details class="mais"><summary>Ler o texto para compartilhar ({len(texto)} caracteres)</summary><p class="post" id="texto-{p['id']}">{e(texto)}</p></details>
-<p class="links-pesquisa"><a href="{pg['acervo']}">Todas as leis no acervo</a> <a href="{pg['votacoes']}">Como o Congresso votou</a> <a href="{pg['resumo']}">Resumo completo</a> <a href="{p['planilha']}" download>Planilha com todos os dados</a></p>
+<p class="status" id="status-{pid}" role="status"></p>
+<details class="mais"><summary>Ler o texto para compartilhar ({len(texto)} caracteres)</summary><p class="post" id="texto-{pid}">{e(texto)}</p></details>
+
+<div class="limites"><strong>Limites.</strong>
+<ul>
+<li>Versão preliminar: os dados ainda passam por checagem final.</li>
+<li>A lista vem das ementas publicadas no Planalto; leis cuja ementa não cita o tema podem faltar.</li>
+<li>A Câmara não tem votos individuais nas bases abertas antes de 2005.</li>
+<li>Contar leis por governo não mede importância nem efeito; por isso não há ranking de governos.</li>
+</ul>
+<p class="pequeno">Fontes: Planalto (legislação), dados abertos da Câmara e do Senado, Supremo Tribunal Federal. Cada item tem o link da sua fonte no <a href="{pg['acervo']}">acervo</a>. Método completo no <a href="downloads/guia_metodologico.md">guia metodológico</a>.</p>
+</div>
 </section>"""
 
+def pesquisa_destaque():
+    return next((p for p in PESQ if p.get("destaque")), PESQ[0])
+
+def gerar_pesquisa(p):
+    corpo = resultado_completo(p) + '\n<p><a href="index.html">Voltar para o início</a></p>'
+    return pagina(f"pesquisa-{p['id']}.html", f"{p['titulo']} — Projeto Democracia Brasil", p["chamada"], corpo, js=True)
+
 def gerar_index():
-    pesq_tema = {p["tema"]: p for p in PESQ}
+    dest = pesquisa_destaque()
+    outras = [p for p in PESQ if p is not dest]
     def item_tema(t, st):
         p = next((x for x in PESQ if t.startswith(x["tema"])), None)
         if p:
-            return f'<li>{e(t)} — <a href="#pesquisa-{p["id"]}">{e(p["situacao"].lower())}</a></li>'
+            return f'<li>{e(t)} — <a href="pesquisa-{p["id"]}.html">{e(p["situacao"].lower())}</a></li>'
         return f"<li>{e(t)} — em preparação</li>"
     temas = "".join(item_tema(t, st) for t, st in TEMAS)
     novs = "".join(f"<li><strong>{br(x['data'])}</strong>: {e(x['texto'])}</li>" for x in NOV)
-    indice = ""
-    if len(PESQ) > 1:
-        indice = '<ul class="indice-pesquisas">' + "".join(f'<li><a href="#pesquisa-{p["id"]}">{e(p["titulo"])}</a></li>' for p in PESQ) + "</ul>"
+    bloco_outras = ""
+    if outras:
+        bloco_outras = '<h2>Outras pesquisas</h2><div class="outras">' + "".join(
+            f'<a class="cartao" href="pesquisa-{p["id"]}.html"><span class="selo-pesquisa">{e(p["situacao"])}</span><h3>{e(p["titulo"])}</h3><p>{e(p["chamada"])}</p></a>' for p in outras) + "</div>"
     corpo = f"""
-<h1>O que mudou nos direitos da população brasileira desde 1985</h1>
-<p class="lead">Lei por lei, com a fonte oficial de cada informação. Cada pesquisa publicada aparece abaixo, com o resumo em PDF e um texto para compartilhar.</p>
+{resultado_completo(dest)}
+{bloco_outras}
+
+<h2 id="videos">Vídeos: como usar</h2>
 {bloco_videos()}
-
-<h2 id="resultados">Resultados das pesquisas</h2>
-<p class="pequeno">{len(PESQ)} {"pesquisa publicada" if len(PESQ) == 1 else "pesquisas publicadas"}. As outras estão em preparação; veja a lista de temas abaixo.</p>
-{indice}
-{"".join(cartao_pesquisa(p) for p in PESQ)}
-
-<h2>Comece por aqui</h2>
-<ul>
-<li><a href="acervo.html">Pesquise no acervo</a>: leis, decretos, tratados e decisões do STF, com a ficha de cada um.</li>
-<li><a href="entenda.html">Entenda como uma lei é feita</a>, em linguagem simples.</li>
-<li><a href="compartilhar.html">Textos prontos para compartilhar</a>, com as fontes.</li>
-</ul>
 
 <h2>Temas do projeto</h2>
 <ul>{temas}</ul>
@@ -436,6 +589,11 @@ def gerar_compartilhar():
 <p class="fontes"><a href="index.html#pesquisa-{pq['id']}">Ver o resultado da pesquisa</a><a href="{pq['pdf']}" download>Baixar o resumo em PDF</a></p>
 <div class="acoes"><button type="button" data-copiar="t-resumo-{pq['id']}">Copiar texto</button><button type="button" class="cheio" data-copiar="t-resumo-{pq['id']}" data-share>Compartilhar</button></div>
 </div>""")
+        dq = carregar(pq)
+        subs = sorted({a["subtema"] for a in dq["atos"]}, key=lambda s_: -sum(1 for a in dq["atos"] if a["subtema"] == s_))
+        itens = "".join(f"""<div class="cartao"><h3>{e(sub)}</h3><p class="post" id="t-{pq['id']}-{slug(sub)}">{e(texto_assunto(pq, dq, sub))}</p>
+<p class="pequeno">{len(texto_assunto(pq, dq, sub))} caracteres</p>{botoes_compartilhar(f"t-{pq['id']}-{slug(sub)}", texto_assunto(pq, dq, sub))}<p class="status" role="status"></p></div>""" for sub in subs)
+        blocos.append(f'<details class="mais"><summary>Textos por assunto: {e(pq["titulo"])} ({len(subs)})</summary>{itens}</details>')
     for p in POSTS:
         fontes = "\n".join(f"Fonte: {u}" for _, u in p["fontes"][:1])
         texto = p["texto"] + "\n\n" + fontes
@@ -575,6 +733,7 @@ def gerar_resumo(p):
 if __name__ == "__main__":
     for nome, f in (("index.html", gerar_index), ("acervo.html", gerar_acervo), ("votacoes.html", gerar_votacoes), ("entenda.html", gerar_entenda),
                     ("compartilhar.html", gerar_compartilhar), ("baixar.html", gerar_baixar),
-                    ("como-usar.html", gerar_como_usar)) + tuple((p["paginas"]["resumo"], functools.partial(gerar_resumo, p)) for p in PESQ):
+                    ("como-usar.html", gerar_como_usar)) + tuple((p["paginas"]["resumo"], functools.partial(gerar_resumo, p)) for p in PESQ) \
+                 + tuple((f"pesquisa-{p['id']}.html", functools.partial(gerar_pesquisa, p)) for p in PESQ):
         open(os.path.join(RAIZ, nome), "w", encoding="utf-8").write(f())
         print(f"{nome}: {os.path.getsize(os.path.join(RAIZ, nome))//1024} KB")

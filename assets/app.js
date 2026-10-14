@@ -7,7 +7,7 @@
   function gravar(v) { memoria = v; try { localStorage.setItem(CHAVE, JSON.stringify(v)); } catch (e) {} }
   var memoria = [];
   function status(msg, perto) {
-    var caixa = perto && perto.closest ? perto.closest("section, .cartao") : null;
+    var caixa = perto && perto.closest ? perto.closest(".ccard, .cartao, section") : null;
     var el = (caixa && caixa.querySelector(".status")) || document.getElementById("status");
     if (el) { el.textContent = msg; setTimeout(function () { if (el.textContent === msg) el.textContent = ""; }, 4000); }
   }
@@ -39,9 +39,9 @@
     if (c) {
       var el = document.getElementById(c.getAttribute("data-copiar"));
       var fechado = el && el.closest("details:not([open])");
-      var txt = el ? (fechado ? el.textContent : el.innerText) : "";
+      var txt = el ? ((fechado || el.hidden) ? el.textContent : el.innerText) : "";
       if (c.hasAttribute("data-share") && navigator.share) { navigator.share({ text: txt }).catch(function () {}); return; }
-      if (fechado) fechado.open = true;
+      if (fechado && !el.hidden) fechado.open = true;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(txt).then(function () { status("Texto copiado. Agora é só colar onde quiser.", c); },
           function () { status("Não foi possível copiar. Selecione o texto abaixo e copie.", c); });
@@ -145,6 +145,16 @@
     if (li && li.parentNode === lista) { li.hidden = false; var d = li.querySelector("details"); if (d) d.open = true; li.scrollIntoView(); }
   }
   window.addEventListener("hashchange", abrirHash);
+  /* filtros vindos do endereço: acervo.html?assunto=Saúde, ?tipo=Decreto, ?q=palavra */
+  try {
+    var prm = new URLSearchParams(location.search), mapa = { assunto: "data-sub", tipo: "data-tipo", governo: "data-gov" }, algum = false;
+    Object.keys(mapa).forEach(function (k) {
+      var v = prm.get(k), sel = document.querySelector('[data-filtro="' + mapa[k] + '"]');
+      if (v && sel) { sel.value = v; algum = true; }
+    });
+    if (prm.get("q")) campo.value = prm.get("q");
+    if (algum) { var pf = document.querySelector("details.filtros"); if (pf) pf.open = true; }
+  } catch (e) {}
   memoria = ler();
   pintarSelecao(); aplicar(); abrirHash();
 })();

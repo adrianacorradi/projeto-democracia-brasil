@@ -20,7 +20,7 @@
     {
      "id": "inicio",
      "pagina": "Início",
-     "texto": "Na página inicial fica o resultado de cada pesquisa. No mosaico, cada quadrado é uma lei."
+     "texto": "A página inicial mostra o resultado completo da pesquisa mais recente, a começar pelo principal achado."
     },
     {
      "id": "cores",
@@ -28,9 +28,14 @@
      "texto": "A cor mostra como a lei foi votada. Verde: o voto de cada parlamentar foi registrado."
     },
     {
+     "id": "assuntos",
+     "pagina": "Início",
+     "texto": "Os cartões de assunto deslizam para o lado. Cada um traz um número, a fonte e botões para enviar."
+    },
+    {
      "id": "resultado",
      "pagina": "Início",
-     "texto": "Baixe o resumo da pesquisa em PDF ou compartilhe o texto pronto, que já traz a fonte oficial."
+     "texto": "No fim do resultado, baixe o resumo em PDF ou compartilhe o texto pronto, com a fonte oficial."
     },
     {
      "id": "quadrado",
@@ -167,12 +172,12 @@
     {
      "id": "saidas",
      "pagina": "As saídas",
-     "texto": "O item entra na planilha e no site. O resultado na página inicial, o PDF e o texto são atualizados."
+     "texto": "O item entra na planilha e no site. O resultado da pesquisa, o PDF e os textos são atualizados."
     },
     {
      "id": "tema_novo",
      "pagina": "Pesquisa nova",
-     "texto": "Se for um tema novo, a pesquisa ganha o próprio bloco de resultado na página inicial."
+     "texto": "Se for um tema novo, a pesquisa ganha a própria página de resultado, no mesmo formato."
     },
     {
      "id": "conferir",

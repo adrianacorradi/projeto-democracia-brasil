@@ -1,5 +1,9 @@
 [
  {
+  "data": "2026-10-14",
+  "texto": "Novo formato de resultado: cada pesquisa ganha uma página completa, gerada a partir dos dados, com faixa das normas mais recentes, principal achado, números, cartões por assunto (com texto para WhatsApp), linha do tempo, decisões do STF, votações nominais e downloads. A página inicial mostra a pesquisa mais recente nesse formato. O visual do site foi atualizado e os vídeos de ajuda foram gravados de novo."
+ },
+ {
   "data": "2026-10-13",
   "texto": "A página inicial passa a mostrar o resultado de cada pesquisa no mesmo formato: números, mosaico das leis, principal achado, resumo em PDF e um texto pronto para compartilhar. O PDF do resumo agora traz o mosaico. Os vídeos de ajuda foram atualizados para mostrar o novo formato."
  },

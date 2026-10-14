@@ -23,6 +23,7 @@ O arquivo `.nojekyll` precisa ir junto: ele faz o GitHub publicar os arquivos co
 | `votacoes.html` | Como o Congresso votou: lacunas e votações nominais |
 | `entenda.html` | Caminho de uma lei, glossário e método, para leigos |
 | `compartilhar.html` | Textos prontos para redes sociais, com fontes |
+| `pesquisa-<id>.html` | Resultado completo de cada pesquisa do cadastro, gerado dos dados (a página inicial mostra a mais recente) |
 | `como-usar.html` | Orientações de acesso e os vídeos de ajuda (link destacado no topo de todas as páginas) |
 | `baixar.html` | Downloads |
 | `resumo.html` | Base do PDF resumido |
