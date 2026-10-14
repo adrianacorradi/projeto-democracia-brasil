@@ -1,6 +1,10 @@
 [
  {
   "data": "2026-10-14",
+  "texto": "Novo vídeo de abertura \"Para que serve este site\": explica em menos de dois minutos o que é o projeto, que informações você encontra e, apesar dos vários caminhos, o que dá para levar embora e como (frases prontas, PDF do tema, seu próprio recorte e a planilha de dados)."
+ },
+ {
+  "data": "2026-10-14",
   "texto": "A página inicial passa a destacar sozinha a pesquisa publicada mais recente. Quando um novo tema for publicado, ele lidera a home automaticamente, e os demais ficam em \"Outras pesquisas\"."
  },
  {

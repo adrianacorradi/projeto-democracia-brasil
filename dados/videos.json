@@ -2,6 +2,63 @@
  "endereco": "adrianacorradi.github.io/projeto-democracia-brasil",
  "videos": [
   {
+   "id": "para-que-serve",
+   "publico": "consulta",
+   "icone": "play",
+   "titulo": "Para que serve este site",
+   "chamada": "O que é o projeto e o que você leva embora.",
+   "subtitulo": "O que é o projeto, que informações você encontra e o que pode levar embora, passo a passo.",
+   "fim_titulo": "Comece pelo menu do topo",
+   "fim_texto": "Início, Acervo, Compartilhar e Baixar levam a cada um dos caminhos. Esta é uma versão preliminar.",
+   "cenas": [
+    {
+     "id": "intro",
+     "pagina": "O que é",
+     "texto": "Este site reúne, lei por lei, as políticas públicas federais do Brasil desde 1985, sempre com a fonte oficial."
+    },
+    {
+     "id": "temas",
+     "pagina": "Início",
+     "texto": "São 12 temas. Cada um é pesquisado com o mesmo método e entra no site quando a pesquisa fica pronta."
+    },
+    {
+     "id": "resultado",
+     "pagina": "Início",
+     "texto": "Cada tema publicado traz o resultado completo: o principal achado, os números e as leis, com a fonte."
+    },
+    {
+     "id": "levar",
+     "pagina": "O que você leva",
+     "texto": "Apesar dos vários caminhos, você leva quatro coisas daqui. Veja cada uma e onde encontrar."
+    },
+    {
+     "id": "compartilhar",
+     "pagina": "1 · Compartilhar",
+     "texto": "Frases prontas, com a fonte oficial, para copiar ou enviar no WhatsApp. Ficam na página “Compartilhar”."
+    },
+    {
+     "id": "pdf",
+     "pagina": "2 · Baixar o tema",
+     "texto": "O tema inteiro em PDF: um resumo em texto e um painel visual. Ficam no fim de cada resultado."
+    },
+    {
+     "id": "recorte",
+     "pagina": "3 · Seu recorte",
+     "texto": "No “Acervo”, escolha as leis que quiser e toque em “Resumo visual”: um painel só do seu recorte."
+    },
+    {
+     "id": "recorte_saida",
+     "pagina": "3 · Seu recorte",
+     "texto": "Do seu recorte você baixa o PDF, envia no WhatsApp ou copia um link que a pessoa pode editar."
+    },
+    {
+     "id": "dados",
+     "pagina": "4 · Os dados",
+     "texto": "A planilha completa e os dados em CSV, para a sua própria análise, ficam na página “Baixar”."
+    }
+   ]
+  },
+  {
    "id": "como-usar",
    "publico": "consulta",
    "icone": "play",

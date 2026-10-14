@@ -442,7 +442,81 @@ async def video_pesquisa(pg, f):
     await segurar(pg, f, 0.5)
     await ler(pg, f)
 
-ROTEIROS = {"como-usar": video_como_usar, "nova-busca": video_nova_busca, "pesquisa-item-novo": video_pesquisa}
+# ---------------------------------------------------------------- vídeo de abertura: para que serve o site
+async def video_para_que_serve(pg, f):
+    # 1. o que é (tela própria)
+    f.legenda("intro")
+    await palco(pg, """<h2>O que é este site</h2>
+<ul class="grandes"><li>As <strong>políticas públicas federais</strong> do Brasil, <strong>lei por lei</strong>, desde 1985.</li>
+<li>Leis, decretos, tratados e decisões da Justiça.</li>
+<li>Cada informação com o <strong>link para a fonte oficial</strong>.</li></ul>
+<p class="nota">Linguagem neutra, sem opinião. Versão preliminar.</p>""")
+    await segurar(pg, f, 0.5)
+    await ler(pg, f)
+    # 2. os 12 temas (Início)
+    f.legenda("temas")
+    await pg.goto(BASE + "index.html"); await pg.wait_for_load_state("load")
+    await rolar_para(pg, f, "ol.temas", margem=60, passos=16)
+    await segurar(pg, f, 0.8)
+    await toque(pg, f, pg.locator("ol.temas li.publicado a").first, clicar=False)
+    await ler(pg, f)
+    # 3. o resultado completo (Início)
+    f.legenda("resultado")
+    await rolar_para(pg, f, ".achado", margem=20, passos=16)
+    await ler(pg, f)
+    # 4. o que você leva (tela própria)
+    f.legenda("levar")
+    await palco(pg, """<h2>O que você leva embora</h2>
+<ol class="grandes"><li><strong>Frases prontas</strong> para redes e WhatsApp.</li>
+<li>O <strong>tema inteiro em PDF</strong>.</li>
+<li>O <strong>seu recorte</strong> de leis, em PDF ou link.</li>
+<li>A <strong>planilha e os dados</strong> para analisar.</li></ol>""")
+    await segurar(pg, f, 0.5)
+    await ler(pg, f)
+    # 5. caminho 1: Compartilhar (volta do palco para o site por endereço)
+    f.legenda("compartilhar")
+    await pg.goto(BASE + "compartilhar.html"); await pg.wait_for_load_state("load")
+    await rolar_para(pg, f, ".cartao", margem=40, passos=14)
+    await toque(pg, f, pg.locator(".cartao [data-copiar]").first, clicar=False)
+    await ler(pg, f)
+    # 6. caminho 2: PDF do tema (Início, fim do resultado)
+    f.legenda("pdf")
+    await menu(pg, f, "Início")
+    await rolar_para(pg, f, ".acoes-pesquisa", margem=140, passos=16)
+    await toque(pg, f, pg.locator(".acoes-pesquisa .botao.cheio").first, clicar=False)
+    await toque(pg, f, pg.locator('.acoes-pesquisa [data-imprimir]').first, clicar=False)
+    await ler(pg, f)
+    # 7. caminho 3: recorte no Acervo → Resumo visual
+    f.legenda("recorte")
+    await menu(pg, f, "Acervo")
+    campo = pg.locator("#q")
+    await toque(pg, f, campo)
+    await digitar(pg, f, campo, "feminicídio")
+    await segurar(pg, f, 0.5)
+    await rolar_para(pg, f, ".linha-contagem", margem=180, passos=10)
+    await toque(pg, f, pg.locator("#selecionar-todos"))
+    await quadro(pg, f, 0.6)
+    await toque(pg, f, pg.locator("#resumo-selecao"))
+    await pg.wait_for_selector("#painel .achado", timeout=8000)
+    await pg.evaluate("window.scrollTo(0, 0)")
+    await rolar_para(pg, f, "#painel", margem=16, passos=12)
+    await segurar(pg, f, 0.8)
+    await ler(pg, f)
+    # 8. saídas do recorte
+    f.legenda("recorte_saida")
+    await rolar_para(pg, f, "#painel .acoes-pesquisa", margem=140, passos=10)
+    await toque(pg, f, pg.locator("#painel [data-imprimir]").first, clicar=False)
+    await toque(pg, f, pg.locator("#painel a.zap").first, clicar=False)
+    await toque(pg, f, pg.locator("#painel [data-copiar-link]").first, clicar=False)
+    await ler(pg, f)
+    await pg.evaluate("localStorage.clear()")
+    # 9. caminho 4: dados em Baixar
+    f.legenda("dados")
+    await menu(pg, f, "Baixar")
+    await rolar_para(pg, f, "main ul", margem=120, passos=14)
+    await ler(pg, f)
+
+ROTEIROS = {"para-que-serve": video_para_que_serve, "como-usar": video_como_usar, "nova-busca": video_nova_busca, "pesquisa-item-novo": video_pesquisa}
 
 # ---------------------------------------------------------------- execução
 def servidor():
