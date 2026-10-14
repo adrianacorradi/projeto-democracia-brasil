@@ -7,7 +7,7 @@
    "icone": "play",
    "titulo": "Como usar o site",
    "chamada": "Um passeio pelas páginas do site.",
-   "subtitulo": "O resultado de cada pesquisa, lei por lei, com a fonte oficial de cada informação.",
+   "subtitulo": "Os 12 temas do projeto e o resultado da pesquisa mais recente, com a fonte oficial de cada informação.",
    "fim_titulo": "Confira sempre a fonte",
    "fim_texto": "Cada informação do site tem link para a fonte oficial. Esta é uma versão preliminar.",
    "exemplo_busca": "licença",
@@ -18,9 +18,14 @@
      "texto": "No alto de cada página ficam o menu, uma dica do que fazer ali e o botão “Como usar”."
     },
     {
+     "id": "temas",
+     "pagina": "Início",
+     "texto": "A página inicial abre pelos 12 temas do projeto. Cada um mostra se já foi pesquisado."
+    },
+    {
      "id": "inicio",
      "pagina": "Início",
-     "texto": "A página inicial mostra o resultado completo da pesquisa mais recente, a começar pelo principal achado."
+     "texto": "Abaixo dos temas, a pesquisa mais recente, com o resultado completo e o principal achado."
     },
     {
      "id": "cores",

@@ -1,9 +1,11 @@
 {
- "comentario": "Cadastro das pesquisas publicadas. Cada pesquisa nova entra aqui; a página inicial, o PDF do resumo e o texto para compartilhar são gerados a partir destes campos e dos arquivos de dados indicados. Os números nunca são escritos à mão: vêm dos dados.",
+ "comentario": "Cadastro das pesquisas publicadas. Cada pesquisa nova entra aqui; a página inicial, o PDF do resumo e o texto para compartilhar são gerados a partir destes campos e dos arquivos de dados indicados. Os números nunca são escritos à mão: vêm dos dados. 'numero_tema' é a posição do tema em temas.json; 'total_temas' é o número de temas do projeto (o gerador confere os dois).",
+ "total_temas": 12,
  "pesquisas": [
   {
    "id": "direitos-das-mulheres",
    "tema": "Direitos das mulheres",
+   "numero_tema": 8,
    "titulo": "Direitos das mulheres no Brasil, 1985–2026",
    "assunto": "direitos das mulheres",
    "situacao": "Piloto, versão preliminar",
@@ -22,6 +24,28 @@
    },
    "pdf": "downloads/resumo_piloto_direitos_mulheres.pdf",
    "planilha": "downloads/planilha_piloto_direitos_mulheres.xlsx",
+   "arquivos": [
+    [
+     "downloads/planilha_piloto_direitos_mulheres.xlsx",
+     "Planilha completa (Excel)",
+     "Todas as fichas, a tramitação, as votações, os votos e as notas de método."
+    ],
+    [
+     "downloads/atos_direitos_mulheres.csv",
+     "Lista de atos (CSV)",
+     "Um ato por linha, com resumo, origem, como foi aprovado e link para a fonte. Abre no Excel e no Google Planilhas."
+    ],
+    [
+     "downloads/votacoes_plenario.csv",
+     "Votações (CSV)",
+     "Todas as votações em Plenário das leis da pesquisa, com placar."
+    ],
+    [
+     "downloads/votos_nominais.zip",
+     "Votos de cada parlamentar (CSV compactado)",
+     "O voto de cada deputado e senador nas votações nominais, com partido e UF na data."
+    ]
+   ],
    "marcos": [
     "Lei 7.353/1985",
     "Constituição Federal de 1988",

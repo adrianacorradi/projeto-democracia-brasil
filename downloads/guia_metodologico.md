@@ -1,6 +1,6 @@
 # Projeto Democracia Brasil — Guia metodológico
 
-**Versão 2.10 — 14/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
+**Versão 2.11 — 14/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
 
 ---
 
@@ -175,7 +175,7 @@ O denominador é sempre exibido junto ao índice.
    - **Fora do índice:** Destaque, Emendas, Emendas da outra Casa e Procedimental. A direção desses votos depende do conteúdo e exige codificação manual.
 4. **Índice de apoio.**
    - Usa só as votações nominais de mérito de leis de escopo Núcleo.
-   - Mede **apoio ao texto aprovado**, não posição sobre direitos das mulheres em geral.
+   - Mede **apoio ao texto aprovado**, não posição sobre o tema em geral.
    - Leis que alteram uma proteção anterior, como a Lei 14.311/2022, precisam de revisão manual da direção antes de publicar.
 
 **7.7 Resultado do piloto (11/10/2026).**
@@ -279,7 +279,8 @@ Estas saídas são atualizadas **ao final de toda melhoria, análise ou pesquisa
 | Planilha-mestre | Base de dados e conferência | Excel |
 | Guia metodológico | Regras e histórico de versões | Documento no Projeto |
 | Site | Acesso público, pesquisa e download, pensado para celular e conexões lentas | HTML estático no GitHub Pages: https://adrianacorradi.github.io/projeto-democracia-brasil/ (repositório público adrianacorradi/projeto-democracia-brasil). Todas as páginas têm o mesmo topo, destacado do conteúdo: menu, página atual marcada, dica de uso da página, botão "Como usar" e aviso de versão preliminar |
-| Resultado de cada pesquisa | Apresentar o que cada pesquisa encontrou, sempre no mesmo formato | Página própria no site (`pesquisa-<id>.html`), gerada a partir dos dados: faixa das normas mais recentes, principal achado com o mosaico, números com fonte, cartões por assunto (número, fonte, fatos e fontes, texto para WhatsApp e para copiar), linha do tempo dos marcos com a forma de aprovação, decisões do STF com a situação, votações nominais com placar, downloads e limites. A página inicial mostra a pesquisa mais recente nesse formato. Cada pesquisa entra no cadastro `dados/pesquisas.json`; os números vêm sempre dos dados, nunca são digitados; todo texto para compartilhar tem até 500 caracteres e a fonte oficial |
+| Página inicial | Apresentar o projeto inteiro | Abre pelo projeto e pelos 12 temas, em cartões com a situação de cada um (publicado ou a pesquisar). Logo abaixo, "Última pesquisa publicada", com o resultado completo da pesquisa mais recente |
+| Resultado de cada pesquisa | Apresentar o que cada pesquisa encontrou, sempre no mesmo formato | Página própria no site (`pesquisa-<id>.html`), gerada a partir dos dados, identificada como "Tema N de 12": faixa das normas mais recentes, principal achado com o mosaico, números com fonte, cartões por assunto (número, fonte, fatos e fontes, texto para WhatsApp e para copiar), linha do tempo dos marcos com a forma de aprovação, decisões do STF com a situação, votações nominais com placar, downloads e limites. A página inicial mostra a pesquisa mais recente nesse formato. Cada pesquisa entra no cadastro `dados/pesquisas.json`; os números vêm sempre dos dados, nunca são digitados; todo texto para compartilhar tem até 500 caracteres e a fonte oficial |
 | Resumo visual da seleção | Painel feito pela própria pessoa, com os itens que escolher | No Acervo, "Selecionar todos" ou itens um a um e "Resumo visual": a página inicial monta no navegador o mesmo painel do resultado só com a seleção (achado, mosaico, números, assuntos, linha do tempo, STF, votações). Oferece PDF visual (impressão do painel) e texto didático para WhatsApp (até 500 caracteres, sem contar o link) com o link da seleção; quem recebe pode editar a seleção e gerar a própria versão. Os números valem só para os itens escolhidos, e o painel avisa isso |
 | PDF resumido | Leitura rápida e impressão | Um por pesquisa, gerado a partir da página de resumo dela, com o mosaico das leis |
 | Textos para redes sociais | Debate público | Página "Compartilhar" do site |
@@ -293,6 +294,13 @@ Estas saídas são atualizadas **ao final de toda melhoria, análise ou pesquisa
 4. Registrar a mudança em "Novidades" e no histórico de versões.
 5. Conferir números e links.
 6. Enviar as alterações ao repositório do GitHub e conferir o site publicado.
+
+**O site apresenta o projeto inteiro, não um tema.** Nenhum tema é a identidade do site, nem mesmo o primeiro pesquisado:
+- O topo de todas as páginas traz "Políticas públicas desde 1985 · 12 temas". Textos gerais (topo, rodapé, descrições das páginas, Acervo, Votações, Compartilhar, Baixar, Entenda) não citam um tema específico.
+- O que é de um tema aparece com a etiqueta "Tema N de 12" e o nome do tema. Exemplos tirados de um tema são identificados como exemplo.
+- As páginas de consulta dizem quantos temas já foram publicados e quantos faltam. O Acervo tem filtro por tema; Votações, Compartilhar e Baixar são separados por tema.
+- Cada resultado, resumo em PDF e texto para compartilhar informa que os números valem só para aquele tema.
+- O gerador do site confere o número de cada tema no cadastro de pesquisas contra a lista de temas.
 
 **Privacidade antes de publicar:** os arquivos públicos trazem apenas nomes e dados funcionais de agentes públicos (parlamentares, ministros do STF) e nomes de leis. Não entram e-mails, CPF, telefones, endereços nem dados de saúde; motivos de ausência ligados a saúde aparecem como "licença".
 
@@ -359,6 +367,7 @@ Contagens por governo só devem ser usadas depois que a varredura estiver comple
 - **v2.8 (13/10/2026).** Página inicial passa a mostrar o resultado de cada pesquisa no mesmo formato, a partir de um cadastro de pesquisas; PDF do resumo com o mosaico; texto-resumo para compartilhar gerado dos dados; vídeos atualizados (seção 11).
 - **v2.9 (14/10/2026).** Página de resultado completa por pesquisa, gerada dos dados (seção 11), com textos para compartilhar por assunto; novo visual do site inspirado no formato de painel indicado pelo projeto, mantendo a linguagem neutra; vídeos regravados.
 - **v2.10 (14/10/2026).** Resumo visual da seleção no Acervo ("Selecionar todos", painel na página inicial, PDF visual, texto didático para WhatsApp com link editável); botão de PDF visual também no resultado de cada pesquisa (seção 11).
+- **v2.11 (14/10/2026).** Correção de apresentação: o site estava montado em volta do único tema publicado (direitos das mulheres) e parecia tratar só desse tema. Regra nova na seção 11: o site apresenta o projeto inteiro. A página inicial abre pelos 12 temas e a situação de cada um, e a pesquisa publicada aparece como "Tema 8 de 12". Textos gerais sem tema fixo; Acervo com filtro por tema; Votações, Compartilhar e Baixar separados por tema; o painel da seleção aceita itens de mais de um tema. Na seção 7.6, a regra do índice de apoio deixa de citar um tema específico. Vídeos regravados.
 
 ## Fontes de referência
 

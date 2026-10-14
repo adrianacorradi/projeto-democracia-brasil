@@ -12,7 +12,8 @@
     "Dados abertos do Senado",
     "https://legis.senado.leg.br/dadosabertos/"
    ]
-  ]
+  ],
+  "pesquisa": "direitos-das-mulheres"
  },
  {
   "id": "post-maria-da-penha",
@@ -27,7 +28,8 @@
     "Tramitação na Câmara",
     "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=272058"
    ]
-  ]
+  ],
+  "pesquisa": "direitos-das-mulheres"
  },
  {
   "id": "post-feminicidio",
@@ -42,7 +44,8 @@
     "Lei 14.994/2024",
     "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/L14994.htm"
    ]
-  ]
+  ],
+  "pesquisa": "direitos-das-mulheres"
  },
  {
   "id": "post-igualdade-salarial",
@@ -57,7 +60,8 @@
     "Votos na Câmara (dados abertos)",
     "https://dadosabertos.camara.leg.br/api/v2/votacoes/2351179-51/votos"
    ]
-  ]
+  ],
+  "pesquisa": "direitos-das-mulheres"
  },
  {
   "id": "post-candidaturas",
@@ -72,6 +76,7 @@
     "Emenda Constitucional 117",
     "https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc117.htm"
    ]
-  ]
+  ],
+  "pesquisa": "direitos-das-mulheres"
  }
 ]

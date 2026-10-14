@@ -156,8 +156,9 @@
       '<a class="botao" href="' + esc(editar) + '">Editar esta seleção</a></div><p class="status" role="status"></p>';
     var h = [];
     h.push('<section class="resultado" id="painel" aria-labelledby="titulo-painel">');
-    h.push('<div class="r-abertura"><div><p class="rotulo">Resumo visual da seleção · ' + esc(pq.situacao) + " · gerado em " + hoje + "</p>" +
-      '<h1 id="titulo-painel">' + sel.length + (sel.length === 1 ? " norma escolhida" : " normas escolhidas") + "</h1></div>" +
+    var temaRot = pq.numero_tema ? "Tema " + pq.numero_tema + " de " + pq.total_temas + " · " : (pq.n_temas ? pq.n_temas + " temas · " : "");
+    h.push('<div class="r-abertura"><div><p class="rotulo">Resumo visual da seleção · ' + temaRot + esc(pq.situacao) + " · gerado em " + hoje + "</p>" +
+      '<h2 id="titulo-painel">' + sel.length + (sel.length === 1 ? " norma escolhida" : " normas escolhidas") + "</h2></div>" +
       '<div class="contador"><strong>' + sel.length + '</strong><span>' + (sel.length === 1 ? "item" : "itens") + "</span></div>" +
       '<p class="lead">' + esc(pq.titulo) + ". Painel montado no seu navegador só com as normas escolhidas no Acervo, de " + Math.min.apply(null, anos) + " a " + Math.max.apply(null, anos) + ".</p></div>");
     if (faltam > 0) h.push('<p class="nota">' + faltam + (faltam === 1 ? " item do link não existe" : " itens do link não existem") + " mais nos dados e " + (faltam === 1 ? "ficou" : "ficaram") + " de fora.</p>");
@@ -218,7 +219,8 @@
       '<li>Versão preliminar: os dados ainda passam por checagem final.</li><li>A Câmara não tem votos individuais nas bases abertas antes de 2005.</li></ul>' +
       '<p class="pequeno">Fontes: Planalto (legislação), dados abertos da Câmara e do Senado, Supremo Tribunal Federal. Cada item tem o link da sua fonte no <a href="acervo.html">Acervo</a>.</p>' +
       '<p class="so-impressao">Gerado em <span class="data-impressao"></span>. Abra e edite esta seleção em: ' + esc(link) + "</p></div>");
-    h.push('<p><a href="pesquisa-' + esc(pq.id) + '.html">Ver o resultado completo da pesquisa</a></p></section>');
+    h.push(pq.id ? '<p><a href="pesquisa-' + esc(pq.id) + '.html">Ver o resultado completo da pesquisa deste tema</a></p></section>'
+                 : '<p><a href="index.html#temas">Ver os temas do projeto</a></p></section>');
     caixa.innerHTML = h.join("\n");
   }
   var caixaPainel = document.getElementById("painel-selecao");
@@ -230,12 +232,27 @@
       caixaPainel.innerHTML = '<p class="pequeno">Montando o painel da seleção…</p>';
       var destaque = document.getElementById("resultado-destaque"); if (destaque) destaque.hidden = true;
       fetch("dados/pesquisas.json").then(function (r) { return r.json(); }).then(function (cad) {
-        var pq = cad.pesquisas.filter(function (x) { return x.prefixo === pedido.p; })[0] || cad.pesquisas[0];
-        return Promise.all([fetch("dados/" + pq.dados.atos).then(function (r) { return r.json(); }),
-          pq.dados.votacoes ? fetch("dados/" + pq.dados.votacoes).then(function (r) { return r.json(); }) : []]).then(function (d) {
-          montarPainel(caixaPainel, pq, d[0], d[1], pedido);
+        /* a seleção pode ter itens de mais de um tema: carrega cada pesquisa envolvida (pelo prefixo dos ids) */
+        var prefs = {};
+        if (pedido.p) prefs[pedido.p] = true;
+        pedido.ids.forEach(function (i) { var m = /^([A-Z]+)-/.exec(i); if (m) prefs[m[1]] = true; });
+        var pqs = (pedido.todos && !pedido.p) ? cad.pesquisas : cad.pesquisas.filter(function (x) { return prefs[x.prefixo]; });
+        if (!pqs.length) pqs = cad.pesquisas.slice(0, 1);
+        return Promise.all(pqs.map(function (pq) {
+          return Promise.all([fetch("dados/" + pq.dados.atos).then(function (r) { return r.json(); }),
+            pq.dados.votacoes ? fetch("dados/" + pq.dados.votacoes).then(function (r) { return r.json(); }) : []]).then(function (d) { return { pq: pq, atos: d[0], vot: d[1] }; });
+        })).then(function (res) {
+          var atos = [], vot = [], visto = {};
+          res.forEach(function (r) {
+            atos = atos.concat(r.atos);
+            r.vot.forEach(function (v) { var k = v.ato + "|" + v.casa + "|" + v.data; if (!visto[k]) { visto[k] = true; vot.push(v); } });
+          });
+          var pq = pqs.length === 1 ? pqs[0] : { id: "", n_temas: pqs.length, titulo: "Seleção com itens de " + pqs.length + " temas: " + pqs.map(function (x) { return x.tema; }).join(", "),
+            assunto: pqs.map(function (x) { return x.assunto; }).join(" e "), situacao: pqs[0].situacao, fonte_congresso: pqs[0].fonte_congresso };
+          pq.total_temas = cad.total_temas;
+          montarPainel(caixaPainel, pq, atos, vot, pedido);
           var ori = document.querySelector(".orientacao .coluna");
-          if (ori) ori.innerHTML = '<span class="voce">Você está em <strong>Resumo visual</strong>.</span> Painel da sua seleção: baixe em PDF, envie no WhatsApp ou edite a seleção. <a href="index.html">Voltar ao resultado da pesquisa</a>';
+          if (ori) ori.innerHTML = '<span class="voce">Você está em <strong>Resumo visual</strong>.</span> Painel da sua seleção: baixe em PDF, envie no WhatsApp ou edite a seleção. <a href="index.html">Voltar ao início</a>';
           if (location.hash === "#painel") { var alvo = document.getElementById("painel"); if (alvo) alvo.scrollIntoView(); }
         });
       }).catch(function () {
@@ -351,10 +368,10 @@
     if (li && li.parentNode === lista) { li.hidden = false; var d = li.querySelector("details"); if (d) d.open = true; li.scrollIntoView(); }
   }
   window.addEventListener("hashchange", abrirHash);
-  /* filtros e seleção vindos do endereço: ?assunto=Saúde, ?tipo=Decreto, ?q=palavra, ?p=MUL&s=... (seleção de um link) */
+  /* filtros e seleção vindos do endereço: ?tema=Educação, ?assunto=Saúde, ?tipo=Decreto, ?q=palavra, ?p=MUL&s=... (seleção de um link) */
   var avisoLink = "";
   try {
-    var prm = new URLSearchParams(location.search), mapa = { assunto: "data-sub", tipo: "data-tipo", governo: "data-gov" }, algum = false;
+    var prm = new URLSearchParams(location.search), mapa = { tema: "data-tema", assunto: "data-sub", tipo: "data-tipo", governo: "data-gov" }, algum = false;
     Object.keys(mapa).forEach(function (k) {
       var v = prm.get(k), sel = document.querySelector('[data-filtro="' + mapa[k] + '"]');
       if (v && sel) { sel.value = v; algum = true; }
