@@ -376,8 +376,18 @@ def resultado_completo(p, nivel_titulo="h1"):
 </div>
 </section>"""
 
+def ordem_publicacao(p):
+    # ordena por data de publicação (mais recente primeiro); sem data, mantém a ordem do cadastro
+    return (p.get("publicada", ""), PESQ.index(p))
+
+def pesquisas_recentes():
+    # pesquisas da mais recente para a mais antiga (uma marcada com "destaque" vem sempre primeiro)
+    marcada = [p for p in PESQ if p.get("destaque")]
+    resto = sorted((p for p in PESQ if not p.get("destaque")), key=ordem_publicacao, reverse=True)
+    return marcada + resto
+
 def pesquisa_destaque():
-    return next((p for p in PESQ if p.get("destaque")), PESQ[0])
+    return pesquisas_recentes()[0]
 
 def gerar_pesquisa(p):
     corpo = resultado_completo(p) + '\n<p><a href="index.html">Voltar para o início</a></p>'
@@ -396,8 +406,9 @@ def nota_temas():
             f'<a href="index.html#temas">Ver os {NT} temas</a></p>')
 
 def gerar_index():
-    dest = pesquisa_destaque()
-    outras = [p for p in PESQ if p is not dest]
+    recentes = pesquisas_recentes()
+    dest = recentes[0]
+    outras = recentes[1:]   # demais pesquisas, da mais recente para a mais antiga
     def cartao_tema(i, t):
         p = pesquisa_do_tema(t)
         if p:
@@ -406,8 +417,9 @@ def gerar_index():
         return f'<li><span class="num">Tema {i:02d}</span><span class="nome">{e(t)}</span><span class="situ">A pesquisar</span></li>'
     temas = "".join(cartao_tema(i, t) for i, (t, st) in enumerate(TEMAS, 1))
     n_pub = len({p["tema"] for p in PESQ})
-    # o cadastro segue a ordem de publicação; a primeira pesquisa marcada como piloto aparece como tal
-    primeira = PESQ[0] if PESQ and "piloto" in PESQ[0]["situacao"].lower() else None
+    # a pesquisa mais antiga, citada como piloto na nota (só quando for mesmo um piloto)
+    mais_antiga = min(PESQ, key=ordem_publicacao) if PESQ else None
+    primeira = mais_antiga if mais_antiga and "piloto" in mais_antiga["situacao"].lower() else None
     novs = "".join(f"<li><strong>{br(x['data'])}</strong>: {e(x['texto'])}</li>" for x in NOV)
     bloco_outras = ""
     if outras:

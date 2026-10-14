@@ -1,5 +1,5 @@
 {
- "comentario": "Cadastro das pesquisas publicadas. Cada pesquisa nova entra aqui; a página inicial, o PDF do resumo e o texto para compartilhar são gerados a partir destes campos e dos arquivos de dados indicados. Os números nunca são escritos à mão: vêm dos dados. 'numero_tema' é a posição do tema em temas.json; 'total_temas' é o número de temas do projeto (o gerador confere os dois).",
+ "comentario": "Cadastro das pesquisas publicadas. Cada pesquisa nova entra aqui; a página inicial, o PDF do resumo e o texto para compartilhar são gerados a partir destes campos e dos arquivos de dados indicados. Os números nunca são escritos à mão: vêm dos dados. 'numero_tema' é a posição do tema em temas.json; 'total_temas' é o número de temas do projeto (o gerador confere os dois). O campo 'publicada' (data ISO) define qual pesquisa a home destaca: a mais recente.",
  "total_temas": 12,
  "pesquisas": [
   {
@@ -62,7 +62,8 @@
     "Lei 14.994/2024"
    ],
    "fonte_congresso": "https://dadosabertos.camara.leg.br",
-   "prefixo": "MUL"
+   "prefixo": "MUL",
+   "publicada": "2026-10-11"
   }
  ]
 }
