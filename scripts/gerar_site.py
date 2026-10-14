@@ -65,6 +65,11 @@ DICAS = {
     "resumo.html": "Resumo do piloto, também disponível em PDF.",
 }
 
+def versao(rel):
+    """Marca de versão do arquivo (8 letras do hash), para o navegador não usar estilo ou script antigos depois de uma atualização."""
+    import hashlib
+    return hashlib.md5(open(os.path.join(RAIZ, rel), "rb").read()).hexdigest()[:8]
+
 def pagina(arquivo, titulo, descricao, corpo, js=False):
     atual = ' aria-current="page"'
     menu = "".join(f'<a href="{h}"{atual if h == arquivo else ""}>{n}</a>' for h, n in MENU)
@@ -80,7 +85,7 @@ def pagina(arquivo, titulo, descricao, corpo, js=False):
 <meta property="og:description" content="{e(descricao)}">
 <meta name="theme-color" content="#084a3d">
 <link rel="icon" href="assets/icone.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/estilo.css">
+<link rel="stylesheet" href="assets/estilo.css?v={versao('assets/estilo.css')}">
 </head>
 <body>
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -101,7 +106,7 @@ def pagina(arquivo, titulo, descricao, corpo, js=False):
 <p>Ao reutilizar, cite o Projeto Democracia Brasil e a fonte original. Encontrou um erro? <a href="como-usar.html#erro">Veja como avisar</a>.</p>
 <p><a href="como-usar.html">Como usar o site: orientações de acesso e vídeos</a></p>
 </div></footer>
-{'<script src="assets/app.js" defer></script>' if js else ''}
+{f'<script src="assets/app.js?v={versao("assets/app.js")}" defer></script>' if js else ''}
 </body>
 </html>
 """
