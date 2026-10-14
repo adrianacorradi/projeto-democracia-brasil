@@ -60,7 +60,12 @@
     {
      "id": "selecao",
      "pagina": "Acervo",
-     "texto": "Toque em “Adicionar à seleção” nas leis que quiser e depois em “PDF” para baixar só elas."
+     "texto": "Escolha leis uma a uma ou toque em “Selecionar todos”. Depois, toque em “Resumo visual”."
+    },
+    {
+     "id": "painel",
+     "pagina": "Resumo visual",
+     "texto": "O painel mostra só as leis escolhidas. Baixe em PDF ou envie no WhatsApp, com o link para editar."
     },
     {
      "id": "votacoes",

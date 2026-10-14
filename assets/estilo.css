@@ -102,6 +102,10 @@ p{margin:.6em 0}
 label{display:grid;gap:.2rem;font-size:.92rem}
 select{font:inherit;padding:.5rem;border:1px solid var(--borda);border-radius:6px;background:var(--papel);color:var(--tinta)}
 .contagem{font:600 .85rem/1.4 var(--mono);color:var(--tinta-2)}
+.linha-contagem{display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap}
+.linha-contagem .contagem{margin:0}
+.pequeno-botao{font-size:.85rem;min-height:38px;padding:.3rem .7rem}
+.pequeno-botao[aria-pressed="true"]{background:var(--superficie);color:var(--tinta);border-style:dashed}
 ol.acervo{list-style:none;padding:0;margin:0}
 ol.acervo>li{border-top:1px solid var(--borda);padding:1rem 0}
 ol.acervo h3{margin:0 0 .15rem;font-size:1.15rem}
@@ -123,7 +127,9 @@ button.cheio,.botao.cheio,button[aria-pressed="true"]{background:var(--verde);co
 .botao.zap{background:var(--zap);color:#fff;border-color:var(--traco)}
 .barra-selecao{position:sticky;bottom:0;background:var(--superficie);border-top:2px solid var(--traco);padding:.4rem 0;z-index:5}
 .barra-selecao[hidden]{display:none}
-.barra-selecao .coluna{display:flex;gap:.4rem;align-items:center}
+.barra-selecao .coluna{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+.barra-selecao #resumo-selecao{flex:1 1 100%;min-height:42px;font-size:.95rem}
+@media (min-width:40rem){.barra-selecao #resumo-selecao{flex:0 1 auto}}
 .barra-selecao strong{margin-right:auto;font-size:.9rem;line-height:1.2}
 .barra-selecao button{font-size:.85rem;padding:.35rem .6rem;min-height:40px}
 .status{font-size:.9rem;color:var(--link);min-height:1.2em}
@@ -267,3 +273,22 @@ footer.rodape{border-top:3px solid var(--traco);background:var(--superficie);fon
   .mosaico{grid-template-columns:repeat(auto-fill,minmax(11px,1fr));gap:2px}
 }
 .so-impressao{display:none}
+@media print{
+  :root,:root:not([data-theme="light"]){
+    --papel:#f5f4f1; --superficie:#ffffff; --tinta:#16201c; --tinta-2:#4c5853; --borda:#d6dcd8; --traco:#16201c;
+    --verde:#0b6b57; --verde-escuro:#084a3d; --marca:#ffe45c; --marca-fundo:#fff6c2; --ambar:#b7791f; --vermelho:#a33b2f;
+    --simbolica:#c3cfca; --link:#084a3d; --sobre-verde:#ffffff; --zap:#1f8f4e;
+    --topo:#084a3d; --topo-2:#0b6b57; --sobre-topo:#ffffff; --sobre-topo-2:#e3f3ec; --faixa:#111814; --sombra:none;
+  }
+  body.imprimir-painel main .coluna>*:not(.alvo-impressao){display:none!important}
+  body.imprimir-painel .alvo-impressao .acoes-pesquisa,body.imprimir-painel .alvo-impressao .status,body.imprimir-painel .alvo-impressao .acoes,
+  body.imprimir-painel .alvo-impressao .sumario,body.imprimir-painel .alvo-impressao .faixa,body.imprimir-painel .alvo-impressao details{display:none!important}
+  body.imprimir-painel *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body.imprimir-painel a[href]::after{content:none!important}
+  body.imprimir-painel .carrossel{display:grid!important;grid-template-columns:1fr 1fr;gap:.6rem;overflow:visible!important;margin:0!important;padding:0!important}
+  body.imprimir-painel .carrossel>*{max-width:none!important}
+  body.imprimir-painel .ccard,body.imprimir-painel .grade-numeros li,body.imprimir-painel ol.tempo li,body.imprimir-painel ol.ranking li,body.imprimir-painel .achado{break-inside:avoid}
+  body.imprimir-painel .grade-numeros{grid-template-columns:repeat(3,1fr)}
+  body.imprimir-painel h1{font-size:2rem}body.imprimir-painel h2{font-size:1.4rem;break-after:avoid}
+  body.imprimir-painel .so-impressao{display:block!important;font-size:8.5pt;word-break:break-all;margin-top:.6rem}
+}

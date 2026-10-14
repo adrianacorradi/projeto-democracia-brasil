@@ -56,7 +56,7 @@ NOMES = dict(MENU, **{"como-usar.html": "Como usar", "resumo.html": "Resumo"})
 DICAS = {
     "index.html": "Resultado da pesquisa mais recente: achado, números, assuntos, linha do tempo e downloads.",
     "pesquisa": "Resultado completo da pesquisa: achado, números, assuntos, linha do tempo, decisões e votações.",
-    "acervo.html": "Busque por palavra, número da lei ou ano. Toque em “Detalhes e fontes” para ver a ficha.",
+    "acervo.html": "Busque, escolha os itens (um a um ou “Selecionar todos”) e toque em “Resumo visual” para ver e baixar o painel.",
     "votacoes.html": "Veja como cada lei foi votada e o placar por partido.",
     "entenda.html": "O caminho de uma lei e os termos usados no site, em linguagem simples.",
     "compartilhar.html": "Copie um texto pronto, sempre com a fonte oficial.",
@@ -324,9 +324,10 @@ def resultado_completo(p, nivel_titulo="h1"):
 
 {f'<h2 id="votos-{pid}">Votações com voto registrado</h2><p class="pequeno">Votações nominais do texto principal das leis do núcleo do tema, da mais recente para a mais antiga. Uma lei pode ter mais de uma votação (por exemplo, os dois turnos de uma emenda constitucional em cada Casa). Votar sim significa aprovar o texto que virou lei.</p><ol class="ranking">{rank}</ol>' if vot else ''}
 
-<h2 id="baixar-{pid}">Baixar e compartilhar</h2>
+<h2 id="baixar-{pid}" class="so-tela">Baixar e compartilhar</h2>
 <div class="acoes-pesquisa">
-<a class="botao cheio" href="{p['pdf']}" download>Baixar o resumo em PDF <span class="pequeno">({tamanho(p['pdf'])})</span></a>
+<a class="botao cheio" href="{p['pdf']}" download>Resumo em PDF (texto) <span class="pequeno">({tamanho(p['pdf'])})</span></a>
+<button type="button" data-imprimir="pesquisa-{pid}">Painel em PDF (visual)</button>
 <a class="botao zap" href="{e('https://wa.me/?text=' + quote(texto))}" target="_blank" rel="noopener">Enviar no WhatsApp</a>
 <button type="button" data-copiar="texto-{pid}" data-share>Compartilhar</button>
 <button type="button" data-copiar="texto-{pid}">Copiar texto</button>
@@ -368,7 +369,10 @@ def gerar_index():
         bloco_outras = '<h2>Outras pesquisas</h2><div class="outras">' + "".join(
             f'<a class="cartao" href="pesquisa-{p["id"]}.html"><span class="selo-pesquisa">{e(p["situacao"])}</span><h3>{e(p["titulo"])}</h3><p>{e(p["chamada"])}</p></a>' for p in outras) + "</div>"
     corpo = f"""
+<div id="painel-selecao" hidden></div>
+<div id="resultado-destaque">
 {resultado_completo(dest)}
+</div>
 {bloco_outras}
 
 <h2 id="videos">Vídeos: como usar</h2>
@@ -462,19 +466,21 @@ def gerar_acervo():
 <label>Escopo<select data-filtro="data-esc"><option value="">Todos</option>{opcoes(escs)}</select></label>
 <label style="display:flex;align-items:center;gap:.5rem"><input type="checkbox" data-filtro="data-mp" checked> Mostrar alterações da Lei Maria da Penha</label>
 </div></details>
-<p class="contagem" id="contagem" aria-live="polite"></p>
+<div class="linha-contagem"><p class="contagem" id="contagem" aria-live="polite"></p><button type="button" id="selecionar-todos" class="pequeno-botao">Selecionar todos</button></div>
+<p class="status" id="status-busca" role="status"></p>
 </form>
 <div class="so-impressao"><h2>Minha seleção</h2><p>Projeto Democracia Brasil. Gerado em <span id="data-impressao"></span>. Versão preliminar.</p></div>
 <ol class="acervo" id="lista">
 {itens}
 </ol>
 <p class="status so-tela" id="status" role="status"></p>
-<p class="pequeno so-tela">Monte o seu resumo: toque em "Adicionar à seleção" nos itens que interessam e depois em "PDF". Na janela que abrir, escolha "Salvar como PDF". A seleção fica guardada só neste navegador.</p>
+<p class="pequeno so-tela">Monte o seu resumo: toque em "Adicionar à seleção" nos itens que interessam, ou em "Selecionar todos" para pegar a lista inteira. Depois toque em "Resumo visual" para ver o painel da sua seleção, baixar em PDF ou enviar no WhatsApp. "Fichas" gera um PDF com a ficha de cada item. A seleção fica guardada só neste navegador.</p>
 <div class="barra-selecao so-tela" id="barra-selecao" hidden><div class="coluna">
 <strong>Seleção: <span id="n-selecao">0</span></strong>
 <button type="button" id="ver-selecao">Ver</button>
-<button type="button" class="cheio" id="pdf-selecao">PDF</button>
+<button type="button" id="pdf-selecao" title="PDF com a ficha de cada item">Fichas</button>
 <button type="button" id="limpar-selecao">Limpar</button>
+<a class="botao cheio" id="resumo-selecao" href="index.html#painel">Resumo visual</a>
 </div></div>
 """
     return pagina("acervo.html", "Acervo — Projeto Democracia Brasil", "Busque leis, decretos e decisões sobre direitos das mulheres desde 1985, com links para as fontes oficiais.", corpo, js=True)
@@ -618,7 +624,7 @@ def gerar_compartilhar():
 def gerar_como_usar():
     secoes = [(h, n) for h, n in MENU]
     desc = {"index.html": "O resumo do piloto, o mosaico das leis e as novidades.",
-            "acervo.html": "Todas as leis, decretos, tratados e decisões do STF, com busca, filtros e a ficha de cada item.",
+            "acervo.html": "Todas as leis, decretos, tratados e decisões do STF, com busca, filtros e a ficha de cada item. Escolha itens (ou “Selecionar todos”) e toque em “Resumo visual” para ver o painel da sua seleção, baixar em PDF ou enviar no WhatsApp com o link para editar.",
             "votacoes.html": "Como o Congresso votou: votações nominais, placar e votos por partido.",
             "entenda.html": "O caminho de uma lei, um glossário e o método do projeto, em linguagem simples.",
             "compartilhar.html": "Textos curtos com a fonte oficial, prontos para redes sociais e grupos de mensagem.",

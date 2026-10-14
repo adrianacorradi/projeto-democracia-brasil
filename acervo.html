@@ -19,7 +19,7 @@
 <a class="ajuda" href="como-usar.html"><span aria-hidden="true">?</span>Como usar</a>
 </div></div>
 <nav class="menu" aria-label="Seções"><div class="coluna"><a href="index.html">Início</a><a href="acervo.html" aria-current="page">Acervo</a><a href="votacoes.html">Votações</a><a href="entenda.html">Entenda</a><a href="compartilhar.html">Compartilhar</a><a href="baixar.html">Baixar</a></div></nav>
-<div class="orientacao"><div class="coluna"><span class="voce">Você está em <strong>Acervo</strong>.</span> Busque por palavra, número da lei ou ano. Toque em “Detalhes e fontes” para ver a ficha. <a href="como-usar.html#videos">Ver os vídeos de ajuda</a></div></div>
+<div class="orientacao"><div class="coluna"><span class="voce">Você está em <strong>Acervo</strong>.</span> Busque, escolha os itens (um a um ou “Selecionar todos”) e toque em “Resumo visual” para ver e baixar o painel. <a href="como-usar.html#videos">Ver os vídeos de ajuda</a></div></div>
 <div class="aviso"><div class="coluna">Versão preliminar. Os dados do piloto ainda passam por checagem final. Atualizado em 11/10/2026.</div></div>
 </header>
 <main id="conteudo"><div class="coluna">
@@ -38,7 +38,8 @@
 <label>Escopo<select data-filtro="data-esc"><option value="">Todos</option><option value="Núcleo">Núcleo</option><option value="Dispositivo em lei geral">Dispositivo em lei geral</option><option value="Relacionado">Relacionado</option><option value="Tratado internacional">Tratado internacional</option><option value="Judiciário">Judiciário</option></select></label>
 <label style="display:flex;align-items:center;gap:.5rem"><input type="checkbox" data-filtro="data-mp" checked> Mostrar alterações da Lei Maria da Penha</label>
 </div></details>
-<p class="contagem" id="contagem" aria-live="polite"></p>
+<div class="linha-contagem"><p class="contagem" id="contagem" aria-live="polite"></p><button type="button" id="selecionar-todos" class="pequeno-botao">Selecionar todos</button></div>
+<p class="status" id="status-busca" role="status"></p>
 </form>
 <div class="so-impressao"><h2>Minha seleção</h2><p>Projeto Democracia Brasil. Gerado em <span id="data-impressao"></span>. Versão preliminar.</p></div>
 <ol class="acervo" id="lista">
@@ -3278,12 +3279,13 @@
 </li>
 </ol>
 <p class="status so-tela" id="status" role="status"></p>
-<p class="pequeno so-tela">Monte o seu resumo: toque em "Adicionar à seleção" nos itens que interessam e depois em "PDF". Na janela que abrir, escolha "Salvar como PDF". A seleção fica guardada só neste navegador.</p>
+<p class="pequeno so-tela">Monte o seu resumo: toque em "Adicionar à seleção" nos itens que interessam, ou em "Selecionar todos" para pegar a lista inteira. Depois toque em "Resumo visual" para ver o painel da sua seleção, baixar em PDF ou enviar no WhatsApp. "Fichas" gera um PDF com a ficha de cada item. A seleção fica guardada só neste navegador.</p>
 <div class="barra-selecao so-tela" id="barra-selecao" hidden><div class="coluna">
 <strong>Seleção: <span id="n-selecao">0</span></strong>
 <button type="button" id="ver-selecao">Ver</button>
-<button type="button" class="cheio" id="pdf-selecao">PDF</button>
+<button type="button" id="pdf-selecao" title="PDF com a ficha de cada item">Fichas</button>
 <button type="button" id="limpar-selecao">Limpar</button>
+<a class="botao cheio" id="resumo-selecao" href="index.html#painel">Resumo visual</a>
 </div></div>
 
 </div></main>

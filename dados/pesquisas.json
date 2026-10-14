@@ -37,7 +37,8 @@
     "Lei 14.611/2023",
     "Lei 14.994/2024"
    ],
-   "fonte_congresso": "https://dadosabertos.camara.leg.br"
+   "fonte_congresso": "https://dadosabertos.camara.leg.br",
+   "prefixo": "MUL"
   }
  ]
 }

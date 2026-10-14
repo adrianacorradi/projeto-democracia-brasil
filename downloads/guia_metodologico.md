@@ -1,6 +1,6 @@
 # Projeto Democracia Brasil — Guia metodológico
 
-**Versão 2.9 — 14/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
+**Versão 2.10 — 14/10/2026.** Substitui o documento "Políticas públicas dos governos de esquerda no Brasil desde 1985" (versão 1), que tinha recorte restrito aos governos do PT.
 
 ---
 
@@ -280,6 +280,7 @@ Estas saídas são atualizadas **ao final de toda melhoria, análise ou pesquisa
 | Guia metodológico | Regras e histórico de versões | Documento no Projeto |
 | Site | Acesso público, pesquisa e download, pensado para celular e conexões lentas | HTML estático no GitHub Pages: https://adrianacorradi.github.io/projeto-democracia-brasil/ (repositório público adrianacorradi/projeto-democracia-brasil). Todas as páginas têm o mesmo topo, destacado do conteúdo: menu, página atual marcada, dica de uso da página, botão "Como usar" e aviso de versão preliminar |
 | Resultado de cada pesquisa | Apresentar o que cada pesquisa encontrou, sempre no mesmo formato | Página própria no site (`pesquisa-<id>.html`), gerada a partir dos dados: faixa das normas mais recentes, principal achado com o mosaico, números com fonte, cartões por assunto (número, fonte, fatos e fontes, texto para WhatsApp e para copiar), linha do tempo dos marcos com a forma de aprovação, decisões do STF com a situação, votações nominais com placar, downloads e limites. A página inicial mostra a pesquisa mais recente nesse formato. Cada pesquisa entra no cadastro `dados/pesquisas.json`; os números vêm sempre dos dados, nunca são digitados; todo texto para compartilhar tem até 500 caracteres e a fonte oficial |
+| Resumo visual da seleção | Painel feito pela própria pessoa, com os itens que escolher | No Acervo, "Selecionar todos" ou itens um a um e "Resumo visual": a página inicial monta no navegador o mesmo painel do resultado só com a seleção (achado, mosaico, números, assuntos, linha do tempo, STF, votações). Oferece PDF visual (impressão do painel) e texto didático para WhatsApp (até 500 caracteres, sem contar o link) com o link da seleção; quem recebe pode editar a seleção e gerar a própria versão. Os números valem só para os itens escolhidos, e o painel avisa isso |
 | PDF resumido | Leitura rápida e impressão | Um por pesquisa, gerado a partir da página de resumo dela, com o mosaico das leis |
 | Textos para redes sociais | Debate público | Página "Compartilhar" do site |
 | Material para leigos | Explicar termos e processos | Página "Entenda", página "Como usar" (orientações de acesso, com link destacado no topo do site) e vídeos de ajuda na página inicial: como usar o site, como fazer uma busca nova e como começar a pesquisa de um item novo (sem som, com legendas e roteiro em texto) |
@@ -357,6 +358,7 @@ Contagens por governo só devem ser usadas depois que a varredura estiver comple
 - **v2.7 (12/10/2026).** Topo do site redesenhado e repetido em todas as páginas, com orientação de uso; vídeos regravados (seção 11).
 - **v2.8 (13/10/2026).** Página inicial passa a mostrar o resultado de cada pesquisa no mesmo formato, a partir de um cadastro de pesquisas; PDF do resumo com o mosaico; texto-resumo para compartilhar gerado dos dados; vídeos atualizados (seção 11).
 - **v2.9 (14/10/2026).** Página de resultado completa por pesquisa, gerada dos dados (seção 11), com textos para compartilhar por assunto; novo visual do site inspirado no formato de painel indicado pelo projeto, mantendo a linguagem neutra; vídeos regravados.
+- **v2.10 (14/10/2026).** Resumo visual da seleção no Acervo ("Selecionar todos", painel na página inicial, PDF visual, texto didático para WhatsApp com link editável); botão de PDF visual também no resultado de cada pesquisa (seção 11).
 
 ## Fontes de referência
 

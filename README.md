@@ -19,7 +19,7 @@ O arquivo `.nojekyll` precisa ir junto: ele faz o GitHub publicar os arquivos co
 | Pasta ou arquivo | O que é |
 |---|---|
 | `index.html` | Início: mosaico das leis, temas e novidades |
-| `acervo.html` | Acervo com busca, filtros, seleção e PDF da seleção |
+| `acervo.html` | Acervo com busca, filtros, seleção ("Selecionar todos"), PDF das fichas e "Resumo visual", que abre o painel da seleção na página inicial (`index.html?p=MUL&s=...`), montado no navegador por `assets/app.js` |
 | `votacoes.html` | Como o Congresso votou: lacunas e votações nominais |
 | `entenda.html` | Caminho de uma lei, glossário e método, para leigos |
 | `compartilhar.html` | Textos prontos para redes sociais, com fontes |
