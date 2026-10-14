@@ -300,7 +300,7 @@ def gerar_acervo():
 <noscript><p class="nota">A busca precisa de JavaScript. Todos os itens estão abaixo, em ordem de data. Você também pode <a href="baixar.html">baixar a lista completa</a>.</p></noscript>
 <form class="busca so-tela" role="search" onsubmit="return false">
 <label for="q">Buscar por palavra, número da lei ou ano</label>
-<div class="linha-busca"><input id="q" type="search" placeholder="Ex.: trabalho doméstico, 9.504, 1997" autocomplete="off"><button type="button" id="nova-busca">Nova busca</button></div>
+<div class="linha-busca"><input id="q" type="search" placeholder="Ex.: feminicídio, 11.340, 2006" autocomplete="off"><button type="button" id="nova-busca">Nova busca</button></div>
 <details class="filtros"><summary>Filtrar</summary><div class="grade">
 <label>Tipo de ato<select data-filtro="data-tipo"><option value="">Todos</option>{opcoes(tipos)}</select></label>
 <label>Governo na data<select data-filtro="data-gov"><option value="">Todos</option>{opcoes(govs)}</select></label>
